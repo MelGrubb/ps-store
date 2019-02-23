@@ -1,2 +1,3 @@
-# ps-store
-Store sample for my Pluralsight course "Creating Maintainable Contexts for Automated Testing"
+# Code
+
+This folder contains the source code for the sample solution.

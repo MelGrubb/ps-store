@@ -1,0 +1,12 @@
+<!-- Add a line to each csproj file, just under the first   -->
+
+<Project>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>..\Store.ruleset</CodeAnalysisRuleSet>
+
+    <Company>Store</Company>
+    <Copyright>©2019, Store</Copyright>
+
+    <Version>0.0.1</Version>
+  </PropertyGroup>
+</Project>

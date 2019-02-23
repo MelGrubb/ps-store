@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Store.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Store.Web.Controllers.Api.AddressController">
+            <summary>Functionality relating to store management.</summary>
+            <seealso cref="T:Store.Web.Framework.StoreApiController" />
+        </member>
+        <member name="M:Store.Web.Controllers.Api.AddressController.DeleteAsync(System.Int32)">
+            <summary>Delete the specified Address.</summary>
+            <param name="id">The Id of the Address to be deleted.</param>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.AddressController.GetAsync(System.Int32)">
+            <summary>Get a an Address by Id.</summary>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.AddressController.PostAsync(Store.Services.Contracts.Address.AddressDto)">
+            <summary>Creates an Address.</summary>
+            <param name="body">The Address to be created.</param>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.AddressController.PutAsync(System.Int32,Store.Services.Contracts.Address.AddressDto)">
+            <summary>Updates an application.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Web.Controllers.Api.StatusController">
+            <summary>Functionality relating to API status reporting.</summary>
+            <seealso cref="T:Store.Web.Framework.StoreApiController" />
+        </member>
+        <member name="M:Store.Web.Controllers.Api.StatusController.GetAsync">
+            <summary>Get a an Address by Id.</summary>
+        </member>
+        <member name="T:Store.Web.Extensions.SwaggerDefaultValues">
+            <summary>Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.</summary>
+            <remarks>
+                This <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter" /> is only required due to bugs in the <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator" />. Once
+                they are fixed and published, this class can be removed.
+            </remarks>
+        </member>
+        <member name="M:Store.Web.Extensions.SwaggerDefaultValues.Apply(Swashbuckle.AspNetCore.Swagger.Operation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>Applies the filter to the specified operation using the given context.</summary>
+            <param name="operation">The operation to apply the filter to.</param>
+            <param name="context">The current operation filter context.</param>
+        </member>
+        <member name="T:Store.Web.Extensions.SwaggerExtensions">
+            <summary>Configuration extensions supporting Swagger integration.</summary>
+        </member>
+        <member name="M:Store.Web.Extensions.SwaggerExtensions.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>Registers Swagger components with the IoC.</summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to register components with.</param>
+        </member>
+        <member name="M:Store.Web.Extensions.SwaggerExtensions.UseSwagger(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>Adds Swagger Middleware to the ASP.Net pipeline</summary>
+            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder" /> being used to construct the pipeline.</param>
+            <param name="configuration">The <see cref="T:Microsoft.Extensions.Configuration.IConfiguration" /> used to retrieve application configuration parameters.</param>
+            <param name="apiVersionDescriptionProvider">The id of the apiVersionDescriptionProvider.</param>
+            <returns>A reference to the original <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder" /> that was passed in.</returns>
+        </member>
+        <member name="P:Store.Web.Program.Configuration">
+            <summary>Represents start-up configuration values.</summary>
+            <value>The <see cref="T:Microsoft.Extensions.Configuration.ConfigurationBuilder"/> used to retrieve configuration parameters.</value>
+        </member>
+        <member name="M:Store.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.IServiceProvider,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>Called on application start-up.</summary>
+            <param name="app">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.</param>
+            <param name="serviceProvider">The <see cref="T:System.IServiceProvider"/>.</param>
+            <param name="env">The hosting environment.</param>
+            <param name="apiVersionDescriptionProvider">The API version description provider.</param>
+        </member>
+        <member name="M:Store.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>Configures the services with the IoC container.</summary>
+            <param name="services">The IoC container in the form of an IServiceCollection.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Store.Services</name>
+    </assembly>
+    <members>
+        <member name="T:Store.Services.Contracts.Status.StatusGetResponse">
+            <summary>Represents status information about the API.</summary>
+            <seealso cref="T:Store.Services.Framework.Response" />
+        </member>
+        <member name="P:Store.Services.Contracts.Status.StatusGetResponse.ApiVersion">
+            <summary>Gets or sets the API version.</summary>
+            <value>The API version.</value>
+        </member>
+        <member name="P:Store.Services.Contracts.Status.StatusGetResponse.LatestMigrationDate">
+            <summary>Gets or sets the date of the latest migration.</summary>
+            <value>The latest migration date.</value>
+        </member>
+        <member name="P:Store.Services.Contracts.Status.StatusGetResponse.LatestMigrationNote">
+            <summary>Gets or sets the latest migration.</summary>
+            <value>The latest migration.</value>
+        </member>
+        <member name="P:Store.Services.Contracts.Status.StatusGetResponse.TargetFramework">
+            <summary>Gets or sets the target framework.</summary>
+            <value>The target framework.</value>
+        </member>
+        <member name="T:Store.Services.Extensions.ServiceCollectionExtensions">
+            <summary>Extensions to the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> class.</summary>
+        </member>
+        <member name="M:Store.Services.Extensions.ServiceCollectionExtensions.AddMappers(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>Adds the mappers to the ServiceCollection.</summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to register components with.</param>
+        </member>
+        <member name="M:Store.Services.Extensions.ServiceCollectionExtensions.AddServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>Adds the services to the ServiceCollection.</summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to register components with.</param>
+        </member>
+        <member name="T:Store.Services.Mapping.Mapper">
+            <summary>Base class for all object-to-object mapper classes.</summary>
+            <seealso cref="T:AutoMapper.Profile"/>
+        </member>
+        <member name="T:Store.Services.Mapping.Mapper`2">
+            <summary>Base class that handles the most common mappings from a given source to a destination.</summary>
+            <typeparam name="TSource">The type of the source object.</typeparam>
+            <typeparam name="TDest">The type of the destination object.</typeparam>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="T:Store.Services.Startup">
+            <summary>Performs self-configuration for the Store.Services project.</summary>
+        </member>
+        <member name="M:Store.Services.Startup.Configure(System.IServiceProvider)">
+            <summary>Called by the Web project on startup.</summary>
+            <param name="serviceProvider">The service provider.</param>
+        </member>
+        <member name="M:Store.Services.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>Configures the services with the IoC container.</summary>
+            <param name="services">The IoC container in the form of an IServiceCollection.</param>
+            <param name="configuration">The application's configuration.</param>
+        </member>
+        <member name="T:Store.Services.Framework.Dto">
+            <summary>Base object for all service entities.</summary>
+            <remarks>This is a simple base class to make it easy to separate the entities from other contracts.</remarks>
+        </member>
+        <member name="P:Store.Services.Framework.EntityDto.CreatedById">
+            <summary>The Id of the user that created this object.</summary>
+        </member>
+        <member name="P:Store.Services.Framework.EntityDto.CreatedUtc">
+            <summary>The date that this object was created.</summary>
+        </member>
+        <member name="P:Store.Services.Framework.EntityDto.ModifiedById">
+            <summary>The Id of the user that last modified this object.</summary>
+        </member>
+        <member name="P:Store.Services.Framework.EntityDto.ModifiedUtc">
+            <summary>The date that this object was last modified.</summary>
+        </member>
+    </members>
+</doc>

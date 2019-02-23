@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Store.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Store.Domain.Extensions.ServiceCollectionExtensions">
+            <summary>Extensions to the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> class.</summary>
+        </member>
+        <member name="M:Store.Domain.Extensions.ServiceCollectionExtensions.AddRepositories(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>Adds the repositories to the ServiceCollection.</summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to register components with.</param>
+        </member>
+        <member name="P:Store.Domain.Models.EFMigrationsHistory.MigrationId">
+            <summary>Uniquely identifies the migration.</summary>
+            <value>A <see cref="T:System.String" /> that uniquely identifies the migration.</value>
+        </member>
+        <member name="P:Store.Domain.Models.EFMigrationsHistory.ProductVersion">
+            <summary>The version of Entity Framework used to produce this migration.</summary>
+            <value>A <see cref="T:System.String" /> containing the version of Entity Framework used to produce this migration.</value>
+        </member>
+        <member name="T:Store.Domain.Models.StoreContext">
+            <summary>
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.DbContext" />
+        </member>
+        <member name="M:Store.Domain.Models.StoreContext.UpdateAuditFields(System.Int32)">
+            <summary>Updates the audit fields when an entity is added or updated.</summary>
+        </member>
+        <member name="F:Store.Domain.Models.StoreContext.AdminUserId">
+            <summary>The Id of the admin user.</summary>
+        </member>
+        <member name="T:Store.Domain.Repositories.IStatusRepository">
+            <summary>Responsible for loading and saving of information related to the API status.</summary>
+        </member>
+        <member name="M:Store.Domain.Repositories.IStatusRepository.GetLatestMigrationAsync">
+            <summary>Gets the latest migration asynchronously.</summary>
+            <returns>The full name of the latest migration applied to the database.</returns>
+        </member>
+        <member name="T:Store.Domain.Repositories.StatusRepository">
+            <summary>Responsible for loading and saving of information related to the API status.</summary>
+            <seealso cref="T:Store.Domain.Framework.Repository" />
+            <seealso cref="T:Store.Domain.Repositories.IStatusRepository" />
+        </member>
+        <member name="M:Store.Domain.Repositories.StatusRepository.#ctor(Store.Domain.Models.StoreContext)">
+            <summary>Initializes a new instance of the <see cref="T:Store.Domain.Repositories.StatusRepository" /> class.</summary>
+            <param name="storeContext">An instance of the <see cref="T:Store.Domain.Models.StoreContext" /> class used to communicate with the database.</param>
+        </member>
+        <member name="M:Store.Domain.Repositories.StatusRepository.GetLatestMigrationAsync">
+            <summary>Gets the latest migration asynchronously.</summary>
+            <returns>The full name of the latest migration applied to the database.</returns>
+        </member>
+        <member name="T:Store.Domain.Startup">
+            <summary>Performs self-configuration for the Store.Domain project.</summary>
+        </member>
+        <member name="M:Store.Domain.Startup.Configure(System.IServiceProvider)">
+            <summary>Called by the Web project on startup.</summary>
+            <param name="serviceProvider">The service provider.</param>
+        </member>
+        <member name="M:Store.Domain.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>Configures the services with the IoC container.</summary>
+            <param name="services">The IoC container in the form of an IServiceCollection.</param>
+            <param name="configuration">The application's configuration.</param>
+        </member>
+        <member name="P:Store.Domain.Framework.IEntity.CreatedById">
+            <summary>The Id of the user that created this object.</summary>
+        </member>
+        <member name="P:Store.Domain.Framework.IEntity.CreatedUtc">
+            <summary>The date that this object was created.</summary>
+        </member>
+        <member name="P:Store.Domain.Framework.IEntity.ModifiedById">
+            <summary>The Id of the user that last modified this object.</summary>
+        </member>
+        <member name="P:Store.Domain.Framework.IEntity.ModifiedUtc">
+            <summary>The date that this object was last modified.</summary>
+        </member>
+        <member name="P:Store.Domain.Framework.Entity.CreatedById">
+            <inheritdoc />
+        </member>
+        <member name="P:Store.Domain.Framework.Entity.CreatedUtc">
+            <inheritdoc />
+        </member>
+        <member name="P:Store.Domain.Framework.Entity.ModifiedById">
+            <inheritdoc />
+        </member>
+        <member name="P:Store.Domain.Framework.Entity.ModifiedUtc">
+            <inheritdoc />
+        </member>
+        <member name="P:Store.Domain.Framework.ISoftDeleteable.DeletedById">
+            <summary>The Id of the user that deleted the record.</summary>
+        </member>
+        <member name="P:Store.Domain.Framework.ISoftDeleteable.DeletedUtc">
+            <summary>The date that the record was deleted.</summary>
+        </member>
+        <member name="P:Store.Domain.Framework.SoftDeleteableEntity.DeletedById">
+            <summary>The Id of the user that deleted the record.</summary>
+        </member>
+        <member name="P:Store.Domain.Framework.SoftDeleteableEntity.DeletedUtc">
+            <summary>The date that the record was deleted.</summary>
+        </member>
+        <member name="T:Store.Domain.Framework.Lookup">
+            <summary>Base class for all lookups.</summary>
+        </member>
+        <member name="T:Store.Domain.Framework.Model">
+            <summary>Base class for all models.</summary>
+            <seealso cref="T:Store.Domain.Framework.IModel" />
+        </member>
+        <member name="P:Store.Domain.Framework.Model.Id">
+            <summary>The primary key / identity column.</summary>
+        </member>
+    </members>
+</doc>

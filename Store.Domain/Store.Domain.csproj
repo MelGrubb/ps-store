@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\Solution.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>..\Store.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>C:\Users\Mel\OneDrive\Projects\Pluralsight\test-data-generation\Source\Code\Store.Domain\Store.Domain.xml</DocumentationFile>
+    <NoWarn>1591;1701;1702</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet>..\Store.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Store.Domain.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include=".Framework\Entity.cs" />
+    <Compile Include=".Framework\Lookup.cs" />
+    <Compile Include=".Framework\Model.cs" />
+    <Compile Include=".Framework\Repository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
+    <PackageReference Include="Scrutor" Version="3.0.2" />
+  </ItemGroup>
+
+</Project>

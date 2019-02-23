@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <Import Project="..\Solution.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>..\Store.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>C:\Users\Mel\OneDrive\Projects\Pluralsight\test-data-generation\Source\Code\Store.Services\Store.Services.xml</DocumentationFile>
+    <NoWarn>1591;1701;1702</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet>..\Store.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Store.Services.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include=".Framework\Dto.cs" />
+    <Compile Include=".Framework\EntityDto.cs" />
+    <Compile Include=".Framework\Request.cs" />
+    <Compile Include=".Framework\Response.cs" />
+    <Compile Include=".Framework\Service.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Store.Common\Store.Common.csproj" />
+    <ProjectReference Include="..\Store.Domain\Store.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="Humanizer" Version="2.5.16" />
+  </ItemGroup>
+
+</Project>
