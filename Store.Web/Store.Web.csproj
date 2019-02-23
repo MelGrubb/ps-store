@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Compile Include=".Framework\StoreApiController.cs" />
+    <Compile Include=".Framework\StoreMvcController.cs" />
   </ItemGroup>
 
   <ItemGroup>

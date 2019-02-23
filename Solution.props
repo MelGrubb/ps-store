@@ -1,4 +1,5 @@
-<!-- Add a line to each csproj file, just under the first   -->
+<!-- Add the following line, uncommented, to each csproj file, just inside the Project node. -->
+<!-- <Import Project="..\Solution.props" /> -->
 
 <Project>
   <PropertyGroup>
@@ -7,6 +8,6 @@
     <Company>Store</Company>
     <Copyright>©2019, Store</Copyright>
 
-    <Version>0.0.1</Version>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 </Project>

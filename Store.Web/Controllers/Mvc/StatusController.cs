@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Store.Web.Framework;
 
-namespace Store.Web.Controllers
+namespace Store.Web.Controllers.Mvc
 {
-    public class StatusController : Controller
+    public class StatusController : StoreMvcController
     {
         // GET: Status
         public ActionResult Index()
