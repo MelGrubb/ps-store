@@ -9,7 +9,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <CodeAnalysisRuleSet>..\Store.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>C:\Users\Mel\OneDrive\Projects\Pluralsight\test-data-generation\Source\Code\Store.Services\Store.Services.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\Mel\OneDrive\Projects\Pluralsight\test-data-generation\Source\Demo\Store.Services\Store.Services.xml</DocumentationFile>
     <NoWarn>1591;1701;1702</NoWarn>
   </PropertyGroup>
 

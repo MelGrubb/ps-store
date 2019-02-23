@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Humanizer;
-using Store.Common.Contracts;
-using Store.Common.Exceptions;
 
 namespace Store.Common.Validation
 {
