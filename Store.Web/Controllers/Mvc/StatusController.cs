@@ -1,23 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Store.Web.Framework;
 
 namespace Store.Web.Controllers.Mvc
 {
-    public class StatusController : StoreMvcController
+    public class StatusController : Controller
     {
-        // GET: Status
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: Status/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: Status/Create
         public ActionResult Create()
         {
@@ -32,29 +19,6 @@ namespace Store.Web.Controllers.Mvc
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Status/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Status/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
                 return RedirectToAction(nameof(Index));
             }
@@ -85,6 +49,41 @@ namespace Store.Web.Controllers.Mvc
             {
                 return View();
             }
+        }
+
+        // GET: Status/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: Status/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Status/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Status
+        public ActionResult Index()
+        {
+            return View();
         }
     }
 }

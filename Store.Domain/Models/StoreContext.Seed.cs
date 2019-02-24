@@ -27,7 +27,8 @@ namespace Store.Domain.Models
         {
             var data = new[]
             {
-                new Address { Id = 1, Line1 = "123 Any St.", Line2 = "Suite 456", City = "Anytown", StateId = 1, ZipCode = "12345", CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
+                new Address { Id = 1, Line1 = "Billing Dept.", Line2 = "123 Any St.", City = "Anytown", StateId = 1, ZipCode = "12345", CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+                new Address { Id = 2, Line1 = "Receiving Dept.", Line2 = "123 Any St.", City = "Anytown", StateId = 1, ZipCode = "12345", CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
             };
 
             modelBuilder.Entity<Address>(entity => entity.HasData(data));
@@ -49,7 +50,17 @@ namespace Store.Domain.Models
         {
             var data = new[]
             {
-                new OrderItem { Id = 1, OrderId = 1, ProductId = 1, Quantity = 1, Price = 1.00m, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
+                new OrderItem { Id = 1, OrderId = 1, ProductId = 1, Quantity = 1, Price = 1.00m, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+                new OrderItem { Id = 2, OrderId = 1, ProductId = 2, Quantity = 1, Price = 1.00m, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+
+                new OrderItem { Id = 3, OrderId = 2, ProductId = 1, Quantity = 1, Price = 1.00m, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+                new OrderItem { Id = 4, OrderId = 2, ProductId = 2, Quantity = 1, Price = 1.00m, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+
+                new OrderItem { Id = 5, OrderId = 3, ProductId = 1, Quantity = 1, Price = 1.00m, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+                new OrderItem { Id = 6, OrderId = 3, ProductId = 2, Quantity = 1, Price = 1.00m, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+
+                new OrderItem { Id = 7, OrderId = 4, ProductId = 1, Quantity = 1, Price = 1.00m, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+                new OrderItem { Id = 8, OrderId = 4, ProductId = 2, Quantity = 1, Price = 1.00m, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
             };
 
             modelBuilder.Entity<OrderItem>(entity => entity.HasData(data));
@@ -72,7 +83,10 @@ namespace Store.Domain.Models
         {
             var data = new[]
             {
-                new Order { Id = 1, OrderStatusId = (int)OrderStatus.Ids.Shipped, UserId = AdminUserId, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
+                new Order { Id = 1, OrderStatusId = (int)OrderStatus.Ids.Shipped, UserId = AdminUserId, BillingAddressId = 1, ShippingAddressId = 2, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+                new Order { Id = 2, OrderStatusId = (int)OrderStatus.Ids.Shipping, UserId = AdminUserId, BillingAddressId = 1, ShippingAddressId = 2, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+                new Order { Id = 3, OrderStatusId = (int)OrderStatus.Ids.Processing, UserId = AdminUserId, BillingAddressId = 1, ShippingAddressId = 2, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+                new Order { Id = 4, OrderStatusId = (int)OrderStatus.Ids.Received, UserId = AdminUserId, BillingAddressId = 1, ShippingAddressId = 2, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
             };
 
             modelBuilder.Entity<Order>(entity => entity.HasData(data));
@@ -165,7 +179,6 @@ namespace Store.Domain.Models
 
             modelBuilder.Entity<State>(entity => entity.HasData(data));
         }
-
 
         private void SeedUserTable(ModelBuilder modelBuilder)
         {

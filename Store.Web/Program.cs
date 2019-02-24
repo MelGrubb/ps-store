@@ -9,11 +9,11 @@ namespace Store.Web
     public class Program
     {
         /// <summary>Represents start-up configuration values.</summary>
-        /// <value>The <see cref="ConfigurationBuilder"/> used to retrieve configuration parameters.</value>
+        /// <value>The <see cref="ConfigurationBuilder" /> used to retrieve configuration parameters.</value>
         public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-            .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "local"}.json", optional: true, reloadOnChange: true)
+            .AddJsonFile("appsettings.json", false, true)
+            .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "local"}.json", true, true)
             .AddEnvironmentVariables()
             .Build();
 

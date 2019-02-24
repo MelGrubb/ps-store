@@ -2,7 +2,7 @@
 
 namespace Store.Services.Contracts.Category
 {
-    public class CategoryDto : Dto
+    public class CategoryDto : LookupDto
     {
     }
 }

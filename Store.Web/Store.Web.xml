@@ -12,6 +12,9 @@
             <summary>Delete the specified Address.</summary>
             <param name="id">The Id of the Address to be deleted.</param>
         </member>
+        <member name="M:Store.Web.Controllers.Api.AddressController.GetAsync(Store.Common.Contracts.PagingOptions)">
+            <summary>Get all Addresses.</summary>
+        </member>
         <member name="M:Store.Web.Controllers.Api.AddressController.GetAsync(System.Int32)">
             <summary>Get a an Address by Id.</summary>
         </member>
@@ -20,6 +23,72 @@
             <param name="body">The Address to be created.</param>
         </member>
         <member name="M:Store.Web.Controllers.Api.AddressController.PutAsync(System.Int32,Store.Services.Contracts.Address.AddressDto)">
+            <summary>Updates an application.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Web.Controllers.Api.CategoryController">
+            <summary>Functionality relating to store management.</summary>
+            <seealso cref="T:Store.Web.Framework.StoreApiController" />
+        </member>
+        <member name="M:Store.Web.Controllers.Api.CategoryController.DeleteAsync(System.Int32)">
+            <summary>Delete the specified Category.</summary>
+            <param name="id">The Id of the Category to be deleted.</param>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.CategoryController.GetAsync(Store.Common.Contracts.PagingOptions)">
+            <summary>Get all Categories.</summary>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.CategoryController.GetAsync(System.Int32)">
+            <summary>Get a Category by Id.</summary>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.CategoryController.PostAsync(Store.Services.Contracts.Category.CategoryDto)">
+            <summary>Creates a Category.</summary>
+            <param name="body">The Category to be created.</param>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.CategoryController.PutAsync(System.Int32,Store.Services.Contracts.Category.CategoryDto)">
+            <summary>Updates a Category.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Web.Controllers.Api.OrderController">
+            <summary>Functionality relating to store management.</summary>
+            <seealso cref="T:Store.Web.Framework.StoreApiController" />
+        </member>
+        <member name="M:Store.Web.Controllers.Api.OrderController.DeleteAsync(System.Int32)">
+            <summary>Delete the specified Order.</summary>
+            <param name="id">The Id of the Order to be deleted.</param>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.OrderController.GetAsync(Store.Common.Contracts.PagingOptions)">
+            <summary>Get all Orders.</summary>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.OrderController.GetAsync(System.Int32)">
+            <summary>Get a an Order by Id.</summary>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.OrderController.PostAsync(Store.Services.Contracts.Order.OrderDto)">
+            <summary>Creates an Order.</summary>
+            <param name="body">The Order to be created.</param>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.OrderController.PutAsync(System.Int32,Store.Services.Contracts.Order.OrderDto)">
+            <summary>Updates an application.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Web.Controllers.Api.ProductController">
+            <summary>Functionality relating to store management.</summary>
+            <seealso cref="T:Store.Web.Framework.StoreApiController" />
+        </member>
+        <member name="M:Store.Web.Controllers.Api.ProductController.DeleteAsync(System.Int32)">
+            <summary>Delete the specified Product.</summary>
+            <param name="id">The Id of the Product to be deleted.</param>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.ProductController.GetAsync(System.Int32)">
+            <summary>Get a an Product by Id.</summary>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.ProductController.GetAsync(Store.Common.Contracts.PagingOptions)">
+            <summary>Get all Products.</summary>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.ProductController.PostAsync(Store.Services.Contracts.Product.ProductDto)">
+            <summary>Creates an Product.</summary>
+            <param name="body">The Product to be created.</param>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.ProductController.PutAsync(System.Int32,Store.Services.Contracts.Product.ProductDto)">
             <summary>Updates an application.</summary>
             <returns></returns>
         </member>
@@ -58,12 +127,12 @@
         </member>
         <member name="P:Store.Web.Program.Configuration">
             <summary>Represents start-up configuration values.</summary>
-            <value>The <see cref="T:Microsoft.Extensions.Configuration.ConfigurationBuilder"/> used to retrieve configuration parameters.</value>
+            <value>The <see cref="T:Microsoft.Extensions.Configuration.ConfigurationBuilder" /> used to retrieve configuration parameters.</value>
         </member>
         <member name="M:Store.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.IServiceProvider,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
             <summary>Called on application start-up.</summary>
-            <param name="app">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.</param>
-            <param name="serviceProvider">The <see cref="T:System.IServiceProvider"/>.</param>
+            <param name="app">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder" />.</param>
+            <param name="serviceProvider">The <see cref="T:System.IServiceProvider" />.</param>
             <param name="env">The hosting environment.</param>
             <param name="apiVersionDescriptionProvider">The API version description provider.</param>
         </member>

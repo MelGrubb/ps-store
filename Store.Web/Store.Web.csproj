@@ -13,7 +13,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <CodeAnalysisRuleSet>..\Store.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>C:\Users\Mel\OneDrive\Projects\Pluralsight\test-data-generation\Source\Code\Store.Web\Store.Web.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\Mel\OneDrive\Projects\Pluralsight\test-data-generation\Source\Demo\Store.Web\Store.Web.xml</DocumentationFile>
     <NoWarn>1591;1701;1702</NoWarn>
   </PropertyGroup>
 
@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include=".Framework\StoreApiController.cs" />
     <Compile Include=".Framework\StoreMvcController.cs" />
+    <Compile Include=".Framework\StoreApiController.cs" />
   </ItemGroup>
 
   <ItemGroup>

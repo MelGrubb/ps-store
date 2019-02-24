@@ -21,6 +21,8 @@ namespace Store.Domain.Repositories
         {
             var query = GetBaseQuery(currentUserId, predicate)
                 .Include(x => x.OrderItems)
+                .ThenInclude(x => x.Product)
+                .ThenInclude(x => x.Category)
                 .Include(x => x.OrderStatus);
 
             return query;

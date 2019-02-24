@@ -37,7 +37,7 @@
         </member>
         <member name="T:Store.Services.Mapping.Mapper">
             <summary>Base class for all object-to-object mapper classes.</summary>
-            <seealso cref="T:AutoMapper.Profile"/>
+            <seealso cref="T:AutoMapper.Profile" />
         </member>
         <member name="T:Store.Services.Mapping.Mapper`2">
             <summary>Base class that handles the most common mappings from a given source to a destination.</summary>

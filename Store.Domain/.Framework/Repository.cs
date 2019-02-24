@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Store.Common.Contracts;
 using Store.Domain.Models;
 
 namespace Store.Domain.Framework
@@ -26,6 +27,8 @@ namespace Store.Domain.Framework
         Task DeleteAsync(int userId, T model);
 
         Task<T> GetAsync(int userId, int id);
+
+        Task<List<T>> GetAsync(int userId, PagingOptions pagingOptions);
 
         Task SaveChangesAsync(int userId);
 
@@ -94,20 +97,6 @@ namespace Store.Domain.Framework
             return result;
         }
 
-        public virtual Task<int> CountAsync(Expression<Func<T, bool>> predicate = null)
-        {
-            IQueryable<T> query = StoreContext.Set<T>();
-
-            if (typeof(T) is ISoftDeleteable)
-            {
-                query = query.Where(x => !((ISoftDeleteable)x).DeletedUtc.HasValue);
-            }
-
-            var result = query.CountAsync(predicate);
-
-            return result;
-        }
-
         public virtual async Task DeleteAsync(int userId, T model)
         {
             if (_isSoftDeleteable)
@@ -138,6 +127,16 @@ namespace Store.Domain.Framework
             return results;
         }
 
+        public async Task<List<T>> GetAsync(int userId, PagingOptions pagingOptions)
+        {
+            var results = await GetQuery(userId)
+                .Skip(pagingOptions.Skip)
+                .Take(pagingOptions.Take)
+                .ToListAsync();
+
+            return results;
+        }
+
         public virtual Task SaveChangesAsync(int userId)
         {
             var result = StoreContext.SaveChangesAsync(userId);
@@ -148,6 +147,20 @@ namespace Store.Domain.Framework
         public virtual async Task<T> SingleOrDefaultAsync(int userId, Expression<Func<T, bool>> predicate = null)
         {
             var result = await GetQuery(userId, predicate).SingleOrDefaultAsync();
+
+            return result;
+        }
+
+        public virtual Task<int> CountAsync(Expression<Func<T, bool>> predicate = null)
+        {
+            IQueryable<T> query = StoreContext.Set<T>();
+
+            if (typeof(T) is ISoftDeleteable)
+            {
+                query = query.Where(x => !((ISoftDeleteable)x).DeletedUtc.HasValue);
+            }
+
+            var result = query.CountAsync(predicate);
 
             return result;
         }

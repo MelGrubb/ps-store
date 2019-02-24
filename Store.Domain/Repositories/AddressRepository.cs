@@ -9,7 +9,6 @@ namespace Store.Domain.Repositories
 {
     public interface IAddressRepository : IRepository<Address>
     {
-
     }
 
     public class AddressRepository : Repository<Address>, IAddressRepository

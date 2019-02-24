@@ -10,7 +10,7 @@ namespace Store.Domain.Models
             Received = 1,
             Processing = 2,
             Shipping = 3,
-            Shipped = 4,
+            Shipped = 4
         }
     }
 }

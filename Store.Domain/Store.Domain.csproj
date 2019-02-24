@@ -33,4 +33,8 @@
     <PackageReference Include="Scrutor" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Store.Common\Store.Common.csproj" />
+  </ItemGroup>
+
 </Project>

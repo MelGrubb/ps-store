@@ -42,9 +42,24 @@ namespace Store.Domain.Models
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Order>()
+                .HasOne(x => x.BillingAddress)
+                .WithMany()
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(x => x.ShippingAddress)
+                .WithMany()
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
             modelBuilder.Entity<OrderItem>(entity => { entity.Property(x => x.Price).HasColumnType("Decimal(10, 2)"); });
 
             modelBuilder.Entity<Product>(entity => { entity.Property(x => x.Price).HasColumnType("Decimal(10, 2)"); });
+
+            modelBuilder.Entity<User>()
+                .HasOne(x => x.Address)
+                .WithMany()
+                .OnDelete(DeleteBehavior.ClientSetNull);
 
             Seed(modelBuilder);
         }

@@ -11,11 +11,21 @@ namespace Store.Domain.Models
             OrderItems = new HashSet<OrderItem>();
         }
 
+        public Address BillingAddress { get; set; }
+
+        [ForeignKey(nameof(BillingAddress))]
+        public int? BillingAddressId { get; set; }
+
         public ICollection<OrderItem> OrderItems { get; set; }
         public OrderStatus OrderStatus { get; set; }
 
         [ForeignKey(nameof(OrderStatus))]
         public int OrderStatusId { get; set; }
+
+        public Address ShippingAddress { get; set; }
+
+        [ForeignKey(nameof(ShippingAddress))]
+        public int? ShippingAddressId { get; set; }
 
         public User User { get; set; }
 

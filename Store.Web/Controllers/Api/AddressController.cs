@@ -2,6 +2,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Store.Common.Contracts;
 using Store.Common.Validation;
 using Store.Services;
 using Store.Services.Contracts.Address;
@@ -39,14 +40,27 @@ namespace Store.Web.Controllers.Api
             return NoContent();
         }
 
+        /// <summary>Get all Addresses.</summary>
+        [HttpGet("", Name = "Addresses_Get")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ActionResult<AddressDto>))]
+        public async Task<ActionResult<IList<AddressDto>>> GetAsync([FromQuery] PagingOptions pagingOptions)
+        {
+            var result = await _addressService.GetAsync(UserId, pagingOptions);
+
+            return Ok(result);
+        }
+
         /// <summary>Get a an Address by Id.</summary>
         [HttpGet("{id}", Name = "Address_Get")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ActionResult<AddressDto>))]
-        public async Task<ActionResult<ICollection<AddressDto>>> GetAsync(int id)
+        public async Task<ActionResult<AddressDto>> GetAsync(int id)
         {
             var result = await _addressService.GetAsync(UserId, id);
 
-            return Ok(result);
+            if (result == null)
+                return NotFound();
+            else
+                return Ok(result);
         }
 
 

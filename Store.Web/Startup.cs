@@ -22,8 +22,8 @@ namespace Store.Web
         public IConfiguration Configuration { get; set; }
 
         /// <summary>Called on application start-up.</summary>
-        /// <param name="app">The <see cref="IApplicationBuilder"/>.</param>
-        /// <param name="serviceProvider">The <see cref="IServiceProvider"/>.</param>
+        /// <param name="app">The <see cref="IApplicationBuilder" />.</param>
+        /// <param name="serviceProvider">The <see cref="IServiceProvider" />.</param>
         /// <param name="env">The hosting environment.</param>
         /// <param name="apiVersionDescriptionProvider">The API version description provider.</param>
         public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider, IHostingEnvironment env, IApiVersionDescriptionProvider apiVersionDescriptionProvider)
@@ -42,10 +42,7 @@ namespace Store.Web
 
             app.UseHttpsRedirection();
             app.UseSwagger(Configuration, apiVersionDescriptionProvider);
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc(routes => { routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}"); });
         }
 
         /// <summary>Configures the services with the IoC container.</summary>

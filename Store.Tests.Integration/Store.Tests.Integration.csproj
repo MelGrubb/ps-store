@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include=".Framework\" />
     <Folder Include="ApiTests\" />
+    <Folder Include="WebTests\" />
   </ItemGroup>
 
 </Project>

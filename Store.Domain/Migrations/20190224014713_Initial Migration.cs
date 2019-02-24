@@ -73,30 +73,6 @@ namespace Store.Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreatedById = table.Column<int>(nullable: true),
-                    CreatedUtc = table.Column<DateTime>(type: "DateTime2", nullable: false),
-                    ModifiedById = table.Column<int>(nullable: true),
-                    ModifiedUtc = table.Column<DateTime>(type: "DateTime2", nullable: false),
-                    DeletedById = table.Column<int>(nullable: true),
-                    DeletedUtc = table.Column<DateTime>(nullable: true),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    MiddleName = table.Column<string>(nullable: true),
-                    PasswordHash = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    UserName = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -161,6 +137,37 @@ namespace Store.Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedById = table.Column<int>(nullable: true),
+                    CreatedUtc = table.Column<DateTime>(type: "DateTime2", nullable: false),
+                    ModifiedById = table.Column<int>(nullable: true),
+                    ModifiedUtc = table.Column<DateTime>(type: "DateTime2", nullable: false),
+                    DeletedById = table.Column<int>(nullable: true),
+                    DeletedUtc = table.Column<DateTime>(nullable: true),
+                    AddressId = table.Column<int>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    MiddleName = table.Column<string>(nullable: true),
+                    PasswordHash = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    UserName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Users_Addresses_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
@@ -170,18 +177,32 @@ namespace Store.Domain.Migrations
                     CreatedUtc = table.Column<DateTime>(type: "DateTime2", nullable: false),
                     ModifiedById = table.Column<int>(nullable: true),
                     ModifiedUtc = table.Column<DateTime>(type: "DateTime2", nullable: false),
+                    BillingAddressId = table.Column<int>(nullable: true),
                     OrderStatusId = table.Column<int>(nullable: false),
+                    ShippingAddressId = table.Column<int>(nullable: true),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Orders_Addresses_BillingAddressId",
+                        column: x => x.BillingAddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Orders_OrderStatus_OrderStatusId",
                         column: x => x.OrderStatusId,
                         principalTable: "OrderStatus",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Orders_Addresses_ShippingAddressId",
+                        column: x => x.ShippingAddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Orders_Users_UserId",
                         column: x => x.UserId,
@@ -201,9 +222,9 @@ namespace Store.Domain.Migrations
                     ModifiedById = table.Column<int>(nullable: true),
                     ModifiedUtc = table.Column<DateTime>(type: "DateTime2", nullable: false),
                     OrderId = table.Column<int>(nullable: false),
+                    Price = table.Column<decimal>(type: "Decimal(10, 2)", nullable: false),
                     ProductId = table.Column<int>(nullable: false),
-                    Quantity = table.Column<int>(nullable: false),
-                    Price = table.Column<decimal>(type: "Decimal(10, 2)", nullable: false)
+                    Quantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -313,17 +334,21 @@ namespace Store.Domain.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "CreatedById", "CreatedUtc", "DeletedById", "DeletedUtc", "FirstName", "LastName", "MiddleName", "ModifiedById", "ModifiedUtc", "PasswordHash", "PhoneNumber", "UserName" },
+                columns: new[] { "Id", "AddressId", "CreatedById", "CreatedUtc", "DeletedById", "DeletedUtc", "FirstName", "LastName", "MiddleName", "ModifiedById", "ModifiedUtc", "PasswordHash", "PhoneNumber", "UserName" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "System", "Admin", null, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "987-654-3210", "admin" },
-                    { 2, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "John", "Customer", "Q", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "987-654-3210", "customer" }
+                    { 1, null, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "System", "Admin", null, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "987-654-3210", "admin" },
+                    { 2, null, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "John", "Customer", "Q", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "987-654-3210", "customer" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Addresses",
                 columns: new[] { "Id", "City", "CreatedById", "CreatedUtc", "DeletedById", "DeletedUtc", "Line1", "Line2", "ModifiedById", "ModifiedUtc", "StateId", "ZipCode" },
-                values: new object[] { 1, "Anytown", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "123 Any St.", "Suite 456", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "12345" });
+                values: new object[,]
+                {
+                    { 1, "Anytown", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Billing Dept.", "123 Any St.", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "12345" },
+                    { 2, "Anytown", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Receiving Dept.", "123 Any St.", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "12345" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -336,23 +361,38 @@ namespace Store.Domain.Migrations
 
             migrationBuilder.InsertData(
                 table: "Orders",
-                columns: new[] { "Id", "CreatedById", "CreatedUtc", "ModifiedById", "ModifiedUtc", "OrderStatusId", "UserId" },
-                values: new object[] { 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 1 });
+                columns: new[] { "Id", "BillingAddressId", "CreatedById", "CreatedUtc", "ModifiedById", "ModifiedUtc", "OrderStatusId", "ShippingAddressId", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 2, 1 },
+                    { 2, 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 2, 1 },
+                    { 3, 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 2, 1 },
+                    { 4, 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, 1 }
+                });
 
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "CategoryId", "CreatedById", "CreatedUtc", "DeletedById", "DeletedUtc", "Description", "ModifiedById", "ModifiedUtc", "Name", "Price", "ProductStatusId" },
-                values: new object[] { 1, 2, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "A men's t-shirt", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "T-Shirt", 1.00m, 1 });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "CategoryId", "CreatedById", "CreatedUtc", "DeletedById", "DeletedUtc", "Description", "ModifiedById", "ModifiedUtc", "Name", "Price", "ProductStatusId" },
-                values: new object[] { 2, 3, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "A wommen's t-shirt", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "T-Shirt", 1.00m, 1 });
+                values: new object[,]
+                {
+                    { 1, 2, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "A men's t-shirt", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "T-Shirt", 1.00m, 1 },
+                    { 2, 3, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "A wommen's t-shirt", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "T-Shirt", 1.00m, 1 }
+                });
 
             migrationBuilder.InsertData(
                 table: "OrderItems",
                 columns: new[] { "Id", "CreatedById", "CreatedUtc", "ModifiedById", "ModifiedUtc", "OrderId", "Price", "ProductId", "Quantity" },
-                values: new object[] { 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1.00m, 1, 1 });
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1.00m, 1, 1 },
+                    { 2, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1.00m, 2, 1 },
+                    { 3, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1.00m, 1, 1 },
+                    { 4, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1.00m, 2, 1 },
+                    { 5, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 1.00m, 1, 1 },
+                    { 6, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 1.00m, 2, 1 },
+                    { 7, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 1.00m, 1, 1 },
+                    { 8, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 1.00m, 2, 1 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_StateId",
@@ -375,9 +415,19 @@ namespace Store.Domain.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_BillingAddressId",
+                table: "Orders",
+                column: "BillingAddressId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_OrderStatusId",
                 table: "Orders",
                 column: "OrderStatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_ShippingAddressId",
+                table: "Orders",
+                column: "ShippingAddressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_UserId",
@@ -393,18 +443,17 @@ namespace Store.Domain.Migrations
                 name: "IX_Products_ProductStatusId",
                 table: "Products",
                 column: "ProductStatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_AddressId",
+                table: "Users",
+                column: "AddressId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Addresses");
-
-            migrationBuilder.DropTable(
                 name: "OrderItems");
-
-            migrationBuilder.DropTable(
-                name: "States");
 
             migrationBuilder.DropTable(
                 name: "Orders");
@@ -423,6 +472,12 @@ namespace Store.Domain.Migrations
 
             migrationBuilder.DropTable(
                 name: "ProductStatuses");
+
+            migrationBuilder.DropTable(
+                name: "Addresses");
+
+            migrationBuilder.DropTable(
+                name: "States");
         }
     }
 }

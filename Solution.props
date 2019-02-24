@@ -1,5 +1,4 @@
-<!-- Add the following line, uncommented, to each csproj file, just inside the Project node. -->
-<!-- <Import Project="..\Solution.props" /> -->
+<!-- Add a line to each csproj file, just under the first   -->
 
 <Project>
   <PropertyGroup>

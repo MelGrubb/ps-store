@@ -62,8 +62,21 @@ namespace Store.Domain.Migrations
                             City = "Anytown",
                             CreatedById = 1,
                             CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Line1 = "123 Any St.",
-                            Line2 = "Suite 456",
+                            Line1 = "Billing Dept.",
+                            Line2 = "123 Any St.",
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            StateId = 1,
+                            ZipCode = "12345"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            City = "Anytown",
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Line1 = "Receiving Dept.",
+                            Line2 = "123 Any St.",
                             ModifiedById = 1,
                             ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StateId = 1,
@@ -118,6 +131,8 @@ namespace Store.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("BillingAddressId");
+
                     b.Property<int?>("CreatedById");
 
                     b.Property<DateTime>("CreatedUtc")
@@ -130,11 +145,17 @@ namespace Store.Domain.Migrations
 
                     b.Property<int>("OrderStatusId");
 
+                    b.Property<int?>("ShippingAddressId");
+
                     b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BillingAddressId");
+
                     b.HasIndex("OrderStatusId");
+
+                    b.HasIndex("ShippingAddressId");
 
                     b.HasIndex("UserId");
 
@@ -144,11 +165,49 @@ namespace Store.Domain.Migrations
                         new
                         {
                             Id = 1,
+                            BillingAddressId = 1,
                             CreatedById = 1,
                             CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedById = 1,
                             ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderStatusId = 4,
+                            ShippingAddressId = 2,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BillingAddressId = 1,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderStatusId = 3,
+                            ShippingAddressId = 2,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BillingAddressId = 1,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderStatusId = 2,
+                            ShippingAddressId = 2,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BillingAddressId = 1,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderStatusId = 1,
+                            ShippingAddressId = 2,
                             UserId = 1
                         });
                 });
@@ -197,6 +256,90 @@ namespace Store.Domain.Migrations
                             OrderId = 1,
                             Price = 1.00m,
                             ProductId = 1,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 1,
+                            Price = 1.00m,
+                            ProductId = 2,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 2,
+                            Price = 1.00m,
+                            ProductId = 1,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 2,
+                            Price = 1.00m,
+                            ProductId = 2,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 3,
+                            Price = 1.00m,
+                            ProductId = 1,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 3,
+                            Price = 1.00m,
+                            ProductId = 2,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 4,
+                            Price = 1.00m,
+                            ProductId = 1,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreatedById = 1,
+                            CreatedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedById = 1,
+                            ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = 4,
+                            Price = 1.00m,
+                            ProductId = 2,
                             Quantity = 1
                         });
                 });
@@ -715,6 +858,8 @@ namespace Store.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("AddressId");
+
                     b.Property<int?>("CreatedById");
 
                     b.Property<DateTime>("CreatedUtc")
@@ -742,6 +887,8 @@ namespace Store.Domain.Migrations
                     b.Property<string>("UserName");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
 
                     b.ToTable("Users");
 
@@ -792,10 +939,18 @@ namespace Store.Domain.Migrations
 
             modelBuilder.Entity("Store.Domain.Models.Order", b =>
                 {
+                    b.HasOne("Store.Domain.Models.Address", "BillingAddress")
+                        .WithMany()
+                        .HasForeignKey("BillingAddressId");
+
                     b.HasOne("Store.Domain.Models.OrderStatus", "OrderStatus")
                         .WithMany()
                         .HasForeignKey("OrderStatusId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Store.Domain.Models.Address", "ShippingAddress")
+                        .WithMany()
+                        .HasForeignKey("ShippingAddressId");
 
                     b.HasOne("Store.Domain.Models.User", "User")
                         .WithMany()
@@ -827,6 +982,13 @@ namespace Store.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("ProductStatusId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Store.Domain.Models.User", b =>
+                {
+                    b.HasOne("Store.Domain.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId");
                 });
 #pragma warning restore 612, 618
         }

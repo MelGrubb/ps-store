@@ -21,6 +21,7 @@ namespace Store.Domain.Repositories
             Expression<Func<Product, bool>> predicate = null)
         {
             var query = GetBaseQuery(currentUserId, predicate)
+                .Include(x => x.Category)
                 .Include(x => x.ProductStatus);
 
             return query;
