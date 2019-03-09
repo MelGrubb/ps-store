@@ -73,5 +73,15 @@
         <member name="P:Store.Services.Framework.EntityDto.ModifiedUtc">
             <summary>The date that this object was last modified.</summary>
         </member>
+        <member name="T:Store.Services.Framework.Mapper">
+            <summary>Base class for all object-to-object mapper classes.</summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="T:Store.Services.Framework.Mapper`2">
+            <summary>Base class that handles the most common mappings from a given source to a destination.</summary>
+            <typeparam name="TSource">The type of the source object.</typeparam>
+            <typeparam name="TDest">The type of the destination object.</typeparam>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
     </members>
 </doc>

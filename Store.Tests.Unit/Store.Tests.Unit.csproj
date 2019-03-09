@@ -9,15 +9,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="nunit" Version="3.11.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <Compile Include=".Framework\GetRandom.cs" />
+    <Compile Include=".Framework\GetRandomTests.cs" />
+    <Compile Include=".Framework\SpecsForRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DomainTests\" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.2" />
+    <PackageReference Include="nunit" Version="3.11.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="SpecsFor" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="CommonTests\" />
     <Folder Include="ServiceTests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Store.Domain\Store.Domain.csproj" />
   </ItemGroup>
 
 </Project>

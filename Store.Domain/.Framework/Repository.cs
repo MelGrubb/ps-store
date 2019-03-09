@@ -127,12 +127,16 @@ namespace Store.Domain.Framework
             return results;
         }
 
-        public async Task<List<T>> GetAsync(int userId, PagingOptions pagingOptions)
+        public async Task<List<T>> GetAsync(int userId, PagingOptions pagingOptions = null)
         {
-            var results = await GetQuery(userId)
-                .Skip(pagingOptions.Skip)
-                .Take(pagingOptions.Take)
-                .ToListAsync();
+            var query = GetQuery(userId);
+
+            if (pagingOptions != null)
+            {
+                query = query.Skip(pagingOptions.Skip).Take(pagingOptions.Take);
+            }
+
+            var results = await query.ToListAsync();
 
             return results;
         }
@@ -160,7 +164,9 @@ namespace Store.Domain.Framework
                 query = query.Where(x => !((ISoftDeleteable)x).DeletedUtc.HasValue);
             }
 
-            var result = query.CountAsync(predicate);
+            var result = predicate == null
+                ? query.CountAsync()
+                : query.CountAsync(predicate);
 
             return result;
         }

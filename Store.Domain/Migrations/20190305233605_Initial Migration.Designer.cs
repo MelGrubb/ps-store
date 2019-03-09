@@ -10,7 +10,7 @@ using Store.Domain.Models;
 namespace Store.Domain.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20190224014713_Initial Migration")]
+    [Migration("20190305233605_Initial Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

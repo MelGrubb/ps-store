@@ -26,6 +26,7 @@
     <Compile Include=".Framework\Dto.cs" />
     <Compile Include=".Framework\EntityDto.cs" />
     <Compile Include=".Framework\LookupDto.cs" />
+    <Compile Include=".Framework\Mapper.cs" />
     <Compile Include=".Framework\Request.cs" />
     <Compile Include=".Framework\Response.cs" />
     <Compile Include=".Framework\Service.cs" />

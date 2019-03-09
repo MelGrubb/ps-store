@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 
-namespace Store.Services.Mapping
+namespace Store.Services.Framework
 {
     /// <summary>Base class for all object-to-object mapper classes.</summary>
-    /// <seealso cref="Profile"/>
+    /// <seealso cref="Profile" />
     public abstract class Mapper : Profile
     {
     }
@@ -20,47 +20,26 @@ namespace Store.Services.Mapping
             CreateMap();
         }
 
+        protected IMappingExpression<TSource, TDest> CreateMap()
+        {
+            return CreateMap<TSource, TDest>();
+        }
+
         public static TDest Map(TSource source)
         {
-            try
-            {
-                return AutoMapper.Mapper.Map<TDest>(source);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return AutoMapper.Mapper.Map<TDest>(source);
         }
 
         public static TDest Map(TSource source, TDest dest)
         {
-            try
-            {
-                AutoMapper.Mapper.Map(source, dest);
+            AutoMapper.Mapper.Map(source, dest);
 
-                return dest;
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return dest;
         }
 
         public static List<TDest> Map(IEnumerable<TSource> source)
         {
-            try
-            {
-                return AutoMapper.Mapper.Map<IEnumerable<TSource>, List<TDest>>(source);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
-
-        protected IMappingExpression<TSource, TDest> CreateMap()
-        {
-            return CreateMap<TSource, TDest>();
+            return AutoMapper.Mapper.Map<IEnumerable<TSource>, List<TDest>>(source);
         }
     }
 }

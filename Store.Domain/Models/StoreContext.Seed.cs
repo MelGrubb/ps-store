@@ -109,7 +109,7 @@ namespace Store.Domain.Models
             var data = new[]
             {
                 new Product { Id = 1, Name = "T-Shirt", Description = "A men's t-shirt", ProductStatusId = (int)ProductStatus.Ids.InStock, Price = 1.00m, CategoryId = (int)Category.Ids.Mens, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
-                new Product { Id = 2, Name = "T-Shirt", Description = "A wommen's t-shirt", ProductStatusId = (int)ProductStatus.Ids.InStock, Price = 1.00m, CategoryId = (int)Category.Ids.Womens, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
+                new Product { Id = 2, Name = "T-Shirt", Description = "A wommen's t-shirt", ProductStatusId = (int)ProductStatus.Ids.InStock, Price = 2.00m, CategoryId = (int)Category.Ids.Womens, CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
             };
 
             modelBuilder.Entity<Product>(entity => entity.HasData(data));

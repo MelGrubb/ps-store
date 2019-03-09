@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Store.Services.Framework;
 
 namespace Store.Services.Extensions
@@ -11,7 +10,7 @@ namespace Store.Services.Extensions
         /// <param name="services">The <see cref="IServiceCollection" /> to register components with.</param>
         public static void AddMappers(this IServiceCollection services)
         {
-            Mapper.Initialize(cfg => cfg.AddProfiles(typeof(Startup).Assembly));
+            AutoMapper.Mapper.Initialize(cfg => cfg.AddProfiles(typeof(Startup).Assembly));
         }
 
         /// <summary>Adds the services to the ServiceCollection.</summary>
