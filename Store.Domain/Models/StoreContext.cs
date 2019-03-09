@@ -21,6 +21,7 @@ namespace Store.Domain.Models
         }
 
         public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Order> Orders { get; set; }

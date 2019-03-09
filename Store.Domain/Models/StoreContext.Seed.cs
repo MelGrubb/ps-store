@@ -8,9 +8,9 @@ namespace Store.Domain.Models
         /// <summary>The Id of the admin user.</summary>
         public const int AdminUserId = 1;
 
-        private readonly DateTime _seedDateTime = new DateTime(2019, 01, 1);
+        private static readonly DateTime _seedDateTime = new DateTime(2019, 01, 1);
 
-        private void Seed(ModelBuilder modelBuilder)
+        private static void Seed(ModelBuilder modelBuilder)
         {
             SeedUserTable(modelBuilder);
             SeedAddressTable(modelBuilder);
@@ -20,10 +20,11 @@ namespace Store.Domain.Models
             SeedOrderStatusTable(modelBuilder);
             SeedOrderTable(modelBuilder);
             SeedOrderItemTable(modelBuilder);
+            SeedCountryTable(modelBuilder);
             SeedStateTable(modelBuilder);
         }
 
-        private void SeedAddressTable(ModelBuilder modelBuilder)
+        private static void SeedAddressTable(ModelBuilder modelBuilder)
         {
             var data = new[]
             {
@@ -34,7 +35,7 @@ namespace Store.Domain.Models
             modelBuilder.Entity<Address>(entity => entity.HasData(data));
         }
 
-        private void SeedCategoryTable(ModelBuilder modelBuilder)
+        private static void SeedCategoryTable(ModelBuilder modelBuilder)
         {
             var data = new[]
             {
@@ -46,7 +47,18 @@ namespace Store.Domain.Models
             modelBuilder.Entity<Category>(entity => entity.HasData(data));
         }
 
-        private void SeedOrderItemTable(ModelBuilder modelBuilder)
+        private static void SeedCountryTable(ModelBuilder modelBuilder)
+        {
+            var data = new[]
+            {
+                new Country { Id = 1, Abbreviation = "USA", Name = "The United States of America", Description = "The United States of America", PostalCodeLabel = "Zipcode", StateLabel = "State" },
+                new Country { Id = 2, Abbreviation = "CAN", Name = "Canada", Description = "Canada", PostalCodeLabel = "Postal Code", StateLabel = "Province" }
+            };
+
+            modelBuilder.Entity<Country>(entity => entity.HasData(data));
+        }
+
+        private static void SeedOrderItemTable(ModelBuilder modelBuilder)
         {
             var data = new[]
             {
@@ -66,7 +78,7 @@ namespace Store.Domain.Models
             modelBuilder.Entity<OrderItem>(entity => entity.HasData(data));
         }
 
-        private void SeedOrderStatusTable(ModelBuilder modelBuilder)
+        private static void SeedOrderStatusTable(ModelBuilder modelBuilder)
         {
             var data = new[]
             {
@@ -79,7 +91,7 @@ namespace Store.Domain.Models
             modelBuilder.Entity<OrderStatus>(entity => entity.HasData(data));
         }
 
-        private void SeedOrderTable(ModelBuilder modelBuilder)
+        private static void SeedOrderTable(ModelBuilder modelBuilder)
         {
             var data = new[]
             {
@@ -92,7 +104,7 @@ namespace Store.Domain.Models
             modelBuilder.Entity<Order>(entity => entity.HasData(data));
         }
 
-        private void SeedProductStatusTable(ModelBuilder modelBuilder)
+        private static void SeedProductStatusTable(ModelBuilder modelBuilder)
         {
             var data = new[]
             {
@@ -104,7 +116,7 @@ namespace Store.Domain.Models
             modelBuilder.Entity<ProductStatus>(entity => entity.HasData(data));
         }
 
-        private void SeedProductTable(ModelBuilder modelBuilder)
+        private static void SeedProductTable(ModelBuilder modelBuilder)
         {
             var data = new[]
             {
@@ -115,7 +127,7 @@ namespace Store.Domain.Models
             modelBuilder.Entity<Product>(entity => entity.HasData(data));
         }
 
-        private void SeedStateTable(ModelBuilder modelBuilder)
+        private static void SeedStateTable(ModelBuilder modelBuilder)
         {
             var data = new[]
             {
@@ -180,7 +192,7 @@ namespace Store.Domain.Models
             modelBuilder.Entity<State>(entity => entity.HasData(data));
         }
 
-        private void SeedUserTable(ModelBuilder modelBuilder)
+        private static void SeedUserTable(ModelBuilder modelBuilder)
         {
             var data = new[]
             {
