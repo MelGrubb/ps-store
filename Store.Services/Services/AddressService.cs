@@ -29,10 +29,10 @@ namespace Store.Services
         public async Task<AddressDto> AddAsync(int userId, AddressDto dto)
         {
             var model = AddressMapper.Map(dto);
-            await _addressRepository.AddAsync(userId, model);
+            var newModel = await _addressRepository.AddAsync(userId, model);
+            var result = AddressDtoMapper.Map(newModel);
 
-            // Return a fresh copy of the saved object.
-            return await GetAsync(userId, model.Id);
+            return result;
         }
 
         public async Task<AddressDto> DeleteAsync(int userId, int id)
@@ -53,7 +53,7 @@ namespace Store.Services
 
         public async Task<IList<AddressDto>> GetAsync(int userId, PagingOptions pagingOptions)
         {
-            var models = await _addressRepository.GetAsync(userId, pagingOptions);
+            var models = await _addressRepository.GetAsync(userId, null, pagingOptions);
             var results = AddressDtoMapper.Map(models);
 
             return results;

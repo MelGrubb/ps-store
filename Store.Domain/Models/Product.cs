@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Store.Domain.Framework;
 
 namespace Store.Domain.Models
@@ -10,10 +11,13 @@ namespace Store.Domain.Models
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
 
+        [MaxLength(255)]
         public string Description { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
 
+        [StringLength(50)]
+        public string Name { get; set; }
+
+        public decimal Price { get; set; }
         public ProductStatus ProductStatus { get; set; }
 
         [ForeignKey(nameof(ProductStatus))]

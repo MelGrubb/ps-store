@@ -92,6 +92,16 @@
             <summary>Updates an application.</summary>
             <returns></returns>
         </member>
+        <member name="T:Store.Web.Controllers.Api.StateController">
+            <summary>Functionality relating to store management.</summary>
+            <seealso cref="T:Store.Web.Framework.StoreApiController" />
+        </member>
+        <member name="M:Store.Web.Controllers.Api.StateController.GetAsync(Store.Common.Contracts.PagingOptions)">
+            <summary>Get all States.</summary>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.StateController.GetAsync(System.Int32)">
+            <summary>Get a an State by Id.</summary>
+        </member>
         <member name="T:Store.Web.Controllers.Api.StatusController">
             <summary>Functionality relating to API status reporting.</summary>
             <seealso cref="T:Store.Web.Framework.StoreApiController" />

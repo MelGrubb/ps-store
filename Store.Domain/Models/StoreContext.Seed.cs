@@ -20,7 +20,7 @@ namespace Store.Domain.Models
             SeedOrderStatusTable(modelBuilder);
             SeedOrderTable(modelBuilder);
             SeedOrderItemTable(modelBuilder);
-            SeedCountryTable(modelBuilder);
+            SeedCountryTable(modelBuilder); 
             SeedStateTable(modelBuilder);
         }
 

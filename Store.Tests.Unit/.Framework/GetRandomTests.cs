@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using Should;
-using Store.Tests.Unit.Framework;
 
 #pragma warning disable IDE0012 // Simplify Names
 
-namespace F13Works.UnitTests.Framework
+namespace Store.Tests.Unit.Framework
 {
     [TestFixture]
     public class GetRandomTests
@@ -557,8 +556,8 @@ namespace F13Works.UnitTests.Framework
             var expected = GetRandom.String();
             var prefixLength = expected.Length;
 
-            GetRandom.StringPrefix = expected;
-            var actual = GetRandom.StringPrefix;
+            GetRandom.SetStringPrefix(expected);
+            var actual = GetRandom.GetStringPrefix();
             actual.ShouldEqual(expected);
 
             GetRandom.String(prefixLength, prefixLength).ShouldEqual(expected);
@@ -631,7 +630,7 @@ namespace F13Works.UnitTests.Framework
             var maxLength = GetRandom.Int32(100, 256);
             var minLength = GetRandom.Int32(1, maxLength);
             var actual = GetRandom.String(minLength, maxLength);
-            var prefix = GetRandom.StringPrefix;
+            var prefix = GetRandom.GetStringPrefix();
             actual.Substring(0, prefix.Length).ShouldEqual(prefix);
             actual.Length.ShouldBeGreaterThanOrEqualTo(minLength);
             actual.Length.ShouldBeLessThanOrEqualTo(maxLength);
@@ -640,7 +639,7 @@ namespace F13Works.UnitTests.Framework
         [Test]
         public void String_returns_random_String_between_minLength_and_maxLength_chars_with_exclude()
         {
-            var prefix = GetRandom.StringPrefix;
+            var prefix = GetRandom.GetStringPrefix();
             var maxLength = GetRandom.Int32(10, 256);
             var minLength = GetRandom.Int32(prefix.Length, maxLength);
             var notExpected = GetRandom.String(minLength, maxLength);
@@ -669,7 +668,7 @@ namespace F13Works.UnitTests.Framework
         [Test]
         public void String_returns_random_String_of_maxLength_chars_or_less()
         {
-            var prefix = GetRandom.StringPrefix;
+            var prefix = GetRandom.GetStringPrefix();
             var maxLength = GetRandom.Int32(1 + prefix.Length, 256);
             var actual = GetRandom.String(prefix.Length, maxLength);
             actual.Substring(0, prefix.Length).ShouldEqual(prefix);

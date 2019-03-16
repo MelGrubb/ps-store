@@ -12,7 +12,6 @@ namespace Store.Web.Controllers.Api
 {
     /// <summary>Functionality relating to store management.</summary>
     /// <seealso cref="StoreApiController" />
-    [ApiController]
     [ApiVersion("1")]
     [Route("api/v{version:apiVersion}/order")]
     public class OrderController : StoreApiController

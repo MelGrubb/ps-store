@@ -20,6 +20,10 @@
             <summary>Gets or sets the latest migration.</summary>
             <value>The latest migration.</value>
         </member>
+        <member name="P:Store.Services.Contracts.Status.StatusGetResponse.Message">
+            <summary>Gets or sets a message which describes the API status.</summary>
+            <value>A <see cref="T:System.String" /> which describes the API status.</value>
+        </member>
         <member name="P:Store.Services.Contracts.Status.StatusGetResponse.TargetFramework">
             <summary>Gets or sets the target framework.</summary>
             <value>The target framework.</value>

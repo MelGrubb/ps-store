@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Store.Services.Contracts.User;
+using Store.Services.Contracts.Address;
 using Store.Services.Framework;
 
 namespace Store.Services.Contracts.Order
@@ -11,8 +11,10 @@ namespace Store.Services.Contracts.Order
             OrderItems = new HashSet<OrderItemDto>();
         }
 
+        public AddressDto BillingAddress { get; set; }
         public ICollection<OrderItemDto> OrderItems { get; set; }
-        public OrderStatusDto OrderStatus { get; set; }
-        public UserDto User { get; set; }
+        public int OrderStatusId { get; set; }
+        public AddressDto ShippingAddress { get; set; }
+        public int UserId { get; set; }
     }
 }

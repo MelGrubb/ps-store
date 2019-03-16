@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include=".Framework\GetRandom.cs" />
     <Compile Include=".Framework\GetRandomTests.cs" />
+    <Compile Include=".Framework\SpecsForService.cs" />
     <Compile Include=".Framework\SpecsForRepository.cs" />
   </ItemGroup>
 
@@ -26,11 +27,12 @@
 
   <ItemGroup>
     <Folder Include="CommonTests\" />
-    <Folder Include="ServiceTests\" />
+    <Folder Include="WebTests\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Store.Domain\Store.Domain.csproj" />
+    <ProjectReference Include="..\Store.Services\Store.Services.csproj" />
   </ItemGroup>
 
 </Project>

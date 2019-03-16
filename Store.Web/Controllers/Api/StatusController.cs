@@ -9,7 +9,6 @@ namespace Store.Web.Controllers.Api
 {
     /// <summary>Functionality relating to API status reporting.</summary>
     /// <seealso cref="StoreApiController" />
-    [ApiController]
     [ApiVersion("1")]
     [Route("api/v{version:apiVersion}/status")]
     public class StatusController : StoreApiController

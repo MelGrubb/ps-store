@@ -58,8 +58,8 @@ namespace Store.Web
                 options.DefaultApiVersion = new ApiVersion(1, 0);
                 options.ReportApiVersions = true;
             });
-            services.AddSwagger();
             services.AddAutoMapper();
+            services.AddSwagger();
             services.AddMvc(options =>
                 {
                     // Just in case someone wants XML instead of JSON

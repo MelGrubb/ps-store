@@ -29,10 +29,10 @@ namespace Store.Services
         public async Task<ProductDto> AddAsync(int userId, ProductDto dto)
         {
             var model = ProductMapper.Map(dto);
-            await _productRepository.AddAsync(userId, model);
+            var newModel = await _productRepository.AddAsync(userId, model);
+            var result = ProductDtoMapper.Map(newModel);
 
-            // Return a fresh copy of the saved object.
-            return await GetAsync(userId, model.Id);
+            return result;
         }
 
         public async Task<ProductDto> DeleteAsync(int userId, int id)
@@ -53,7 +53,7 @@ namespace Store.Services
 
         public async Task<IList<ProductDto>> GetAsync(int userId, PagingOptions pagingOptions)
         {
-            var models = await _productRepository.GetAsync(userId, pagingOptions);
+            var models = await _productRepository.GetAsync(userId, null, pagingOptions);
             var results = ProductDtoMapper.Map(models);
 
             return results;

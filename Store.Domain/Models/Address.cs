@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Store.Domain.Framework;
 
 namespace Store.Domain.Models
@@ -13,6 +14,7 @@ namespace Store.Domain.Models
         [ForeignKey(nameof(State))]
         public int StateId { get; set; }
 
+        [MaxLength(10)]
         public string ZipCode { get; set; }
     }
 }

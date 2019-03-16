@@ -28,7 +28,7 @@ namespace Store.Domain.Framework
 
         Task<T> GetAsync(int userId, int id);
 
-        Task<List<T>> GetAsync(int userId, PagingOptions pagingOptions);
+        Task<List<T>> GetAsync(int userId, Expression<Func<T, bool>> predicate = null, PagingOptions options = null);
 
         Task SaveChangesAsync(int userId);
 
@@ -127,9 +127,9 @@ namespace Store.Domain.Framework
             return results;
         }
 
-        public async Task<List<T>> GetAsync(int userId, PagingOptions pagingOptions = null)
+        public async Task<List<T>> GetAsync(int userId, Expression<Func<T, bool>> predicate = null, PagingOptions pagingOptions = null)
         {
-            var query = GetQuery(userId);
+            var query = GetQuery(userId, predicate);
 
             if (pagingOptions != null)
             {

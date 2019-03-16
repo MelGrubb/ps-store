@@ -10,9 +10,6 @@ namespace Store.Tests.Unit.Framework
     [DebuggerStepThrough]
     public static class GetRandom
     {
-        /// <summary>Default Prefix for random string values.</summary>
-        public const string DefaultStringPrefix = "¿";
-
         /// <summary>The acceptable variance for two floating point numbers to be considered "equal".</summary>
         /// <remarks>This is to compensate for rounding and conversion errors inherent to floating point operations.</remarks>
         private const double epsilon = .0000001;
@@ -20,18 +17,11 @@ namespace Store.Tests.Unit.Framework
         /// <summary>The starting point for generated Id numbers.</summary>
         private static int _nextId = 1000000000;
 
+        private static string _stringPrefix = "¿";
+
         /// <summary>Gets or sets the random.</summary>
         /// <value>The random.</value>
         public static Random Random { get; set; } = new Random();
-
-        /// <summary>Gets or sets the prefix that gets prepended onto all random strings.</summary>
-        /// <value>The prefix string.</value>
-        /// <remarks>
-        ///     You can set this to null if you don't want a prefix at all, but using a prefix such as the default ("¿") can
-        ///     make it easier to query for test data that accidentally makes it into a database. Proper use of a mocking framework
-        ///     should be the first line of defense though
-        /// </remarks>
-        public static string StringPrefix { get; set; } = DefaultStringPrefix;
 
         /// <summary>Returns a random <see cref="bool" /> value.</summary>
         /// <returns>A random <see cref="bool" /> value.</returns>
@@ -428,6 +418,11 @@ namespace Store.Tests.Unit.Framework
             return result;
         }
 
+        public static string GetStringPrefix()
+        {
+            return _stringPrefix;
+        }
+
         /// <summary>Returns a sequential (non-random) integer to be used as an object identifier.</summary>
         /// <returns>The next integer in the series.</returns>
         /// <remarks>
@@ -656,6 +651,18 @@ namespace Store.Tests.Unit.Framework
             _nextId = value;
         }
 
+        /// <summary>Sets the prefix that gets prepended onto all random strings.</summary>
+        /// <value>The prefix string.</value>
+        /// <remarks>
+        ///     You can set this to null if you don't want a prefix at all, but using a prefix such as the default ("¿") can
+        ///     make it easier to query for test data that accidentally makes it into a database. Proper use of a mocking framework
+        ///     should be the first line of defense though
+        /// </remarks>
+        public static void SetStringPrefix(string value)
+        {
+            _stringPrefix = value;
+        }
+
         /// <summary>Returns a nonnegative random <see cref="float" /> value.</summary>
         /// <returns>A <see cref="float" /> value greater than or equal to zero.</returns>
         public static float Single()
@@ -755,8 +762,10 @@ namespace Store.Tests.Unit.Framework
             do
             {
                 var length = Int32(minLength, maxLength);
-                var prefixLength = StringPrefix == null ? 0 : StringPrefix.Length;
-                var sb = new StringBuilder(StringPrefix ?? string.Empty, length);
+                var prefix = GetStringPrefix();
+                var prefixLength = prefix?.Length ?? 0;
+
+                var sb = new StringBuilder(prefix ?? string.Empty, length);
                 for (var index = 0; index < length - prefixLength; index++)
                 {
                     sb.Append(Convert.ToChar(Int32(65, 90)));

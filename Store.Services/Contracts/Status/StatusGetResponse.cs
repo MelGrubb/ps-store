@@ -19,6 +19,10 @@ namespace Store.Services.Contracts.Status
         /// <value>The latest migration.</value>
         public string LatestMigrationNote { get; set; }
 
+        /// <summary>Gets or sets a message which describes the API status.</summary>
+        /// <value>A <see cref="string" /> which describes the API status.</value>
+        public string Message { get; set; }
+
         /// <summary>Gets or sets the target framework.</summary>
         /// <value>The target framework.</value>
         public string TargetFramework { get; set; }
