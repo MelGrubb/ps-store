@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Should;
+using Shouldly;
 using Store.Domain.Models;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
@@ -32,11 +32,11 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
         public void Then_the_address_properties_should_have_been_updated()
         {
             var newCopy = SUT.GetAsync(AdminUserId, 1).Result;
-            newCopy.Id.ShouldEqual(1);
-            newCopy.FirstName.ShouldEqual("New FirstName");
-            newCopy.MiddleName.ShouldEqual("New MiddleName");
-            newCopy.LastName.ShouldEqual("New LastName");
-            newCopy.UserName.ShouldEqual("New UserName");
+            newCopy.Id.ShouldBe(1);
+            newCopy.FirstName.ShouldBe("New FirstName");
+            newCopy.MiddleName.ShouldBe("New MiddleName");
+            newCopy.LastName.ShouldBe("New LastName");
+            newCopy.UserName.ShouldBe("New UserName");
         }
     }
 }

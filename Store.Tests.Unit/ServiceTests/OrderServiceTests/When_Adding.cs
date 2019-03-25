@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 using SpecsFor.Core.ShouldExtensions;
 using Store.Domain.Models;
 using Store.Domain.Repositories;

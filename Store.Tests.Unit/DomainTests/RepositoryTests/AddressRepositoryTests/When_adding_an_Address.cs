@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Should;
+using Shouldly;
 using Store.Domain.Models;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
@@ -34,7 +34,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
         [Test]
         public void Then_the_new_address_should_have_an_Id()
         {
-            _result.Id.ShouldEqual(3);
+            _result.Id.ShouldBe(3);
         }
     }
 }

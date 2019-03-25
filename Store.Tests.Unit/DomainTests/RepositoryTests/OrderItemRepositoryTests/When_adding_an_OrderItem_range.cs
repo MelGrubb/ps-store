@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 using Store.Domain.Models;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
@@ -67,7 +67,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
         [Test]
         public void Then_the_new_address_should_have_an_Id()
         {
-            SUT.CountAsync().Result.ShouldEqual(10);
+            SUT.CountAsync().Result.ShouldBe(10);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 using Store.Domain.Models;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
@@ -57,7 +57,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
         [Test]
         public void Then_the_new_OrderItem_should_have_an_Id()
         {
-            _result.Id.ShouldEqual(SUT.StoreContext.OrderItems.OrderByDescending(x => x.Id).First().Id);
+            _result.Id.ShouldBe(SUT.StoreContext.OrderItems.OrderByDescending(x => x.Id).First().Id);
         }
     }
 }

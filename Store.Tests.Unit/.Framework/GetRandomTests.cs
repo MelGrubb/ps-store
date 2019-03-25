@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 #pragma warning disable IDE0012 // Simplify Names
 
@@ -23,7 +23,7 @@ namespace Store.Tests.Unit.Framework
         public void BoolTest()
         {
             var actual = GetRandom.Bool();
-            actual.ShouldBeType<bool>();
+            actual.ShouldBeOfType<bool>();
         }
 
         [Test]
@@ -31,14 +31,14 @@ namespace Store.Tests.Unit.Framework
         {
             var expected = GetRandom.Byte();
             var actual = GetRandom.Byte(expected, expected);
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
         }
 
         [Test]
         public void Byte_returns_random_Byte()
         {
             var actual = GetRandom.Byte();
-            actual.ShouldBeType<byte>();
+            actual.ShouldBeOfType<byte>();
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace Store.Tests.Unit.Framework
             var maxValue = GetRandom.Byte();
             var minValue = GetRandom.Byte(maxValue);
             var actual = GetRandom.Byte(minValue, maxValue);
-            actual.ShouldBeType<byte>();
+            actual.ShouldBeOfType<byte>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
@@ -60,9 +60,9 @@ namespace Store.Tests.Unit.Framework
             GetRandom.Random = new Random(0);
 
             var actual = GetRandom.Byte(10, 20, excluded);
-            actual.ShouldBeType<byte>();
+            actual.ShouldBeOfType<byte>();
             actual.ShouldBeGreaterThanOrEqualTo<byte>(10);
-            actual.ShouldNotEqual(excluded);
+            actual.ShouldNotBe(excluded);
             actual.ShouldBeLessThanOrEqualTo<byte>(20);
         }
 
@@ -71,7 +71,7 @@ namespace Store.Tests.Unit.Framework
         {
             var maxValue = GetRandom.Byte();
             var actual = GetRandom.Byte(maxValue);
-            actual.ShouldBeType<byte>();
+            actual.ShouldBeOfType<byte>();
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -81,14 +81,14 @@ namespace Store.Tests.Unit.Framework
             var length = GetRandom.Int32(50);
             var actual = GetRandom.ByteArray(length);
             actual.ShouldNotBeNull();
-            actual.Length.ShouldEqual(length);
+            actual.Length.ShouldBe(length);
         }
 
         [Test]
         public void Char_returns_a_random_Char()
         {
             var actual = GetRandom.Char();
-            actual.ShouldBeType<char>();
+            actual.ShouldBeOfType<char>();
         }
 
         [Test]
@@ -114,7 +114,7 @@ namespace Store.Tests.Unit.Framework
         {
             GetRandom.Random = new Random(1);
             var actual = GetRandom.CityName();
-            actual.ShouldEqual("Eaton Estates");
+            actual.ShouldBe("Eaton Estates");
         }
 
         [Test]
@@ -122,14 +122,14 @@ namespace Store.Tests.Unit.Framework
         {
             var expected = GetRandom.DateTime();
             var actual = GetRandom.DateTime(expected, expected);
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
         }
 
         [Test]
         public void DateTime_returns_random_DateTime()
         {
             var actual = GetRandom.DateTime();
-            actual.ShouldBeType<DateTime>();
+            actual.ShouldBeOfType<DateTime>();
         }
 
         [Test]
@@ -153,9 +153,9 @@ namespace Store.Tests.Unit.Framework
             GetRandom.Random = new Random(0);
 
             var actual = GetRandom.DateTime(minValue, maxValue, excluded);
-            actual.ShouldBeType<DateTime>();
+            actual.ShouldBeOfType<DateTime>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
-            actual.ShouldNotEqual(excluded);
+            actual.ShouldNotBe(excluded);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -182,14 +182,14 @@ namespace Store.Tests.Unit.Framework
         {
             var expected = GetRandom.Decimal();
             var actual = GetRandom.Decimal(expected, expected);
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
         }
 
         [Test]
         public void Decimal_returns_random_Decimal()
         {
             var actual = GetRandom.Decimal();
-            actual.ShouldBeType<decimal>();
+            actual.ShouldBeOfType<decimal>();
         }
 
         [Test]
@@ -210,9 +210,9 @@ namespace Store.Tests.Unit.Framework
             GetRandom.Random = new Random(0);
 
             var actual = GetRandom.Decimal(10, 20, excluded);
-            actual.ShouldBeType<decimal>();
+            actual.ShouldBeOfType<decimal>();
             actual.ShouldBeGreaterThanOrEqualTo(10);
-            actual.ShouldNotEqual(excluded);
+            actual.ShouldNotBe(excluded);
             actual.ShouldBeLessThanOrEqualTo(20);
         }
 
@@ -221,7 +221,7 @@ namespace Store.Tests.Unit.Framework
         {
             var maxValue = GetRandom.Decimal();
             var actual = GetRandom.Decimal(maxValue);
-            actual.ShouldBeType<decimal>();
+            actual.ShouldBeOfType<decimal>();
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -230,14 +230,14 @@ namespace Store.Tests.Unit.Framework
         {
             var expected = GetRandom.Double();
             var actual = GetRandom.Double(expected, expected);
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
         }
 
         [Test]
         public void Double_returns_random_Double()
         {
             var actual = GetRandom.Double();
-            actual.ShouldBeType<double>();
+            actual.ShouldBeOfType<double>();
         }
 
         [Test]
@@ -246,7 +246,7 @@ namespace Store.Tests.Unit.Framework
             var maxValue = GetRandom.Double();
             var minValue = GetRandom.Double(maxValue);
             var actual = GetRandom.Double(minValue, maxValue);
-            actual.ShouldBeType<double>();
+            actual.ShouldBeOfType<double>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
@@ -262,9 +262,9 @@ namespace Store.Tests.Unit.Framework
             GetRandom.Random = new Random(0);
 
             var actual = GetRandom.Double(minValue, maxValue, excluded);
-            actual.ShouldBeType<double>();
+            actual.ShouldBeOfType<double>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
-            actual.ShouldNotEqual(excluded);
+            actual.ShouldNotBe(excluded);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -273,7 +273,7 @@ namespace Store.Tests.Unit.Framework
         {
             var maxValue = GetRandom.Double();
             var actual = GetRandom.Double(maxValue);
-            actual.ShouldBeType<double>();
+            actual.ShouldBeOfType<double>();
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -310,7 +310,7 @@ namespace Store.Tests.Unit.Framework
             var list = new List<int> { 1, 2, 3, 4, 5 };
             var actual = GetRandom.Element(list, 3);
             actual.ShouldBeGreaterThanOrEqualTo(1);
-            actual.ShouldNotEqual(3);
+            actual.ShouldNotBe(3);
             actual.ShouldBeLessThanOrEqualTo(5);
         }
 
@@ -318,7 +318,7 @@ namespace Store.Tests.Unit.Framework
         public void EnumValue_returns_random_enumeration_value()
         {
             var actual = GetRandom.EnumValue<DayOfWeek>();
-            actual.ShouldBeType<DayOfWeek>();
+            actual.ShouldBeOfType<DayOfWeek>();
             Enum.IsDefined(typeof(DayOfWeek), actual).ShouldBeTrue();
         }
 
@@ -327,9 +327,9 @@ namespace Store.Tests.Unit.Framework
         {
             var notExpected = GetRandom.EnumValue<DayOfWeek>();
             var actual = GetRandom.EnumValue(notExpected);
-            actual.ShouldBeType<DayOfWeek>();
+            actual.ShouldBeOfType<DayOfWeek>();
             Enum.IsDefined(typeof(DayOfWeek), actual).ShouldBeTrue();
-            actual.ShouldNotEqual(notExpected);
+            actual.ShouldNotBe(notExpected);
         }
 
         [Test]
@@ -351,7 +351,7 @@ namespace Store.Tests.Unit.Framework
         {
             GetRandom.Random = new Random(1);
             var actual = GetRandom.FirstName(false);
-            actual.ShouldEqual("Cassidy");
+            actual.ShouldBe("Cassidy");
         }
 
         [Test]
@@ -359,7 +359,7 @@ namespace Store.Tests.Unit.Framework
         {
             GetRandom.Random = new Random(1);
             var actual = GetRandom.FirstName();
-            actual.ShouldEqual("Bradley");
+            actual.ShouldBe("Bradley");
         }
 
         [Test]
@@ -367,7 +367,7 @@ namespace Store.Tests.Unit.Framework
         {
             GetRandom.Random = new Random(1);
             var actual = GetRandom.FirstName(true);
-            actual.ShouldEqual("Conner");
+            actual.ShouldBe("Conner");
         }
 
         [Test]
@@ -375,14 +375,14 @@ namespace Store.Tests.Unit.Framework
         {
             var expected = GetRandom.Int16();
             var actual = GetRandom.Int16(expected, expected);
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
         }
 
         [Test]
         public void Int16_returns_random_Int16()
         {
             var actual = GetRandom.Int16();
-            actual.ShouldBeType<short>();
+            actual.ShouldBeOfType<short>();
         }
 
         [Test]
@@ -391,7 +391,7 @@ namespace Store.Tests.Unit.Framework
             var maxValue = GetRandom.Int16();
             var minValue = GetRandom.Int16(maxValue);
             var actual = GetRandom.Int16(minValue, maxValue);
-            actual.ShouldBeType<short>();
+            actual.ShouldBeOfType<short>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
@@ -407,9 +407,9 @@ namespace Store.Tests.Unit.Framework
             GetRandom.Random = new Random(0);
 
             var actual = GetRandom.Int16(minValue, maxValue, excluded);
-            actual.ShouldBeType<short>();
+            actual.ShouldBeOfType<short>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
-            actual.ShouldNotEqual(excluded);
+            actual.ShouldNotBe(excluded);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -418,7 +418,7 @@ namespace Store.Tests.Unit.Framework
         {
             var maxValue = GetRandom.Int16();
             var actual = GetRandom.Int16(maxValue);
-            actual.ShouldBeType<short>();
+            actual.ShouldBeOfType<short>();
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -427,14 +427,14 @@ namespace Store.Tests.Unit.Framework
         {
             var expected = GetRandom.Int32();
             var actual = GetRandom.Int32(expected, expected);
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
         }
 
         [Test]
         public void Int32_returns_random_Int32()
         {
             var actual = GetRandom.Int32();
-            actual.ShouldBeType<int>();
+            actual.ShouldBeOfType<int>();
         }
 
         [Test]
@@ -443,7 +443,7 @@ namespace Store.Tests.Unit.Framework
             var maxValue = GetRandom.Int32();
             var minValue = GetRandom.Int32(maxValue);
             var actual = GetRandom.Int32(minValue, maxValue);
-            actual.ShouldBeType<int>();
+            actual.ShouldBeOfType<int>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
@@ -459,9 +459,9 @@ namespace Store.Tests.Unit.Framework
             GetRandom.Random = new Random(0);
 
             var actual = GetRandom.Int32(minValue, maxValue, excluded);
-            actual.ShouldBeType<int>();
+            actual.ShouldBeOfType<int>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
-            actual.ShouldNotEqual(excluded);
+            actual.ShouldNotBe(excluded);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -470,7 +470,7 @@ namespace Store.Tests.Unit.Framework
         {
             var maxValue = GetRandom.Int32();
             var actual = GetRandom.Int32(maxValue);
-            actual.ShouldBeType<int>();
+            actual.ShouldBeOfType<int>();
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -478,8 +478,8 @@ namespace Store.Tests.Unit.Framework
         public void Int32IdTest()
         {
             GetRandom.SetNextId(1);
-            GetRandom.Id().ShouldEqual(1);
-            GetRandom.Id().ShouldEqual(2);
+            GetRandom.Id().ShouldBe(1);
+            GetRandom.Id().ShouldBe(2);
         }
 
         [Test]
@@ -487,14 +487,14 @@ namespace Store.Tests.Unit.Framework
         {
             var expected = GetRandom.Int64();
             var actual = GetRandom.Int64(expected, expected);
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
         }
 
         [Test]
         public void Int64_returns_random_Int64()
         {
             var actual = GetRandom.Int64();
-            actual.ShouldBeType<long>();
+            actual.ShouldBeOfType<long>();
         }
 
         [Test]
@@ -503,7 +503,7 @@ namespace Store.Tests.Unit.Framework
             var maxValue = GetRandom.Int64();
             var minValue = GetRandom.Int64(maxValue);
             var actual = GetRandom.Int64(minValue, maxValue);
-            actual.ShouldBeType<long>();
+            actual.ShouldBeOfType<long>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
@@ -519,9 +519,9 @@ namespace Store.Tests.Unit.Framework
             GetRandom.Random = new Random(0);
 
             var actual = GetRandom.Int64(minValue, maxValue, excluded);
-            actual.ShouldBeType<long>();
+            actual.ShouldBeOfType<long>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
-            actual.ShouldNotEqual(excluded);
+            actual.ShouldNotBe(excluded);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -530,7 +530,7 @@ namespace Store.Tests.Unit.Framework
         {
             var maxValue = GetRandom.Int64();
             var actual = GetRandom.Int64(maxValue);
-            actual.ShouldBeType<long>();
+            actual.ShouldBeOfType<long>();
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -539,7 +539,7 @@ namespace Store.Tests.Unit.Framework
         {
             GetRandom.Random = new Random(1);
             var actual = GetRandom.LastName();
-            actual.ShouldEqual("Dotson");
+            actual.ShouldBe("Dotson");
         }
 
         [Test]
@@ -547,7 +547,7 @@ namespace Store.Tests.Unit.Framework
         {
             GetRandom.Random = new Random(1);
             var actual = GetRandom.Name();
-            actual.ShouldEqual("Bradley Jackson");
+            actual.ShouldBe("Bradley Jackson");
         }
 
         [Test]
@@ -558,9 +558,9 @@ namespace Store.Tests.Unit.Framework
 
             GetRandom.SetStringPrefix(expected);
             var actual = GetRandom.GetStringPrefix();
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
 
-            GetRandom.String(prefixLength, prefixLength).ShouldEqual(expected);
+            GetRandom.String(prefixLength, prefixLength).ShouldBe(expected);
         }
 
         [Test]
@@ -569,7 +569,7 @@ namespace Store.Tests.Unit.Framework
             var expected = new Random();
             GetRandom.Random = expected;
             var actual = GetRandom.Random;
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
         }
 
         [Test]
@@ -577,14 +577,14 @@ namespace Store.Tests.Unit.Framework
         {
             var expected = GetRandom.Single();
             var actual = GetRandom.Single(expected, expected);
-            actual.ShouldEqual(expected);
+            actual.ShouldBe(expected);
         }
 
         [Test]
         public void Single_returns_random_Single()
         {
             var actual = GetRandom.Single();
-            actual.ShouldBeType<float>();
+            actual.ShouldBeOfType<float>();
         }
 
         [Test]
@@ -593,7 +593,7 @@ namespace Store.Tests.Unit.Framework
             var maxValue = GetRandom.Single();
             var minValue = GetRandom.Single(maxValue);
             var actual = GetRandom.Single(minValue, maxValue);
-            actual.ShouldBeType<float>();
+            actual.ShouldBeOfType<float>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
@@ -609,9 +609,9 @@ namespace Store.Tests.Unit.Framework
             GetRandom.Random = new Random(0);
 
             var actual = GetRandom.Single(minValue, maxValue, excluded);
-            actual.ShouldBeType<float>();
+            actual.ShouldBeOfType<float>();
             actual.ShouldBeGreaterThanOrEqualTo(minValue);
-            actual.ShouldNotEqual(excluded);
+            actual.ShouldNotBe(excluded);
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -620,7 +620,7 @@ namespace Store.Tests.Unit.Framework
         {
             var maxValue = GetRandom.Single();
             var actual = GetRandom.Single(maxValue);
-            actual.ShouldBeType<float>();
+            actual.ShouldBeOfType<float>();
             actual.ShouldBeLessThanOrEqualTo(maxValue);
         }
 
@@ -631,7 +631,7 @@ namespace Store.Tests.Unit.Framework
             var minLength = GetRandom.Int32(1, maxLength);
             var actual = GetRandom.String(minLength, maxLength);
             var prefix = GetRandom.GetStringPrefix();
-            actual.Substring(0, prefix.Length).ShouldEqual(prefix);
+            actual.Substring(0, prefix.Length).ShouldBe(prefix);
             actual.Length.ShouldBeGreaterThanOrEqualTo(minLength);
             actual.Length.ShouldBeLessThanOrEqualTo(maxLength);
         }
@@ -644,10 +644,10 @@ namespace Store.Tests.Unit.Framework
             var minLength = GetRandom.Int32(prefix.Length, maxLength);
             var notExpected = GetRandom.String(minLength, maxLength);
             var actual = GetRandom.String(minLength, maxLength, notExpected);
-            actual.Substring(0, prefix.Length).ShouldEqual(prefix);
+            actual.Substring(0, prefix.Length).ShouldBe(prefix);
             actual.Length.ShouldBeGreaterThanOrEqualTo(minLength);
             actual.Length.ShouldBeLessThanOrEqualTo(maxLength);
-            actual.ShouldNotEqual(notExpected);
+            actual.ShouldNotBe(notExpected);
         }
 
         [Test]
@@ -662,7 +662,7 @@ namespace Store.Tests.Unit.Framework
         {
             var length = GetRandom.Int32(256);
             var actual = GetRandom.String(length, length);
-            actual.Length.ShouldEqual(length);
+            actual.Length.ShouldBe(length);
         }
 
         [Test]
@@ -671,7 +671,7 @@ namespace Store.Tests.Unit.Framework
             var prefix = GetRandom.GetStringPrefix();
             var maxLength = GetRandom.Int32(1 + prefix.Length, 256);
             var actual = GetRandom.String(prefix.Length, maxLength);
-            actual.Substring(0, prefix.Length).ShouldEqual(prefix);
+            actual.Substring(0, prefix.Length).ShouldBe(prefix);
             actual.Length.ShouldBeLessThanOrEqualTo(maxLength);
         }
     }

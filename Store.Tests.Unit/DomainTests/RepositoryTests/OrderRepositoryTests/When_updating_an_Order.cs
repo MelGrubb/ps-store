@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Should;
+using Shouldly;
 using Store.Domain.Models;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
@@ -28,8 +28,8 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
         public void Then_the_address_properties_should_have_been_updated()
         {
             var newCopy = SUT.GetAsync(AdminUserId, 1).Result;
-            newCopy.Id.ShouldEqual(1);
-            newCopy.OrderStatusId.ShouldEqual((int)OrderStatus.Ids.Processing);
+            newCopy.Id.ShouldBe(1);
+            newCopy.OrderStatusId.ShouldBe((int)OrderStatus.Ids.Processing);
         }
     }
 }
