@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Store.Domain.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialSchema : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,6 +27,23 @@ namespace Store.Domain.Migrations
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Countries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Description = table.Column<string>(maxLength: 255, nullable: true),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Abbreviation = table.Column<string>(nullable: true),
+                    StateLabel = table.Column<string>(maxLength: 50, nullable: true),
+                    PostalCodeLabel = table.Column<string>(maxLength: 50, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Countries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -65,11 +82,18 @@ namespace Store.Domain.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Description = table.Column<string>(maxLength: 255, nullable: true),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
-                    Abbreviation = table.Column<string>(nullable: true)
+                    Abbreviation = table.Column<string>(nullable: true),
+                    CountryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_States", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_States_Countries_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Countries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -85,8 +109,8 @@ namespace Store.Domain.Migrations
                     DeletedById = table.Column<int>(nullable: true),
                     DeletedUtc = table.Column<DateTime>(nullable: true),
                     CategoryId = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(maxLength: 255, nullable: true),
+                    Name = table.Column<string>(maxLength: 50, nullable: true),
                     Price = table.Column<decimal>(type: "Decimal(10, 2)", nullable: false),
                     ProductStatusId = table.Column<int>(nullable: false)
                 },
@@ -123,7 +147,7 @@ namespace Store.Domain.Migrations
                     Line1 = table.Column<string>(nullable: true),
                     Line2 = table.Column<string>(nullable: true),
                     StateId = table.Column<int>(nullable: false),
-                    ZipCode = table.Column<string>(nullable: true)
+                    ZipCode = table.Column<string>(maxLength: 10, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -249,6 +273,15 @@ namespace Store.Domain.Migrations
                 values: new object[] { 1, null, "Clothing", null });
 
             migrationBuilder.InsertData(
+                table: "Countries",
+                columns: new[] { "Id", "Abbreviation", "Description", "Name", "PostalCodeLabel", "StateLabel" },
+                values: new object[,]
+                {
+                    { 1, "USA", "The United States of America", "The United States of America", "Zipcode", "State" },
+                    { 2, "CAN", "Canada", "Canada", "Postal Code", "Province" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "OrderStatus",
                 columns: new[] { "Id", "Description", "Name" },
                 values: new object[,]
@@ -271,65 +304,65 @@ namespace Store.Domain.Migrations
 
             migrationBuilder.InsertData(
                 table: "States",
-                columns: new[] { "Id", "Abbreviation", "Description", "Name" },
+                columns: new[] { "Id", "Abbreviation", "CountryId", "Description", "Name" },
                 values: new object[,]
                 {
-                    { 41, "SD", null, "South Dakota" },
-                    { 40, "SC", null, "South Carolina" },
-                    { 39, "RI", null, "Rhode Island" },
-                    { 38, "PA", null, "Pennsylvania" },
-                    { 37, "OR", null, "Oregon" },
-                    { 33, "NC", null, "North Carolina" },
-                    { 35, "OH", null, "Ohio" },
-                    { 34, "ND", null, "North Dakota" },
-                    { 42, "TN", null, "Tennessee" },
-                    { 32, "NY", null, "New York" },
-                    { 31, "NM", null, "New Mexico" },
-                    { 36, "OK", null, "Oklahoma" },
-                    { 43, "TX", null, "Texas" },
-                    { 47, "WA", null, "Washington" },
-                    { 45, "VT", null, "Vermont" },
-                    { 46, "VA", null, "Virginia" },
-                    { 30, "NJ", null, "New Jersey" },
-                    { 48, "WV", null, "West Virginia" },
-                    { 49, "WI", null, "Wisconsin" },
-                    { 50, "WY", null, "Wyoming" },
-                    { 51, "DC", null, "District of Columbia" },
-                    { 52, "AS", null, "American Samoa" },
-                    { 53, "GU", null, "Guam" },
-                    { 54, "MP", null, "Northern Mariana Islands" },
-                    { 55, "PR", null, "Puerto Rico" },
-                    { 56, "VI", null, "U.S. Virgin Islands" },
-                    { 44, "UT", null, "Utah" },
-                    { 29, "NH", null, "New Hampshire" },
-                    { 25, "MO", null, "Missouri" },
-                    { 27, "NE", null, "Nebraska" },
-                    { 1, "AL", null, "Alabama" },
-                    { 2, "AK", null, "Alaska" },
-                    { 3, "AZ", null, "Arizona" },
-                    { 4, "AR", null, "Arkansas" },
-                    { 5, "CA", null, "California" },
-                    { 6, "CO", null, "Colorado" },
-                    { 7, "CT", null, "Connecticut" },
-                    { 8, "DE", null, "Delaware" },
-                    { 9, "FL", null, "Florida" },
-                    { 10, "GA", null, "Georgia" },
-                    { 11, "HI", null, "Hawaii" },
-                    { 12, "ID", null, "Idaho" },
-                    { 28, "NV", null, "Nevada" },
-                    { 13, "IL", null, "Illinois" },
-                    { 15, "IA", null, "Iowa" },
-                    { 16, "KS", null, "Kansas" },
-                    { 17, "KY", null, "Kentucky" },
-                    { 18, "LA", null, "Louisiana" },
-                    { 19, "ME", null, "Maine" },
-                    { 20, "MD", null, "Maryland" },
-                    { 21, "MA", null, "Massachusetts" },
-                    { 22, "MI", null, "Michigan" },
-                    { 23, "MN", null, "Minnesota" },
-                    { 24, "MS", null, "Mississippi" },
-                    { 26, "MT", null, "Montana" },
-                    { 14, "IN", null, "Indiana" }
+                    { 41, "SD", null, null, "South Dakota" },
+                    { 40, "SC", null, null, "South Carolina" },
+                    { 39, "RI", null, null, "Rhode Island" },
+                    { 38, "PA", null, null, "Pennsylvania" },
+                    { 37, "OR", null, null, "Oregon" },
+                    { 32, "NY", null, null, "New York" },
+                    { 35, "OH", null, null, "Ohio" },
+                    { 34, "ND", null, null, "North Dakota" },
+                    { 33, "NC", null, null, "North Carolina" },
+                    { 42, "TN", null, null, "Tennessee" },
+                    { 31, "NM", null, null, "New Mexico" },
+                    { 36, "OK", null, null, "Oklahoma" },
+                    { 43, "TX", null, null, "Texas" },
+                    { 48, "WV", null, null, "West Virginia" },
+                    { 45, "VT", null, null, "Vermont" },
+                    { 46, "VA", null, null, "Virginia" },
+                    { 47, "WA", null, null, "Washington" },
+                    { 30, "NJ", null, null, "New Jersey" },
+                    { 49, "WI", null, null, "Wisconsin" },
+                    { 50, "WY", null, null, "Wyoming" },
+                    { 51, "DC", null, null, "District of Columbia" },
+                    { 52, "AS", null, null, "American Samoa" },
+                    { 53, "GU", null, null, "Guam" },
+                    { 54, "MP", null, null, "Northern Mariana Islands" },
+                    { 55, "PR", null, null, "Puerto Rico" },
+                    { 56, "VI", null, null, "U.S. Virgin Islands" },
+                    { 44, "UT", null, null, "Utah" },
+                    { 29, "NH", null, null, "New Hampshire" },
+                    { 24, "MS", null, null, "Mississippi" },
+                    { 27, "NE", null, null, "Nebraska" },
+                    { 1, "AL", null, null, "Alabama" },
+                    { 2, "AK", null, null, "Alaska" },
+                    { 3, "AZ", null, null, "Arizona" },
+                    { 4, "AR", null, null, "Arkansas" },
+                    { 5, "CA", null, null, "California" },
+                    { 6, "CO", null, null, "Colorado" },
+                    { 7, "CT", null, null, "Connecticut" },
+                    { 8, "DE", null, null, "Delaware" },
+                    { 9, "FL", null, null, "Florida" },
+                    { 10, "GA", null, null, "Georgia" },
+                    { 11, "HI", null, null, "Hawaii" },
+                    { 12, "ID", null, null, "Idaho" },
+                    { 28, "NV", null, null, "Nevada" },
+                    { 13, "IL", null, null, "Illinois" },
+                    { 15, "IA", null, null, "Iowa" },
+                    { 16, "KS", null, null, "Kansas" },
+                    { 17, "KY", null, null, "Kentucky" },
+                    { 18, "LA", null, null, "Louisiana" },
+                    { 19, "ME", null, null, "Maine" },
+                    { 20, "MD", null, null, "Maryland" },
+                    { 21, "MA", null, null, "Massachusetts" },
+                    { 22, "MI", null, null, "Michigan" },
+                    { 23, "MN", null, null, "Minnesota" },
+                    { 25, "MO", null, null, "Missouri" },
+                    { 26, "MT", null, null, "Montana" },
+                    { 14, "IN", null, null, "Indiana" }
                 });
 
             migrationBuilder.InsertData(
@@ -376,7 +409,7 @@ namespace Store.Domain.Migrations
                 values: new object[,]
                 {
                     { 1, 2, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "A men's t-shirt", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "T-Shirt", 1.00m, 1 },
-                    { 2, 3, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "A wommen's t-shirt", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "T-Shirt", 1.00m, 1 }
+                    { 2, 3, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "A wommen's t-shirt", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "T-Shirt", 2.00m, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -445,6 +478,11 @@ namespace Store.Domain.Migrations
                 column: "ProductStatusId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_States_CountryId",
+                table: "States",
+                column: "CountryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Users_AddressId",
                 table: "Users",
                 column: "AddressId");
@@ -478,6 +516,9 @@ namespace Store.Domain.Migrations
 
             migrationBuilder.DropTable(
                 name: "States");
+
+            migrationBuilder.DropTable(
+                name: "Countries");
         }
     }
 }

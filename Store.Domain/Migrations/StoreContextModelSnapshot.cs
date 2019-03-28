@@ -15,7 +15,7 @@ namespace Store.Domain.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028")
+                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -47,7 +47,8 @@ namespace Store.Domain.Migrations
 
                     b.Property<int>("StateId");
 
-                    b.Property<string>("ZipCode");
+                    b.Property<string>("ZipCode")
+                        .HasMaxLength(10);
 
                     b.HasKey("Id");
 
@@ -122,6 +123,52 @@ namespace Store.Domain.Migrations
                             Id = 3,
                             Name = "Women's",
                             ParentCategoryId = 1
+                        });
+                });
+
+            modelBuilder.Entity("Store.Domain.Models.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Abbreviation");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<string>("PostalCodeLabel")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("StateLabel")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Abbreviation = "USA",
+                            Description = "The United States of America",
+                            Name = "The United States of America",
+                            PostalCodeLabel = "Zipcode",
+                            StateLabel = "State"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Abbreviation = "CAN",
+                            Description = "Canada",
+                            Name = "Canada",
+                            PostalCodeLabel = "Postal Code",
+                            StateLabel = "Province"
                         });
                 });
 
@@ -405,14 +452,16 @@ namespace Store.Domain.Migrations
 
                     b.Property<DateTime?>("DeletedUtc");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(255);
 
                     b.Property<int?>("ModifiedById");
 
                     b.Property<DateTime>("ModifiedUtc")
                         .HasColumnType("DateTime2");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .HasMaxLength(50);
 
                     b.Property<decimal>("Price")
                         .HasColumnType("Decimal(10, 2)");
@@ -451,7 +500,7 @@ namespace Store.Domain.Migrations
                             ModifiedById = 1,
                             ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "T-Shirt",
-                            Price = 1.00m,
+                            Price = 2.00m,
                             ProductStatusId = 1
                         });
                 });
@@ -502,6 +551,8 @@ namespace Store.Domain.Migrations
 
                     b.Property<string>("Abbreviation");
 
+                    b.Property<int?>("CountryId");
+
                     b.Property<string>("Description")
                         .HasMaxLength(255);
 
@@ -510,6 +561,8 @@ namespace Store.Domain.Migrations
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.ToTable("States");
 
@@ -982,6 +1035,13 @@ namespace Store.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("ProductStatusId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Store.Domain.Models.State", b =>
+                {
+                    b.HasOne("Store.Domain.Models.Country")
+                        .WithMany("States")
+                        .HasForeignKey("CountryId");
                 });
 
             modelBuilder.Entity("Store.Domain.Models.User", b =>
