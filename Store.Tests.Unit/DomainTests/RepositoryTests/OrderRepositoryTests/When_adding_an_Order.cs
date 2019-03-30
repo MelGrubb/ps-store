@@ -11,32 +11,34 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
         private Order _model;
         private Order _result;
 
+        [Test]
+        public void Then_the_new_Order_should_have_an_Id()
+        {
+            _result.Id.ShouldBe(SUT.StoreContext.Orders.OrderByDescending(x => x.Id).First().Id);
+        }
+
         protected override void Given()
         {
             base.Given();
 
-            var billingAddress = new Address
-            {
-                Line1 = "Billing Dept.",
-                Line2 = "123 Billing St.",
-                City = "BillingTown",
-                StateId = 1,
-                ZipCode = "12345"
-            };
-
-            var shippingAddress = new Address
-            {
-                Line1 = "Receiving Dept.",
-                Line2 = "123 Receiving St.",
-                City = "ReceivingTown",
-                StateId = 1,
-                ZipCode = "54321"
-            };
-
             _model = new Order
             {
-                BillingAddress = billingAddress,
-                ShippingAddress = shippingAddress,
+                BillingAddress = new Address
+                {
+                    Line1 = "Billing Dept.",
+                    Line2 = "123 Billing St.",
+                    City = "BillingTown",
+                    StateId = 1,
+                    ZipCode = "12345"
+                },
+                ShippingAddress = new Address
+                {
+                    Line1 = "Receiving Dept.",
+                    Line2 = "123 Receiving St.",
+                    City = "ReceivingTown",
+                    StateId = 1,
+                    ZipCode = "54321"
+                },
                 OrderStatusId = (int)OrderStatus.Ids.Received,
                 UserId = (int)User.Ids.SampleCustomer
             };
@@ -47,12 +49,6 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
             base.When();
 
             _result = SUT.AddAsync(AdminUserId, _model).Result;
-        }
-
-        [Test]
-        public void Then_the_new_Order_should_have_an_Id()
-        {
-            _result.Id.ShouldBe(SUT.StoreContext.Orders.OrderByDescending(x => x.Id).First().Id);
         }
     }
 }
