@@ -48,6 +48,16 @@
             <summary>Updates a Category.</summary>
             <returns></returns>
         </member>
+        <member name="T:Store.Web.Controllers.Api.CountryController">
+            <summary>Functionality relating to store management.</summary>
+            <seealso cref="T:Store.Web.Framework.StoreApiController" />
+        </member>
+        <member name="M:Store.Web.Controllers.Api.CountryController.GetAsync(Store.Common.Contracts.PagingOptions)">
+            <summary>Get all Countries.</summary>
+        </member>
+        <member name="M:Store.Web.Controllers.Api.CountryController.GetAsync(System.Int32)">
+            <summary>Get a an Country by Id.</summary>
+        </member>
         <member name="T:Store.Web.Controllers.Api.OrderController">
             <summary>Functionality relating to store management.</summary>
             <seealso cref="T:Store.Web.Framework.StoreApiController" />
