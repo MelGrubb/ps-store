@@ -15,6 +15,6 @@ namespace Store.Domain.Models
         public int StateId { get; set; }
 
         [MaxLength(10)]
-        public string ZipCode { get; set; }
+        public string PostalCode { get; set; }
     }
 }

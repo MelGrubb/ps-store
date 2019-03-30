@@ -43,7 +43,7 @@ namespace Store.Tests.Unit.ServiceTests.AddressServiceTests
                     Name = GetRandom.String(50),
                     Description = GetRandom.String(255)
                 },
-                ZipCode = _dto.ZipCode
+                PostalCode = _dto.ZipCode
             };
 
             GetMockFor<IAddressRepository>()

@@ -20,7 +20,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
                 Line2 = "123 Billing St.",
                 City = "BillingTown",
                 StateId = 1,
-                ZipCode = "12345"
+                PostalCode = "12345"
             };
 
             var shippingAddress = new Address
@@ -29,7 +29,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
                 Line2 = "123 Receiving St.",
                 City = "ReceivingTown",
                 StateId = 1,
-                ZipCode = "54321"
+                PostalCode = "54321"
             };
 
             var newOrder = new Order
