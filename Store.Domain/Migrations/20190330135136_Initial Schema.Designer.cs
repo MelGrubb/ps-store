@@ -10,7 +10,7 @@ using Store.Domain.Models;
 namespace Store.Domain.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20190328005456_Initial Schema")]
+    [Migration("20190330135136_Initial Schema")]
     partial class InitialSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -553,8 +553,6 @@ namespace Store.Domain.Migrations
 
                     b.Property<string>("Abbreviation");
 
-                    b.Property<int?>("CountryId");
-
                     b.Property<string>("Description")
                         .HasMaxLength(255);
 
@@ -563,8 +561,6 @@ namespace Store.Domain.Migrations
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
 
                     b.ToTable("States");
 
@@ -1037,13 +1033,6 @@ namespace Store.Domain.Migrations
                         .WithMany()
                         .HasForeignKey("ProductStatusId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Store.Domain.Models.State", b =>
-                {
-                    b.HasOne("Store.Domain.Models.Country")
-                        .WithMany("States")
-                        .HasForeignKey("CountryId");
                 });
 
             modelBuilder.Entity("Store.Domain.Models.User", b =>
