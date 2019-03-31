@@ -24,7 +24,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
                         Line2 = "Suite 456",
                         City = "Anytown",
                         StateId = 1,
-                        PostalCode = "12345"
+                        ZipCode = "12345"
                     },
                     FirstName = "Bob",
                     LastName = "Buyer",
@@ -39,7 +39,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
                         Line2 = "Suite 123",
                         City = "Othertown",
                         StateId = 1,
-                        PostalCode = "54321"
+                        ZipCode = "54321"
                     },
                     FirstName = "Sydney",
                     LastName = "Seller",

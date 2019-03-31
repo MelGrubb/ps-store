@@ -22,7 +22,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
                     Line2 = "Suite 456",
                     City = "AnyTown",
                     StateId = 1,
-                    PostalCode = "12345"
+                    ZipCode = "12345"
                 },
                 new Address
                 {
@@ -30,7 +30,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
                     Line2 = "Suite 123",
                     City = "OtherTown",
                     StateId = 2,
-                    PostalCode = "54321"
+                    ZipCode = "54321"
                 }
             };
         }

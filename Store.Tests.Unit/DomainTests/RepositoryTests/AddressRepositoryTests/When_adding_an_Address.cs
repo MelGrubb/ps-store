@@ -20,7 +20,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
                 Line2 = "Suite 456",
                 City = "AnyTown",
                 StateId = 1,
-                PostalCode = "12345"
+                ZipCode = "12345"
             };
         }
 

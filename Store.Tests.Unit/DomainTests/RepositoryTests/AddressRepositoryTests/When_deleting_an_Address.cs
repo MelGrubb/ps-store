@@ -18,7 +18,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
                 Line2 = "New Line 2",
                 City = "New City",
                 StateId = 1,
-                PostalCode = "12345"
+                ZipCode = "12345"
             };
 
             _model = SUT.AddAsync(AdminUserId, model).Result;

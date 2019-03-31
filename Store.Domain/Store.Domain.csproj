@@ -37,4 +37,8 @@
     <ProjectReference Include="..\Store.Common\Store.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

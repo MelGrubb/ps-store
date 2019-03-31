@@ -24,7 +24,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
             _model.Line2 = "Suite 456";
             _model.City = "New City";
             _model.StateId = 2;
-            _model.PostalCode = "98765";
+            _model.ZipCode = "98765";
             SUT.SaveChangesAsync(AdminUserId).Wait();
         }
 
@@ -37,7 +37,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
             newCopy.Line2.ShouldBe("Suite 456");
             newCopy.City.ShouldBe("New City");
             newCopy.StateId.ShouldBe(2);
-            newCopy.PostalCode.ShouldBe("98765");
+            newCopy.ZipCode.ShouldBe("98765");
         }
     }
 }

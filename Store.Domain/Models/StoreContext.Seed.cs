@@ -28,8 +28,8 @@ namespace Store.Domain.Models
         {
             var data = new[]
             {
-                new Address { Id = 1, Line1 = "Billing Dept.", Line2 = "123 Any St.", City = "Anytown", StateId = 1, PostalCode = "12345", CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
-                new Address { Id = 2, Line1 = "Receiving Dept.", Line2 = "123 Any St.", City = "Anytown", StateId = 1, PostalCode = "12345", CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
+                new Address { Id = 1, Line1 = "Billing Dept.", Line2 = "123 Any St.", City = "Anytown", StateId = 1, ZipCode = "12345", CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime },
+                new Address { Id = 2, Line1 = "Receiving Dept.", Line2 = "123 Any St.", City = "Anytown", StateId = 1, ZipCode = "12345", CreatedById = AdminUserId, CreatedUtc = _seedDateTime, ModifiedById = AdminUserId, ModifiedUtc = _seedDateTime }
             };
 
             modelBuilder.Entity<Address>(entity => entity.HasData(data));

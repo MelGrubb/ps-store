@@ -23,7 +23,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
                     Line2 = "123 Billing St.",
                     City = "BillingTown",
                     StateId = 1,
-                    PostalCode = "12345"
+                    ZipCode = "12345"
                 },
                 ShippingAddress = new Address
                 {
@@ -31,7 +31,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
                     Line2 = "123 Receiving St.",
                     City = "ReceivingTown",
                     StateId = 1,
-                    PostalCode = "54321"
+                    ZipCode = "54321"
                 },
                 OrderStatusId = (int)OrderStatus.Ids.Received,
                 UserId = (int)User.Ids.SampleCustomer
