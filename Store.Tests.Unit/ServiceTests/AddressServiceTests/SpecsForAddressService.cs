@@ -24,8 +24,8 @@ namespace Store.Tests.Unit.ServiceTests.AddressServiceTests
 
             Addresses = new List<Address>
             {
-                new Address { Id = 1, Line1 = "123 Any St.", Line2 = "Suite 456", City = "AnyTown", StateId = 1, ZipCode = "12345" },
-                new Address { Id = 2, Line1 = "456 Other St.", Line2 = "Suite 123", City = "OtherTown", StateId = 2, ZipCode = "54321" }
+                new Address { Id = 1, Line1 = "123 Any St.", Line2 = "Suite 456", City = "AnyTown", StateId = 1, PostalCode = "12345" },
+                new Address { Id = 2, Line1 = "456 Other St.", Line2 = "Suite 123", City = "OtherTown", StateId = 2, PostalCode = "54321" }
             };
 
             GetMockFor<IAddressRepository>()
