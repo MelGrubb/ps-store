@@ -27,7 +27,7 @@ namespace Store.Tests.Unit.ServiceTests.AddressServiceTests
                 Line2 = GetRandom.String(50),
                 City = GetRandom.String(50),
                 StateId = GetRandom.Int32(),
-                ZipCode = GetRandom.String(10)
+                PostalCode = GetRandom.String(10)
             };
 
             _newModel = new Address
@@ -43,7 +43,7 @@ namespace Store.Tests.Unit.ServiceTests.AddressServiceTests
                     Name = GetRandom.String(50),
                     Description = GetRandom.String(255)
                 },
-                PostalCode = _dto.ZipCode
+                PostalCode = _dto.PostalCode
             };
 
             GetMockFor<IAddressRepository>()
@@ -73,7 +73,7 @@ namespace Store.Tests.Unit.ServiceTests.AddressServiceTests
                 _dto.Line2,
                 _dto.City,
                 _dto.StateId,
-                _dto.ZipCode
+                _dto.PostalCode
             });
         }
 

@@ -34,7 +34,7 @@ namespace Store.Tests.Unit.ServiceTests.AddressServiceTests
                 _expected.Line2,
                 _expected.City,
                 _expected.StateId,
-                ZipCode = _expected.PostalCode
+                PostalCode = _expected.PostalCode
             });
         }
     }

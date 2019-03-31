@@ -10,6 +10,6 @@ namespace Store.Services.Contracts.Address
         public string Line2 { get; set; }
         public StateDto State { get; set; }
         public int StateId { get; set; }
-        public string ZipCode { get; set; }
+        public string PostalCode { get; set; }
     }
 }

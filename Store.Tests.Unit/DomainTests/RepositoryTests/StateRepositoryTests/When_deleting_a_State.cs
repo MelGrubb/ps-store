@@ -14,6 +14,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
 
             var model = new State
             {
+                CountryId = 1,
                 Name = "New State",
                 Description = "New State"
             };

@@ -49,7 +49,7 @@ namespace Store.Domain.Migrations
 
                     b.Property<int>("StateId");
 
-                    b.Property<string>("ZipCode")
+                    b.Property<string>("PostalCode")
                         .HasMaxLength(10);
 
                     b.HasKey("Id");
@@ -70,7 +70,7 @@ namespace Store.Domain.Migrations
                             ModifiedById = 1,
                             ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StateId = 1,
-                            ZipCode = "12345"
+                            PostalCode = "12345"
                         },
                         new
                         {
@@ -83,7 +83,7 @@ namespace Store.Domain.Migrations
                             ModifiedById = 1,
                             ModifiedUtc = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StateId = 1,
-                            ZipCode = "12345"
+                            PostalCode = "12345"
                         });
                 });
 

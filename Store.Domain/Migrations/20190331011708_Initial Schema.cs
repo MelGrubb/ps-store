@@ -138,7 +138,7 @@ namespace Store.Domain.Migrations
                     Line1 = table.Column<string>(nullable: true),
                     Line2 = table.Column<string>(nullable: true),
                     StateId = table.Column<int>(nullable: false),
-                    ZipCode = table.Column<string>(maxLength: 10, nullable: true)
+                    PostalCode = table.Column<string>(maxLength: 10, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -367,7 +367,7 @@ namespace Store.Domain.Migrations
 
             migrationBuilder.InsertData(
                 table: "Addresses",
-                columns: new[] { "Id", "City", "CreatedById", "CreatedUtc", "DeletedById", "DeletedUtc", "Line1", "Line2", "ModifiedById", "ModifiedUtc", "StateId", "ZipCode" },
+                columns: new[] { "Id", "City", "CreatedById", "CreatedUtc", "DeletedById", "DeletedUtc", "Line1", "Line2", "ModifiedById", "ModifiedUtc", "StateId", "PostalCode" },
                 values: new object[,]
                 {
                     { 1, "Anytown", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Billing Dept.", "123 Any St.", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "12345" },

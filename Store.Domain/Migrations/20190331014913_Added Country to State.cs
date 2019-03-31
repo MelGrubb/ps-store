@@ -7,7 +7,7 @@ namespace Store.Domain.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(
-                name: "ZipCode",
+                name: "PostalCode",
                 table: "Addresses",
                 newName: "PostalCode");
 
@@ -33,7 +33,7 @@ namespace Store.Domain.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 columns: new[] { "PostalCodeLabel", "StateLabel" },
-                values: new object[] { "ZipCode", "State" });
+                values: new object[] { "PostalCode", "State" });
 
             migrationBuilder.UpdateData(
                 table: "Countries",
@@ -558,7 +558,7 @@ namespace Store.Domain.Migrations
             migrationBuilder.RenameColumn(
                 name: "PostalCode",
                 table: "Addresses",
-                newName: "ZipCode");
+                newName: "PostalCode");
         }
     }
 }

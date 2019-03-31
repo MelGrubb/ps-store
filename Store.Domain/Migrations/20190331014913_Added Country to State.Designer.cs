@@ -160,7 +160,7 @@ namespace Store.Domain.Migrations
                             Abbreviation = "USA",
                             Description = "The United States of America",
                             Name = "The United States of America",
-                            PostalCodeLabel = "ZipCode",
+                            PostalCodeLabel = "PostalCode",
                             StateLabel = "State"
                         },
                         new

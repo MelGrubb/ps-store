@@ -51,7 +51,7 @@ namespace Store.Domain.Models
         {
             var data = new[]
             {
-                new Country { Id = 1, Abbreviation = "USA", Name = "The United States of America", Description = "The United States of America", PostalCodeLabel = "ZipCode", StateLabel = "State" },
+                new Country { Id = 1, Abbreviation = "USA", Name = "The United States of America", Description = "The United States of America", PostalCodeLabel = "PostalCode", StateLabel = "State" },
                 new Country { Id = 2, Abbreviation = "CAN", Name = "Canada", Description = "Canada", PostalCodeLabel = "Postal Code", StateLabel = "Province/Territory" }
             };
 

@@ -28,7 +28,7 @@ namespace Store.Tests.Unit.ServiceTests.AddressServiceTests
                 Line2 = GetRandom.String(50),
                 City = GetRandom.String(50),
                 StateId = GetRandom.Int32(),
-                ZipCode = GetRandom.String(10)
+                PostalCode = GetRandom.String(10)
             };
         }
 
@@ -63,7 +63,7 @@ namespace Store.Tests.Unit.ServiceTests.AddressServiceTests
                 _dto.Line2,
                 _dto.City,
                 _dto.StateId,
-                _dto.ZipCode
+                _dto.PostalCode
             });
         }
 
@@ -77,7 +77,7 @@ namespace Store.Tests.Unit.ServiceTests.AddressServiceTests
                 _dto.Line2,
                 _dto.City,
                 _dto.StateId,
-                _dto.ZipCode
+                _dto.PostalCode
             });
         }
     }
