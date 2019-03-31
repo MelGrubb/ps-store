@@ -24,8 +24,8 @@ namespace Store.Tests.Unit.ServiceTests.CountryServiceTests
 
             Countries = new List<Country>
             {
-                new Country { Id = 1, Name = "United States of America", Description = "The United States of America", Abbreviation = "USA", PostalCodeLabel = "ZipCode", StateLabel = "State" },
-                new Country { Id = 2, Name = "Canada", Description = "Canada", Abbreviation = "CAN", PostalCodeLabel = "Postal Code", StateLabel = "Province" },
+                new Country { Id = 1, Name = "United States of America", Description = "The United States of America", Abbreviation = "USA" },
+                new Country { Id = 2, Name = "Canada", Description = "Canada", Abbreviation = "CAN" },
             };
 
             GetMockFor<ICountryRepository>()

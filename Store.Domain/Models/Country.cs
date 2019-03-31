@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Store.Domain.Framework;
+﻿using Store.Domain.Framework;
 
 namespace Store.Domain.Models
 {
@@ -15,10 +13,10 @@ namespace Store.Domain.Models
 
         //public ICollection<State> States { get; set; }
 
-        [MaxLength(50)]
-        public string StateLabel { get; set; }
+        //[MaxLength(50)]
+        //public string StateLabel { get; set; }
 
-        [MaxLength(50)]
-        public string PostalCodeLabel { get; set; }
+        //[MaxLength(50)]
+        //public string PostalCodeLabel { get; set; }
     }
 }

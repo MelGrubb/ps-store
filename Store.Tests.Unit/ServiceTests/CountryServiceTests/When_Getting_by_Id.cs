@@ -33,8 +33,6 @@ namespace Store.Tests.Unit.ServiceTests.CountryServiceTests
                 _expected.Abbreviation,
                 _expected.Description,
                 _expected.Name,
-                _expected.PostalCodeLabel,
-                _expected.StateLabel
             });
         }
     }
