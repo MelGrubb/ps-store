@@ -18,14 +18,14 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
             {
                 new State
                 {
-                    CountryId = 1,
+                    //CountryId = 1,
                     Abbreviation = "YY",
                     Name = "New State",
                     Description = "Unexpected, but welcome"
                 },
                 new State
                 {
-                    CountryId = 1,
+                    //CountryId = 1,
                     Abbreviation = "ZZ",
                     Name = "Newer State",
                     Description = "Also unexpected, but welcome"
@@ -43,7 +43,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
         [Test]
         public void Then_the_new_address_should_have_an_Id()
         {
-            SUT.CountAsync().Result.ShouldBe(71);
+            SUT.CountAsync().Result.ShouldBe(58);
         }
     }
 }
