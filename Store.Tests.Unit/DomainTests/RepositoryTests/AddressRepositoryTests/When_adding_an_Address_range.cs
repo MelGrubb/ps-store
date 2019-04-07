@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
 {
@@ -9,6 +10,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
     public class When_adding_an_Address_range : Given_an_AddressRepository
     {
         private List<Address> _models;
+        private int _originalCount;
 
         protected override void Given()
         {
@@ -18,21 +20,23 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
             {
                 new Address
                 {
-                    Line1 = "123 Any St.",
-                    Line2 = "Suite 456",
-                    City = "AnyTown",
+                    Line1 = GetRandom.String(),
+                    Line2 = GetRandom.String(),
+                    City = GetRandom.String(),
                     StateId = 1,
-                    PostalCode = "12345"
+                    PostalCode = GetRandom.String(10, 10)
                 },
                 new Address
                 {
-                    Line1 = "456 Other St.",
-                    Line2 = "Suite 123",
-                    City = "OtherTown",
-                    StateId = 2,
-                    PostalCode = "54321"
+                    Line1 = GetRandom.String(),
+                    Line2 = GetRandom.String(),
+                    City = GetRandom.String(),
+                    StateId = 1,
+                    PostalCode = GetRandom.String(10, 10)
                 }
             };
+
+            _originalCount = SUT.CountAsync().Result;
         }
 
         protected override void When()
@@ -43,9 +47,15 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
         }
 
         [Test]
-        public void Then_the_new_address_should_have_an_Id()
+        public void Then_the_new_addresses_should_have_an_Id()
         {
-            SUT.CountAsync().Result.ShouldBe(4);
+            _models.ForEach(x => x.Id.ShouldBeGreaterThan(0));
+        }
+
+        [Test]
+        public void Then_the_new_addresses_were_added_to_the_table()
+        {
+            SUT.CountAsync().Result.ShouldBe(_originalCount + _models.Count);
         }
     }
 }

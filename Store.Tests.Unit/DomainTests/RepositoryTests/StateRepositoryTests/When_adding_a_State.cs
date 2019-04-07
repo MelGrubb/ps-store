@@ -17,7 +17,6 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
 
             _model = new State
             {
-                //CountryId = 1,
                 Abbreviation = "YY",
                 Name = "New State",
                 Description = "Unexpected, but welcome"

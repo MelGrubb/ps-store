@@ -18,14 +18,12 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
             {
                 new State
                 {
-                    //CountryId = 1,
                     Abbreviation = "YY",
                     Name = "New State",
                     Description = "Unexpected, but welcome"
                 },
                 new State
                 {
-                    //CountryId = 1,
                     Abbreviation = "ZZ",
                     Name = "Newer State",
                     Description = "Also unexpected, but welcome"
