@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Store.Domain.Migrations
 {
-    public partial class InitialSchema : Migration
+    public partial class M03InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -367,11 +367,11 @@ namespace Store.Domain.Migrations
 
             migrationBuilder.InsertData(
                 table: "Addresses",
-                columns: new[] { "Id", "City", "CreatedById", "CreatedUtc", "DeletedById", "DeletedUtc", "Line1", "Line2", "ModifiedById", "ModifiedUtc", "StateId", "PostalCode" },
+                columns: new[] { "Id", "City", "CreatedById", "CreatedUtc", "DeletedById", "DeletedUtc", "Line1", "Line2", "ModifiedById", "ModifiedUtc", "PostalCode", "StateId" },
                 values: new object[,]
                 {
-                    { 1, "Anytown", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Billing Dept.", "123 Any St.", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "12345" },
-                    { 2, "Anytown", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Receiving Dept.", "123 Any St.", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "12345" }
+                    { 1, "Anytown", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Billing Dept.", "123 Any St.", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "12345", 1 },
+                    { 2, "Anytown", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Receiving Dept.", "123 Any St.", 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "12345", 1 }
                 });
 
             migrationBuilder.InsertData(
