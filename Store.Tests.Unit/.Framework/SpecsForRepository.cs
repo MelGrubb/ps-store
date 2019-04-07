@@ -9,10 +9,9 @@ namespace Store.Tests.Unit.Framework
 {
     public abstract class SpecsForRepository<TRepository> : SpecsFor<TRepository> where TRepository : Repository
     {
-        protected override void AfterEachTest()
+        protected override void AfterSpec()
         {
-            base.AfterEachTest();
-
+            base.AfterSpec();
             _connection.Close();
         }
 

@@ -728,7 +728,7 @@ namespace Store.Tests.Unit.Framework
         /// <returns>A random string of less than 50 characters.</returns>
         public static string String()
         {
-            return String(0, 50, null);
+            return String(1, 50, null);
         }
 
         /// <summary>Returns a random string with a length less than the specified maximum.</summary>
@@ -736,7 +736,7 @@ namespace Store.Tests.Unit.Framework
         /// <returns>A random string with a length less than the specified maximum.</returns>
         public static string String(int maxLength)
         {
-            return String(0, maxLength, null);
+            return String(1, maxLength, null);
         }
 
         /// <summary>Returns a random string with a length in the specified range.</summary>
@@ -756,7 +756,7 @@ namespace Store.Tests.Unit.Framework
         ///     have.
         /// </param>
         /// <returns>A random string with a length in the specified range, excluding the specified value.</returns>
-        public static string String(int minLength = 0, int maxLength = 50, string exclude = null)
+        public static string String(int minLength = 1, int maxLength = 50, string exclude = null)
         {
             string result;
             do

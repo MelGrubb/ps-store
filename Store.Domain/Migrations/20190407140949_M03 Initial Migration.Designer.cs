@@ -10,7 +10,7 @@ using Store.Domain.Models;
 namespace Store.Domain.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20190402222049_M03 Initial Migration")]
+    [Migration("20190407140949_M03 Initial Migration")]
     partial class M03InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,8 @@ namespace Store.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .HasMaxLength(50);
 
                     b.Property<int?>("CreatedById");
 
@@ -38,9 +39,11 @@ namespace Store.Domain.Migrations
 
                     b.Property<DateTime?>("DeletedUtc");
 
-                    b.Property<string>("Line1");
+                    b.Property<string>("Line1")
+                        .HasMaxLength(50);
 
-                    b.Property<string>("Line2");
+                    b.Property<string>("Line2")
+                        .HasMaxLength(50);
 
                     b.Property<int?>("ModifiedById");
 
@@ -910,22 +913,28 @@ namespace Store.Domain.Migrations
 
                     b.Property<DateTime?>("DeletedUtc");
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .HasMaxLength(50);
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .HasMaxLength(50);
 
-                    b.Property<string>("MiddleName");
+                    b.Property<string>("MiddleName")
+                        .HasMaxLength(50);
 
                     b.Property<int?>("ModifiedById");
 
                     b.Property<DateTime>("ModifiedUtc")
                         .HasColumnType("DateTime2");
 
-                    b.Property<string>("PasswordHash");
+                    b.Property<string>("PasswordHash")
+                        .HasMaxLength(255);
 
-                    b.Property<string>("PhoneNumber");
+                    b.Property<string>("PhoneNumber")
+                        .HasMaxLength(50);
 
-                    b.Property<string>("UserName");
+                    b.Property<string>("UserName")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
