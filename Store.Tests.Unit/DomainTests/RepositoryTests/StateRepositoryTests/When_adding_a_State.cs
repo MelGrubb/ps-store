@@ -18,8 +18,6 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
             base.Given();
 
             _model = StateMother.Simple();
-            _model.Description = "Special Value";
-            _model.Name = GetRandom.String(51, 51);
         }
 
         protected override void When()
