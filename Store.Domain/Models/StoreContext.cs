@@ -65,16 +65,16 @@ namespace Store.Domain.Models
             Seed(modelBuilder);
         }
 
-        public int SaveChanges(int currentUserId)
+        public int SaveChanges(int userId)
         {
-            UpdateAuditFields(currentUserId);
+            UpdateAuditFields(userId);
             return base.SaveChanges();
         }
 
-        public Task<int> SaveChangesAsync(int currentUserId,
+        public Task<int> SaveChangesAsync(int userId,
             CancellationToken cancellationToken = default(CancellationToken))
         {
-            UpdateAuditFields(currentUserId);
+            UpdateAuditFields(userId);
             var result = base.SaveChangesAsync(cancellationToken);
 
             return result;

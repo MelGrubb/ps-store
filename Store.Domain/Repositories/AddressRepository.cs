@@ -17,9 +17,9 @@ namespace Store.Domain.Repositories
         {
         }
 
-        protected override IQueryable<Address> GetQuery(int currentUserId, Expression<Func<Address, bool>> predicate = null)
+        protected override IQueryable<Address> GetQuery(int userId, Expression<Func<Address, bool>> predicate = null)
         {
-            var query = GetBaseQuery(currentUserId, predicate)
+            var query = GetBaseQuery(userId, predicate)
                 .Include(x => x.State);
 
             return query;

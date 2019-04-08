@@ -17,9 +17,9 @@ namespace Store.Domain.Repositories
         {
         }
 
-        protected override IQueryable<Order> GetQuery(int currentUserId, Expression<Func<Order, bool>> predicate = null)
+        protected override IQueryable<Order> GetQuery(int userId, Expression<Func<Order, bool>> predicate = null)
         {
-            var query = GetBaseQuery(currentUserId, predicate)
+            var query = GetBaseQuery(userId, predicate)
                 .Include(x => x.OrderItems)
                 .ThenInclude(x => x.Product)
                 .ThenInclude(x => x.Category)

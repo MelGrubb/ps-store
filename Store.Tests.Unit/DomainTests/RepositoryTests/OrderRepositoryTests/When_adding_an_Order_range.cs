@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
 {
@@ -9,6 +10,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
     public class When_adding_an_Order_range : Given_an_OrderRepository
     {
         private List<Order> _models;
+        private int _originalCount;
 
         protected override void Given()
         {
@@ -16,49 +18,11 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
 
             _models = new List<Order>
             {
-                new Order
-                {
-                    BillingAddress = new Address
-                    {
-                        Line1 = "Billing Dept.",
-                        Line2 = "123 Billing St.",
-                        City = "BillingTown",
-                        StateId = 1,
-                        PostalCode = "12345"
-                    },
-                    ShippingAddress = new Address
-                    {
-                        Line1 = "Receiving Dept.",
-                        Line2 = "123 Receiving St.",
-                        City = "ReceivingTown",
-                        StateId = 1,
-                        PostalCode = "54321"
-                    },
-                    OrderStatusId = (int)OrderStatus.Ids.Received,
-                    UserId = (int)User.Ids.SampleCustomer
-                },
-                new Order
-                {
-                    BillingAddress = new Address
-                    {
-                        Line1 = "Billing Dept.",
-                        Line2 = "123 Billing St.",
-                        City = "BillingTown",
-                        StateId = 1,
-                        PostalCode = "12345"
-                    },
-                    ShippingAddress = new Address
-                    {
-                        Line1 = "Receiving Dept.",
-                        Line2 = "123 Receiving St.",
-                        City = "ReceivingTown",
-                        StateId = 1,
-                        PostalCode = "54321"
-                    },
-                    OrderStatusId = (int)OrderStatus.Ids.Processing,
-                    UserId = (int)User.Ids.SampleCustomer
-                }
+                OrderMother.Typical(),
+                OrderMother.Typical()
             };
+
+            _originalCount = SUT.CountAsync().Result;
         }
 
         protected override void When()
@@ -69,9 +33,15 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
         }
 
         [Test]
-        public void Then_the_new_address_should_have_an_Id()
+        public void Then_the_new_Orders_should_have_an_Id()
         {
-            SUT.CountAsync().Result.ShouldBe(6);
+            _models.ForEach(x => x.Id.ShouldBeGreaterThan(0));
+        }
+
+        [Test]
+        public void Then_the_new_Orders_were_added_to_the_table()
+        {
+            SUT.CountAsync().Result.ShouldBe(_originalCount + _models.Count);
         }
     }
 }

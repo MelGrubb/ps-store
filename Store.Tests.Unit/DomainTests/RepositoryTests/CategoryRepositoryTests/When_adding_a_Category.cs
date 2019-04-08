@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.CategoryRepositoryTests
 {
@@ -15,50 +15,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CategoryRepositoryTests
         {
             base.Given();
 
-            _model = new Category
-            {
-                Name = "Test Category",
-                Description = "Test Category",
-                ChildCategories = new List<Category>
-                {
-                    new Category
-                    {
-                        Name = "Test Child Category 1",
-                        Description = "Test Child Category 1",
-                        ChildCategories = new List<Category>
-                        {
-                            new Category
-                            {
-                                Name = "Test Grandchild Category 1.1",
-                                Description = "Test Grandchild Category 1.1"
-                            },
-                            new Category
-                            {
-                                Name = "Test Grandchild Category 1.2",
-                                Description = "Test Grandchild Category 1.2"
-                            }
-                        }
-                    },
-                    new Category
-                    {
-                        Name = "Test Child Category 2",
-                        Description = "Test Child Category 2",
-                        ChildCategories = new List<Category>
-                        {
-                            new Category
-                            {
-                                Name = "Test Grandchild Category 2.1",
-                                Description = "Test Grandchild Category 2.1"
-                            },
-                            new Category
-                            {
-                                Name = "Test Grandchild Category 2.2",
-                                Description = "Test Grandchild Category 2.2"
-                            }
-                        }
-                    }
-                }
-            };
+            _model = CategoryMother.Typical();
         }
 
         protected override void When()
@@ -69,9 +26,9 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CategoryRepositoryTests
         }
 
         [Test]
-        public void Then_the_new_address_should_have_an_Id()
+        public void Then_the_new_Category_should_have_an_Id()
         {
-            _result.Id.ShouldBe(4);
+            _result.Id.ShouldBeGreaterThan(0);
         }
     }
 }

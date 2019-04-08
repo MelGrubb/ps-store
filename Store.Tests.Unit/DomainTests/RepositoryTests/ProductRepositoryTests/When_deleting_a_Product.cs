@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.ProductRepositoryTests
 {
@@ -12,14 +13,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.ProductRepositoryTests
         {
             base.Given();
 
-            var model = new Product
-            {
-                CategoryId = (int)Category.Ids.Mens,
-                Description = "Men's Blue Oxford",
-                Name = "Men's Blue Oxford",
-                Price = 10.00m,
-                ProductStatusId = (int)ProductStatus.Ids.InStock
-            };
+            var model = ProductMother.Simple();
 
             _model = SUT.AddAsync(AdminUserId, model).Result;
             Assert.IsNotNull(SUT.GetAsync(AdminUserId, _model.Id).Result);

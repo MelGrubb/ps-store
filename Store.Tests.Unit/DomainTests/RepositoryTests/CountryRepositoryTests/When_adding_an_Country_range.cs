@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.CountryRepositoryTests
 {
@@ -9,6 +10,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CountryRepositoryTests
     public class When_adding_an_Country_range : Given_a_CountryRepository
     {
         private List<Country> _models;
+        private int _originalCount;
 
         protected override void Given()
         {
@@ -16,19 +18,11 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CountryRepositoryTests
 
             _models = new List<Country>
             {
-                new Country
-                {
-                    Abbreviation = "YY",
-                    Name = "New Country",
-                    Description = "Unexpected, but welcome"
-                },
-                new Country
-                {
-                    Abbreviation = "ZZ",
-                    Name = "Newer Country",
-                    Description = "Also unexpected, but welcome"
-                }
+                CountryMother.Typical(),
+                CountryMother.Typical()
             };
+
+            _originalCount = SUT.CountAsync().Result;
         }
 
         protected override void When()
@@ -39,9 +33,15 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CountryRepositoryTests
         }
 
         [Test]
-        public void Then_the_new_address_should_have_an_Id()
+        public void Then_the_new_Countries_should_have_an_Id()
         {
-            SUT.CountAsync().Result.ShouldBe(4);
+            _models.ForEach(x => x.Id.ShouldBeGreaterThan(0));
+        }
+
+        [Test]
+        public void Then_the_new_Countries_were_added_to_the_table()
+        {
+            SUT.CountAsync().Result.ShouldBe(_originalCount + _models.Count);
         }
     }
 }

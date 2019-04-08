@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.ProductRepositoryTests
 {
@@ -15,14 +15,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.ProductRepositoryTests
         {
             base.Given();
 
-            _model = new Product
-            {
-                CategoryId = (int)Category.Ids.Mens,
-                Description = "Men's Blue Oxford",
-                Name = "Men's Blue Oxford",
-                Price = 10.00m,
-                ProductStatusId = (int)ProductStatus.Ids.InStock
-            };
+            _model = ProductMother.Typical();
         }
 
         protected override void When()
@@ -35,7 +28,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.ProductRepositoryTests
         [Test]
         public void Then_the_new_Product_should_have_an_Id()
         {
-            _result.Id.ShouldBe(SUT.StoreContext.Products.OrderByDescending(x => x.Id).First().Id);
+            _result.Id.ShouldBeGreaterThan(0);
         }
     }
 }

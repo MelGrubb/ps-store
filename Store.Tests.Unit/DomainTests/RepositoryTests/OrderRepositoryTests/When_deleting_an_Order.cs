@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
 {
@@ -12,27 +13,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
         {
             base.Given();
 
-            var model = new Order
-            {
-                BillingAddress = new Address
-                {
-                    Line1 = "Billing Dept.",
-                    Line2 = "123 Billing St.",
-                    City = "BillingTown",
-                    StateId = 1,
-                    PostalCode = "12345"
-                },
-                ShippingAddress = new Address
-                {
-                    Line1 = "Receiving Dept.",
-                    Line2 = "123 Receiving St.",
-                    City = "ReceivingTown",
-                    StateId = 1,
-                    PostalCode = "54321"
-                },
-                OrderStatusId = (int)OrderStatus.Ids.Received,
-                UserId = (int)User.Ids.SampleCustomer
-            };
+            var model = OrderMother.Simple();
 
             _model = SUT.AddAsync(AdminUserId, model).Result;
             Assert.IsNotNull(SUT.GetAsync(AdminUserId, _model.Id).Result);

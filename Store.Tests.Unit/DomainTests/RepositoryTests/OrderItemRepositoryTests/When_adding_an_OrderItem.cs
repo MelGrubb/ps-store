@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
 {
@@ -15,36 +16,16 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
         {
             base.Given();
 
-            var newOrder = new Order
-            {
-                BillingAddress = new Address
-                {
-                    Line1 = "Billing Dept.",
-                    Line2 = "123 Billing St.",
-                    City = "BillingTown",
-                    StateId = 1,
-                    PostalCode = "12345"
-                },
-                ShippingAddress = new Address
-                {
-                    Line1 = "Receiving Dept.",
-                    Line2 = "123 Receiving St.",
-                    City = "ReceivingTown",
-                    StateId = 1,
-                    PostalCode = "54321"
-                },
-                OrderStatusId = (int)OrderStatus.Ids.Received,
-                UserId = (int)User.Ids.SampleCustomer
-            };
+            var order = OrderMother.Simple();
 
             _model = new OrderItem
             {
-                Order = newOrder,
+                Order = order,
                 Price = 1.00m,
                 ProductId = 1
             };
 
-            newOrder.OrderItems.Add(_model);
+            order.OrderItems.Add(_model);
         }
 
         protected override void When()
@@ -57,7 +38,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
         [Test]
         public void Then_the_new_OrderItem_should_have_an_Id()
         {
-            _result.Id.ShouldBe(SUT.StoreContext.OrderItems.OrderByDescending(x => x.Id).First().Id);
+            _result.Id.ShouldBeGreaterThan(0);
         }
     }
 }

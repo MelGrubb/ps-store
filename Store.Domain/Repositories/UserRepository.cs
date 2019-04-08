@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Store.Domain.Framework;
 using Store.Domain.Models;
 
@@ -16,9 +17,10 @@ namespace Store.Domain.Repositories
         {
         }
 
-        protected override IQueryable<User> GetQuery(int currentUserId, Expression<Func<User, bool>> predicate = null)
+        protected override IQueryable<User> GetQuery(int userId, Expression<Func<User, bool>> predicate = null)
         {
-            var query = GetBaseQuery(currentUserId, predicate);
+            var query = GetBaseQuery(userId, predicate)
+                .Include(x => x.Address);
 
             return query;
         }

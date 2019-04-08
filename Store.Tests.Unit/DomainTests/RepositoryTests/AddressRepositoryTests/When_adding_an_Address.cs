@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
-using Store.Tests.Unit.Framework;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
 {
@@ -15,14 +15,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
         {
             base.Given();
 
-            _model = new Address
-            {
-                Line1 = GetRandom.String(),
-                Line2 = GetRandom.String(),
-                City = GetRandom.String(),
-                StateId = 1,
-                PostalCode = GetRandom.String(10, 10)
-            };
+            _model = AddressMother.Typical();
         }
 
         protected override void When()
@@ -33,7 +26,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
         }
 
         [Test]
-        public void Then_the_new_address_should_have_an_Id()
+        public void Then_the_new_Address_should_have_an_Id()
         {
             _result.Id.ShouldBeGreaterThan(0);
         }

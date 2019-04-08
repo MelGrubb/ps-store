@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
 {
@@ -12,31 +13,10 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
         {
             base.Given();
 
-            var newOrder = new Order
-            {
-                BillingAddress = new Address
-                {
-                    Line1 = "Billing Dept.",
-                    Line2 = "123 Billing St.",
-                    City = "BillingTown",
-                    StateId = 1,
-                    PostalCode = "12345"
-                },
-                ShippingAddress = new Address
-                {
-                    Line1 = "Receiving Dept.",
-                    Line2 = "123 Receiving St.",
-                    City = "ReceivingTown",
-                    StateId = 1,
-                    PostalCode = "54321"
-                },
-                OrderStatusId = (int)OrderStatus.Ids.Received,
-                UserId = (int)User.Ids.SampleCustomer
-            };
-
+            var order = OrderMother.Simple();
             var model = new OrderItem
             {
-                Order = newOrder,
+                Order = order,
                 Price = 1.00m,
                 ProductId = 1
             };

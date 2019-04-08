@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.ProductRepositoryTests
 {
@@ -20,9 +21,9 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.ProductRepositoryTests
         {
             base.When();
 
-            _model.Description = "New Description";
-            _model.Name = "New Name";
-            _model.Price = 12.34m;
+            _model.Description = GetRandom.String(1, 255);
+            _model.Name = GetRandom.String(1, 50);
+            _model.Price = GetRandom.Decimal();
             _model.ProductStatusId = (int)ProductStatus.Ids.BackOrdered;
             SUT.SaveChangesAsync(AdminUserId).Wait();
         }
@@ -30,11 +31,11 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.ProductRepositoryTests
         [Test]
         public void Then_the_address_properties_should_have_been_updated()
         {
-            var newCopy = SUT.GetAsync(AdminUserId, 1).Result;
-            newCopy.Id.ShouldBe(1);
-            newCopy.Description.ShouldBe("New Description");
-            newCopy.Name.ShouldBe("New Name");
-            newCopy.Price.ShouldBe(12.34m);
+            var newCopy = SUT.GetAsync(AdminUserId, _model.Id).Result;
+            newCopy.Id.ShouldBe(_model.Id);
+            newCopy.Description.ShouldBe(_model.Description);
+            newCopy.Name.ShouldBe(_model.Name);
+            newCopy.Price.ShouldBe(_model.Price);
             newCopy.ProductStatusId.ShouldBe((int)ProductStatus.Ids.BackOrdered);
         }
     }

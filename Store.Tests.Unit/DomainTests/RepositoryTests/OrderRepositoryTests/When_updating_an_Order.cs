@@ -27,8 +27,8 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderRepositoryTests
         [Test]
         public void Then_the_address_properties_should_have_been_updated()
         {
-            var newCopy = SUT.GetAsync(AdminUserId, 1).Result;
-            newCopy.Id.ShouldBe(1);
+            var newCopy = SUT.GetAsync(AdminUserId, _model.Id).Result;
+            newCopy.Id.ShouldBe(_model.Id);
             newCopy.OrderStatusId.ShouldBe((int)OrderStatus.Ids.Processing);
         }
     }

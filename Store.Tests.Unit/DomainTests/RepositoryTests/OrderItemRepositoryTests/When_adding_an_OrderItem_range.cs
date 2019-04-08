@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
 {
@@ -9,52 +11,31 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
     public class When_adding_an_OrderItem_range : Given_an_OrderItemRepository
     {
         private List<OrderItem> _models;
+        private int _originalCount;
 
         protected override void Given()
         {
             base.Given();
 
-            var billingAddress = new Address
-            {
-                Line1 = "Billing Dept.",
-                Line2 = "123 Billing St.",
-                City = "BillingTown",
-                StateId = 1,
-                PostalCode = "12345"
-            };
-
-            var shippingAddress = new Address
-            {
-                Line1 = "Receiving Dept.",
-                Line2 = "123 Receiving St.",
-                City = "ReceivingTown",
-                StateId = 1,
-                PostalCode = "54321"
-            };
-
-            var newOrder = new Order
-            {
-                BillingAddress = billingAddress,
-                ShippingAddress = shippingAddress,
-                OrderStatusId = (int)OrderStatus.Ids.Received,
-                UserId = (int)User.Ids.SampleCustomer
-            };
+            var order = OrderMother.Simple();
 
             _models = new List<OrderItem>
             {
                 new OrderItem
                 {
-                    Order = newOrder,
+                    Order = order,
                     Price = 1.00m,
                     ProductId = 1
                 },
                 new OrderItem
                 {
-                    Order = newOrder,
+                    Order = order,
                     Price = 2.00m,
                     ProductId = 2
                 }
             };
+
+            _originalCount = SUT.CountAsync().Result;
         }
 
         protected override void When()
@@ -65,9 +46,15 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
         }
 
         [Test]
-        public void Then_the_new_address_should_have_an_Id()
+        public void Then_the_new_OrderItems_should_have_an_Id()
         {
-            SUT.CountAsync().Result.ShouldBe(10);
+            _models.ForEach(x => x.Id.ShouldBeGreaterThan(0));
+        }
+
+        [Test]
+        public void Then_the_new_OrderItems_were_added_to_the_table()
+        {
+            SUT.CountAsync().Result.ShouldBe(_originalCount + _models.Count);
         }
     }
 }

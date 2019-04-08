@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.CountryRepositoryTests
 {
@@ -15,12 +15,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CountryRepositoryTests
         {
             base.Given();
 
-            _model = new Country
-            {
-                Abbreviation = "YY",
-                Name = "New Country",
-                Description = "Unexpected, but welcome"
-            };
+            _model = CountryMother.Typical();
         }
 
         protected override void When()
@@ -33,7 +28,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CountryRepositoryTests
         [Test]
         public void Then_the_new_Country_should_have_an_Id()
         {
-            _result.Id.ShouldBe(SUT.StoreContext.Countries.OrderByDescending(x => x.Id).First().Id);
+            _result.Id.ShouldBeGreaterThan(0);
         }
     }
 }

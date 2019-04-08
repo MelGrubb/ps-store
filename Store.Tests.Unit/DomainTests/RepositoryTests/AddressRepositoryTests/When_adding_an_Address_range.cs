@@ -3,6 +3,7 @@ using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
 using Store.Tests.Unit.Framework;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
 {
@@ -18,22 +19,8 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
 
             _models = new List<Address>
             {
-                new Address
-                {
-                    Line1 = GetRandom.String(),
-                    Line2 = GetRandom.String(),
-                    City = GetRandom.String(),
-                    StateId = 1,
-                    PostalCode = GetRandom.String(10, 10)
-                },
-                new Address
-                {
-                    Line1 = GetRandom.String(),
-                    Line2 = GetRandom.String(),
-                    City = GetRandom.String(),
-                    StateId = 1,
-                    PostalCode = GetRandom.String(10, 10)
-                }
+                AddressMother.Typical(),
+                AddressMother.JoeCustomerShippingAddress()
             };
 
             _originalCount = SUT.CountAsync().Result;

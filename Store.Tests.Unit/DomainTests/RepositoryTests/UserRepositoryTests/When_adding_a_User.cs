@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
 {
@@ -15,21 +15,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
         {
             base.Given();
 
-            _model = new User
-            {
-                Address = new Address
-                {
-                    Line1 = "123 Any St.",
-                    Line2 = "Suite 456",
-                    City = "Anytown",
-                    StateId = 1,
-                    PostalCode = "12345"
-                },
-                FirstName = "Bob",
-                LastName = "Buyer",
-                UserName = "buyer@mailinator.com",
-                PhoneNumber = "2345678901"
-            };
+            _model = UserMother.Typical();
         }
 
         protected override void When()
@@ -42,7 +28,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
         [Test]
         public void Then_the_new_User_should_have_an_Id()
         {
-            _result.Id.ShouldBe(SUT.StoreContext.Users.OrderByDescending(x => x.Id).First().Id);
+            _result.Id.ShouldBeGreaterThan(0);
         }
     }
 }

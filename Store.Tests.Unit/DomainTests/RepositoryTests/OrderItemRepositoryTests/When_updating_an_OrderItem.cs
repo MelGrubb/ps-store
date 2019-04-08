@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
 {
@@ -20,18 +21,18 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.OrderItemRepositoryTests
         {
             base.When();
 
-            _model.Price = 12.34m;
-            _model.Quantity = 5;
+            _model.Price = GetRandom.Decimal();
+            _model.Quantity = GetRandom.Int32();
             SUT.SaveChangesAsync(AdminUserId).Wait();
         }
 
         [Test]
         public void Then_the_address_properties_should_have_been_updated()
         {
-            var newCopy = SUT.GetAsync(AdminUserId, 1).Result;
-            newCopy.Id.ShouldBe(1);
-            newCopy.Price.ShouldBe(12.34m);
-            newCopy.Quantity.ShouldBe(5);
+            var newCopy = SUT.GetAsync(AdminUserId, _model.Id).Result;
+            newCopy.Id.ShouldBe(_model.Id);
+            newCopy.Price.ShouldBe(_model.Price);
+            newCopy.Quantity.ShouldBe(_model.Quantity);
         }
     }
 }

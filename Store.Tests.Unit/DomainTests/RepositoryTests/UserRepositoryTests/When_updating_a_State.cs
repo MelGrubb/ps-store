@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
 {
@@ -20,10 +21,10 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
         {
             base.When();
 
-            _model.FirstName = "New FirstName";
-            _model.MiddleName = "New MiddleName";
-            _model.LastName = "New LastName";
-            _model.UserName = "New UserName";
+            _model.FirstName = GetRandom.FirstName();
+            _model.MiddleName = GetRandom.FirstName();
+            _model.LastName = GetRandom.LastName();
+            _model.UserName = GetRandom.String(1, 50);
 
             SUT.SaveChangesAsync(AdminUserId).Wait();
         }
@@ -31,12 +32,12 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.UserRepositoryTests
         [Test]
         public void Then_the_address_properties_should_have_been_updated()
         {
-            var newCopy = SUT.GetAsync(AdminUserId, 1).Result;
-            newCopy.Id.ShouldBe(1);
-            newCopy.FirstName.ShouldBe("New FirstName");
-            newCopy.MiddleName.ShouldBe("New MiddleName");
-            newCopy.LastName.ShouldBe("New LastName");
-            newCopy.UserName.ShouldBe("New UserName");
+            var newCopy = SUT.GetAsync(AdminUserId, _model.Id).Result;
+            newCopy.Id.ShouldBe(_model.Id);
+            newCopy.FirstName.ShouldBe(_model.FirstName);
+            newCopy.MiddleName.ShouldBe(_model.MiddleName);
+            newCopy.LastName.ShouldBe(_model.LastName);
+            newCopy.UserName.ShouldBe(_model.UserName);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
 {
@@ -12,14 +13,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
         {
             base.Given();
 
-            var model = new Address
-            {
-                Line1 = "New Line 1",
-                Line2 = "New Line 2",
-                City = "New City",
-                StateId = 1,
-                PostalCode = "12345"
-            };
+            var model = AddressMother.Typical();
 
             _model = SUT.AddAsync(AdminUserId, model).Result;
             Assert.IsNotNull(SUT.GetAsync(AdminUserId, _model.Id).Result);
