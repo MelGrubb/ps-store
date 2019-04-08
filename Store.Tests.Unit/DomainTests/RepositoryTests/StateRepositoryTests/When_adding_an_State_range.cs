@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
 {
@@ -16,18 +17,8 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
 
             _models = new List<State>
             {
-                new State
-                {
-                    Abbreviation = "YY",
-                    Name = "New State",
-                    Description = "Unexpected, but welcome"
-                },
-                new State
-                {
-                    Abbreviation = "ZZ",
-                    Name = "Newer State",
-                    Description = "Also unexpected, but welcome"
-                }
+                StateMother.Simple(),
+                StateMother.Simple()
             };
         }
 

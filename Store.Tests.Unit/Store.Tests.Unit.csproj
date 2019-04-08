@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include=".Framework\GetRandom.cs" />
     <Compile Include=".Framework\GetRandomTests.cs" />
+    <Compile Include=".Framework\Mothers\StateMother.cs" />
     <Compile Include=".Framework\SpecsForService.cs" />
     <Compile Include=".Framework\SpecsForRepository.cs" />
   </ItemGroup>

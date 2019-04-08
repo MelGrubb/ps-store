@@ -2,6 +2,8 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
 {
@@ -15,12 +17,9 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
         {
             base.Given();
 
-            _model = new State
-            {
-                Abbreviation = "YY",
-                Name = "New State",
-                Description = "Unexpected, but welcome"
-            };
+            _model = StateMother.Simple();
+            _model.Description = "Special Value";
+            _model.Name = GetRandom.String(51, 51);
         }
 
         protected override void When()

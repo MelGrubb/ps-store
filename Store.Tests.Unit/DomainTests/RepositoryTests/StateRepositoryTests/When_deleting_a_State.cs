@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
 {
@@ -12,11 +13,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
         {
             base.Given();
 
-            var model = new State
-            {
-                Name = "New State",
-                Description = "New State"
-            };
+            var model = StateMother.Simple();
 
             _model = SUT.AddAsync(AdminUserId, model).Result;
             Assert.IsNotNull(SUT.GetAsync(AdminUserId, _model.Id).Result);
