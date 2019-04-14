@@ -9,7 +9,8 @@ namespace Store.Tests.Unit.Framework.Mothers
             return new State
             {
                 Abbreviation = GetRandom.String(2, 2),
-                Name = GetRandom.String(1, 50)
+                Name = GetRandom.String(1, 50),
+                Country = CountryMother.Simple()
             };
         }
 
