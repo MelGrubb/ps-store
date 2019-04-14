@@ -2,7 +2,7 @@
 
 namespace Store.Tests.Unit.Framework.Mothers
 {
-    internal static class StateMother
+    public static class StateMother
     {
         public static State Simple()
         {
