@@ -2,8 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
-using Store.Tests.Unit.Framework;
-using Store.Tests.Unit.Framework.Mothers;
+using Store.Tests.Unit.Framework.Builders;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
 {
@@ -19,8 +18,8 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
 
             _models = new List<Address>
             {
-                AddressMother.Typical(),
-                AddressMother.JoeCustomerShippingAddress()
+                AddressBuilder.Typical().Build(),
+                AddressBuilder.JoeCustomerShipping().Build()
             };
 
             _originalCount = SUT.CountAsync().Result;

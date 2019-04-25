@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
-using Store.Tests.Unit.Framework.Mothers;
+using Store.Tests.Unit.Framework.Builders;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
 {
@@ -18,8 +18,8 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.StateRepositoryTests
 
             _models = new List<State>
             {
-                StateMother.Simple(),
-                StateMother.Simple()
+                StateBuilder.Simple().Build(),
+                StateBuilder.Simple().Build()
             };
 
             _originalCount = SUT.CountAsync().Result;

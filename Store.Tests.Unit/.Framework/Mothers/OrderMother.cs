@@ -1,4 +1,5 @@
 ﻿using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Builders;
 
 namespace Store.Tests.Unit.Framework.Mothers
 {
@@ -8,8 +9,8 @@ namespace Store.Tests.Unit.Framework.Mothers
         {
             return new Order
             {
-                BillingAddress = AddressMother.Simple(),
-                ShippingAddress = AddressMother.Simple(),
+                BillingAddress = AddressBuilder.Simple().Build(),
+                ShippingAddress = AddressBuilder.Simple().Build(),
                 OrderStatusId = (int)OrderStatus.Ids.Received,
                 User = UserMother.Simple()
             };

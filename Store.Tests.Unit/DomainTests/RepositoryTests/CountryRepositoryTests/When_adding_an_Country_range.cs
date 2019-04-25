@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
-using Store.Tests.Unit.Framework.Mothers;
+using Store.Tests.Unit.Framework.Builders;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.CountryRepositoryTests
 {
@@ -18,8 +18,8 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CountryRepositoryTests
 
             _models = new List<Country>
             {
-                CountryMother.Typical(),
-                CountryMother.Typical()
+                CountryBuilder.Typical().Build(),
+                CountryBuilder.Typical().Build()
             };
 
             _originalCount = SUT.CountAsync().Result;

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
-using Store.Tests.Unit.Framework.Mothers;
+using Store.Tests.Unit.Framework.Builders;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
 {
@@ -15,7 +15,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.AddressRepositoryTests
         {
             base.Given();
 
-            _model = AddressMother.Typical();
+            _model = AddressBuilder.Typical().Build();
         }
 
         protected override void When()

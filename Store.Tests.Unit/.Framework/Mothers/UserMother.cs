@@ -1,4 +1,5 @@
 ﻿using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Builders;
 
 namespace Store.Tests.Unit.Framework.Mothers
 {
@@ -8,7 +9,7 @@ namespace Store.Tests.Unit.Framework.Mothers
         {
             return new User
             {
-                Address = AddressMother.Simple(),
+                Address = AddressBuilder.Simple().Build(),
                 FirstName = GetRandom.FirstName(),
                 LastName = GetRandom.LastName(),
                 MiddleName = GetRandom.FirstName(),
