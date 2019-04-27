@@ -14,11 +14,14 @@
     <Compile Include=".Framework\Builders\StateBuilder.cs" />
     <Compile Include=".Framework\GetRandom.cs" />
     <Compile Include=".Framework\GetRandomTests.cs" />
+    <Compile Include=".Framework\Mothers\AddressMother.cs" />
     <Compile Include=".Framework\Mothers\CategoryMother.cs" />
+    <Compile Include=".Framework\Mothers\CountryMother.cs" />
     <Compile Include=".Framework\Mothers\OrderItemMother.cs" />
     <Compile Include=".Framework\Mothers\OrderMother.cs" />
     <Compile Include=".Framework\Mothers\ProductMother.cs" />
     <Compile Include=".Framework\Mothers\ProductStatusMother.cs" />
+    <Compile Include=".Framework\Mothers\StateMother.cs" />
     <Compile Include=".Framework\Mothers\UserMother.cs" />
     <Compile Include=".Framework\SpecsForService.cs" />
     <Compile Include=".Framework\SpecsForRepository.cs" />
