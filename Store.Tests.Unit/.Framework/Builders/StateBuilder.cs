@@ -1,19 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Store.Domain.Models;
 
 namespace Store.Tests.Unit.Framework.Builders
 {
     public class StateBuilder
     {
-        private readonly State _object = new State();
+        private Lazy<string> _abbreviation = new Lazy<string>(default(string));
+        private Lazy<Country> _country = new Lazy<Country>(default(Country));
+        private Lazy<int> _countryId = new Lazy<int>(default(int));
+        private Lazy<string> _description = new Lazy<string>(default(string));
+        private Lazy<int> _id = new Lazy<int>(default(int));
+        private Lazy<string> _name = new Lazy<string>(default(string));
+        private Lazy<State> _object;
 
         public State Build()
         {
-            _object?.Country?.States?.Add(_object);
+            if (_object == null)
+            {
+                _object = new Lazy<State>(new State
+                {
+                    Id = _id.Value,
+                    Abbreviation = _abbreviation.Value,
+                    Name = _name.Value,
+                    Description = _description.Value,
+                    Country = _country.Value,
+                    CountryId = _countryId.Value
+                });
+            }
 
-            return _object;
+            _object?.Value?.Country?.States?.Add(_object.Value);
+
+            return _object.Value;
         }
 
         public static StateBuilder Default()
@@ -37,40 +54,74 @@ namespace Store.Tests.Unit.Framework.Builders
 
         public StateBuilder WithAbbreviation(string value)
         {
-            _object.Abbreviation = value;
-            return this;
+            return WithAbbreviation(() => value);
         }
 
-        public StateBuilder WithName(string value)
+        public StateBuilder WithAbbreviation(Func<string> func)
         {
-            _object.Name = value;
-            return this;
-        }
-
-        public StateBuilder WithDescription(string value)
-        {
-            _object.Description = value;
+            _abbreviation = new Lazy<string>(func);
             return this;
         }
 
         public StateBuilder WithCountry(Country value)
         {
-            _object.Country = value;
-            _object.CountryId = value?.Id ?? 0;
+            return WithCountry(() => value);
+        }
+
+        public StateBuilder WithCountry(Func<Country> func)
+        {
+            _country = new Lazy<Country>(func);
+
             return this;
         }
 
         public StateBuilder WithCountryId(int value)
         {
-            _object.CountryId = value;
-            _object.Country = null;
+            return WithCountryId(() => value);
+        }
+
+        public StateBuilder WithCountryId(Func<int> func)
+        {
+            _countryId = new Lazy<int>(func);
+            return this;
+        }
+
+        public StateBuilder WithDescription(string value)
+        {
+            return WithDescription(() => value);
+        }
+
+        public StateBuilder WithDescription(Func<string> func)
+        {
+            _description = new Lazy<string>(func);
+            return this;
+        }
+
+        public StateBuilder WithId(int value)
+        {
+            return WithId(() => value);
+        }
+
+        public StateBuilder WithId(Func<int> func)
+        {
+            _id = new Lazy<int>(func);
+            return this;
+        }
+
+        public StateBuilder WithName(string value)
+        {
+            return WithName(() => value);
+        }
+
+        public StateBuilder WithName(Func<string> func)
+        {
+            _name = new Lazy<string>(func);
             return this;
         }
 
         public StateBuilder WithoutCountry()
         {
-            _object.Country = null;
-            _object.CountryId = 0;
+            _country = new Lazy<Country>((Country)null);
             return this;
         }
     }
