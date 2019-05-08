@@ -119,6 +119,17 @@ namespace Store.Tests.Unit.Framework.Builders
             return this;
         }
 
+        public StateBuilder WithObject(State value)
+        {
+            return WithObject(() => value);
+        }
+
+        public StateBuilder WithObject(Func<State> func)
+        {
+            _object = new Lazy<State>(func);
+            return this;
+        }
+
         public StateBuilder WithoutCountry()
         {
             _country = new Lazy<Country>((Country)null);

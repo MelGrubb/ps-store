@@ -107,6 +107,17 @@ namespace Store.Tests.Unit.Framework.Builders
             return this;
         }
 
+        public AddressBuilder WithObject(Address value)
+        {
+            return WithObject(() => value);
+        }
+
+        public AddressBuilder WithObject(Func<Address> func)
+        {
+            _object = new Lazy<Address>(func);
+            return this;
+        }
+
         public AddressBuilder WithPostalCode(string value)
         {
             return WithPostalCode(() => value);

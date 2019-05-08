@@ -96,6 +96,17 @@ namespace Store.Tests.Unit.Framework.Builders
             return this;
         }
 
+        public CountryBuilder WithObject(Country value)
+        {
+            return WithObject(() => value);
+        }
+
+        public CountryBuilder WithObject(Func<Country> func)
+        {
+            _object = new Lazy<Country>(func);
+            return this;
+        }
+
         public CountryBuilder WithPostalCodeLabel(string value)
         {
             return WithPostalCodeLabel(() => value);
