@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Builders;
 using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.CategoryRepositoryTests
@@ -13,7 +14,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CategoryRepositoryTests
         {
             base.Given();
 
-            var model = CategoryMother.Typical();
+            var model = CategoryBuilder.Typical().Build();
 
             _model = SUT.AddAsync(AdminUserId, model).Result;
             Assert.IsNotNull(SUT.GetAsync(AdminUserId, _model.Id).Result);

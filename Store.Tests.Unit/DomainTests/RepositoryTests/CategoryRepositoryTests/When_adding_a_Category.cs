@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Builders;
 using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.CategoryRepositoryTests
@@ -15,7 +16,7 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CategoryRepositoryTests
         {
             base.Given();
 
-            _model = CategoryMother.Typical();
+            _model = CategoryBuilder.Typical().Build();
         }
 
         protected override void When()

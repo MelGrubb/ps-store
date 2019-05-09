@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Builders;
 using Store.Tests.Unit.Framework.Mothers;
 
 namespace Store.Tests.Unit.DomainTests.RepositoryTests.CategoryRepositoryTests
@@ -18,8 +19,8 @@ namespace Store.Tests.Unit.DomainTests.RepositoryTests.CategoryRepositoryTests
 
             _models = new List<Category>
             {
-                CategoryMother.Simple(),
-                CategoryMother.Simple()
+                CategoryBuilder.Simple().Build(),
+                CategoryBuilder.Simple().Build()
             };
 
             _originalCount = SUT.CountAsync().Result;

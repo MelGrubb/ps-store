@@ -1,4 +1,5 @@
 ﻿using Store.Domain.Models;
+using Store.Tests.Unit.Framework.Builders;
 
 namespace Store.Tests.Unit.Framework.Mothers
 {
@@ -18,7 +19,7 @@ namespace Store.Tests.Unit.Framework.Mothers
             return new Product
             {
                 Name = GetRandom.String(1, 50),
-                Category = CategoryMother.Simple(),
+                Category = CategoryBuilder.Simple().Build(),
                 Description = GetRandom.String(1, 255),
                 Price = GetRandom.Decimal(1, 10),
                 ProductStatus = ProductStatusMother.Simple()
