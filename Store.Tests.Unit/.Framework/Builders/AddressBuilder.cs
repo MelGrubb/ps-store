@@ -3,7 +3,7 @@ using Store.Domain.Models;
 
 namespace Store.Tests.Unit.Framework.Builders
 {
-    public class AddressBuilder
+    public class AddressBuilder : Builder<Address>
     {
         private Lazy<string> _city = new Lazy<string>(default(string));
         private Lazy<int> _id = new Lazy<int>(default(int));
@@ -13,7 +13,7 @@ namespace Store.Tests.Unit.Framework.Builders
         private Lazy<string> _postalCode = new Lazy<string>(default(string));
         private Lazy<State> _state = new Lazy<State>(default(State));
 
-        public Address Build()
+        public override Address Build()
         {
             if (_object == null)
             {

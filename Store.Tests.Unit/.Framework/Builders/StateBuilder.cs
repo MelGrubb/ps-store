@@ -3,7 +3,7 @@ using Store.Domain.Models;
 
 namespace Store.Tests.Unit.Framework.Builders
 {
-    public class StateBuilder
+    public class StateBuilder : Builder<State>
     {
         private Lazy<string> _abbreviation = new Lazy<string>(default(string));
         private Lazy<Country> _country = new Lazy<Country>(default(Country));
@@ -13,7 +13,7 @@ namespace Store.Tests.Unit.Framework.Builders
         private Lazy<string> _name = new Lazy<string>(default(string));
         private Lazy<State> _object;
 
-        public State Build()
+        public override State Build()
         {
             if (_object == null)
             {

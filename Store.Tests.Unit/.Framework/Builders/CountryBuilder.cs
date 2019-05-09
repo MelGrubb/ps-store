@@ -4,7 +4,7 @@ using Store.Domain.Models;
 
 namespace Store.Tests.Unit.Framework.Builders
 {
-    public class CountryBuilder
+    public class CountryBuilder : Builder<Country>
     {
         private Lazy<string> _abbreviation = new Lazy<string>(default(string));
         private Lazy<string> _description = new Lazy<string>(default(string));
@@ -15,7 +15,7 @@ namespace Store.Tests.Unit.Framework.Builders
         private Lazy<string> _stateLabel = new Lazy<string>(default(string));
         private Lazy<ICollection<State>> _states = new Lazy<ICollection<State>>(default(ICollection<State>));
 
-        public Country Build()
+        public override Country Build()
         {
             if (_object == null)
             {

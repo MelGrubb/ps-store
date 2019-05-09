@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Compile Include=".Framework\Builders\AddressBuilder.cs" />
+    <Compile Include=".Framework\Builders\Builder.cs" />
     <Compile Include=".Framework\Builders\CountryBuilder.cs" />
     <Compile Include=".Framework\Builders\StateBuilder.cs" />
     <Compile Include=".Framework\GetRandom.cs" />
