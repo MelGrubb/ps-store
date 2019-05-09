@@ -33,38 +33,6 @@ namespace Store.Tests.Unit.Framework.Builders
 
     public partial class AddressBuilder : Builder<Address>
     {
-        private Lazy<string> _city = new Lazy<string>(default(string));
-        private Lazy<int> _id = new Lazy<int>(default(int));
-        private Lazy<string> _line1 = new Lazy<string>(default(string));
-        private Lazy<string> _line2 = new Lazy<string>(default(string));
-        private Lazy<Address> _object;
-        private Lazy<string> _postalCode = new Lazy<string>(default(string));
-        private Lazy<State> _state = new Lazy<State>(default(State));
-
-        public override Address Build()
-        {
-            if (_object == null)
-            {
-                _object = new Lazy<Address>(new Address
-                {
-                    Id = _id.Value,
-                    Line1 = _line1.Value,
-                    Line2 = _line2.Value,
-                    City = _city.Value,
-                    State = _state.Value,
-                    StateId = _state.Value.Id,
-                    PostalCode = _postalCode.Value
-                });
-            }
-
-            return _object.Value;
-        }
-
-        public static AddressBuilder Default()
-        {
-            return new AddressBuilder();
-        }
-
         public AddressBuilder WithCity(string value)
         {
             return WithCity(() => value);
@@ -106,17 +74,6 @@ namespace Store.Tests.Unit.Framework.Builders
         public AddressBuilder WithLine2(Func<string> func)
         {
             _line2 = new Lazy<string>(func);
-            return this;
-        }
-
-        public AddressBuilder WithObject(Address value)
-        {
-            return WithObject(() => value);
-        }
-
-        public AddressBuilder WithObject(Func<Address> func)
-        {
-            _object = new Lazy<Address>(func);
             return this;
         }
 

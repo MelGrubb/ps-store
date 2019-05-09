@@ -5,6 +5,11 @@ namespace Store.Tests.Unit.Framework.Builders
 {
     public partial class StateBuilder
     {
+        protected override void PostBuild(State value)
+        {
+            value?.Country?.States?.Add(value);
+        }
+
         public static StateBuilder Simple()
         {
             return Default()
@@ -22,39 +27,6 @@ namespace Store.Tests.Unit.Framework.Builders
 
     public partial class StateBuilder : Builder<State>
     {
-        private Lazy<string> _abbreviation = new Lazy<string>(default(string));
-        private Lazy<Country> _country = new Lazy<Country>(default(Country));
-        private Lazy<int> _countryId = new Lazy<int>(default(int));
-        private Lazy<string> _description = new Lazy<string>(default(string));
-        private Lazy<int> _id = new Lazy<int>(default(int));
-        private Lazy<string> _name = new Lazy<string>(default(string));
-        private Lazy<State> _object;
-
-        public override State Build()
-        {
-            if (_object == null)
-            {
-                _object = new Lazy<State>(new State
-                {
-                    Id = _id.Value,
-                    Abbreviation = _abbreviation.Value,
-                    Name = _name.Value,
-                    Description = _description.Value,
-                    Country = _country.Value,
-                    CountryId = _countryId.Value
-                });
-            }
-
-            _object?.Value?.Country?.States?.Add(_object.Value);
-
-            return _object.Value;
-        }
-
-        public static StateBuilder Default()
-        {
-            return new StateBuilder();
-        }
-
         public StateBuilder WithAbbreviation(string value)
         {
             return WithAbbreviation(() => value);
@@ -119,17 +91,6 @@ namespace Store.Tests.Unit.Framework.Builders
         public StateBuilder WithName(Func<string> func)
         {
             _name = new Lazy<string>(func);
-            return this;
-        }
-
-        public StateBuilder WithObject(State value)
-        {
-            return WithObject(() => value);
-        }
-
-        public StateBuilder WithObject(Func<State> func)
-        {
-            _object = new Lazy<State>(func);
             return this;
         }
 

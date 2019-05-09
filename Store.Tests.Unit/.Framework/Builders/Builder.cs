@@ -18,5 +18,10 @@ namespace Store.Tests.Unit.Framework.Builders
             Object = new Lazy<T>(func);
             return this;
         }
+
+        protected virtual void PostBuild(T value)
+        {
+
+        }
     }
 }

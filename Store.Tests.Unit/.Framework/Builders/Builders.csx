@@ -63,6 +63,9 @@ private string BuildTypes()
     [GeneratedCode(""Builders"", ""1.0"")]
     public partial class {builderName} : Builder<{typeFullName}>
     {{
+{ BuildProperties(properties) }
+{ BuildBuildMethod(typeFullName, properties) }
+{ BuildDefaultMethod(builderName) }
     }}");
         }
     }
@@ -72,4 +75,83 @@ private string BuildTypes()
     }
 
     return output.ToString();
+}
+
+private string BuildProperties(IEnumerable<PropertyInfo> properties)
+{
+    var output = new StringBuilder();
+
+    foreach(var property in properties)
+    {
+        var propertyName = property.Name;
+        var propertyTypeName = "object";
+
+        try
+        {
+            propertyTypeName = property.PropertyType.ToString().Replace("`1[", "<").Replace(']', '>');
+            output.AppendLine($@"        private Lazy<{propertyTypeName}> _{CamelCase(propertyName)} = new Lazy<{propertyTypeName}>(default({propertyTypeName}));");
+        }
+        catch (Exception ex)
+        {
+            output.AppendLine($"\r\n// An error occurred while examining property { propertyName }: { ex.Message }\r\n");
+        }
+    }
+
+    return output.ToString();
+}
+
+private string BuildBuildMethod(string typeFullName, List<PropertyInfo> properties)
+{
+    var output = new StringBuilder();
+    output.AppendLine($@"        [GeneratedCode(""ModelBuilders"", ""1.0"")]
+        public override {typeFullName} Build()
+        {{
+            if (Object?.IsValueCreated != true)
+            {{
+                Object = new Lazy<{typeFullName}>(new {typeFullName}
+                {{");
+
+    foreach (var property in properties)
+    {
+        var propertyName = property.Name;
+        string propertyTypeName = "object";
+
+        try
+        {
+            propertyTypeName = property.PropertyType.ToString().Replace("`1[", "<").Replace(']', '>');
+            output.AppendLine($@"                    {propertyName} = _{CamelCase(propertyName)}.Value,");
+        }
+        catch (Exception ex)
+        {
+            output.AppendLine($@"                    // An error occurred while examining property {propertyName}: {ex.Message}\r\n");
+        }
+    }
+
+    output.AppendLine(@"                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }");
+
+    return output.ToString();
+}
+
+private string BuildDefaultMethod(string builderName)
+{
+    var output = new StringBuilder();
+
+    output.AppendLine($@"        [GeneratedCode(""ModelBuilders"", ""1.0"")]
+        public static { builderName } Default()
+        {{
+            return new { builderName }();
+        }}");
+
+    return output.ToString();
+}
+
+private string CamelCase(string value)
+{
+    return $"{value.Substring(0, 1).ToLowerInvariant()}{value.Substring(1)}";
 }

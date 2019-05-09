@@ -16,56 +16,488 @@ namespace Store.Tests.Unit.Framework.Builders
     [GeneratedCode("Builders", "1.0")]
     public partial class AddressBuilder : Builder<Store.Domain.Models.Address>
     {
+        private Lazy<System.String> _city = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Nullable<System.Int32>> _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<System.Nullable<System.Int32>> _deletedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.Nullable<System.DateTime>> _deletedUtc = new Lazy<System.Nullable<System.DateTime>>(default(System.Nullable<System.DateTime>));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.String> _line1 = new Lazy<System.String>(default(System.String));
+        private Lazy<System.String> _line2 = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Nullable<System.Int32>> _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<System.String> _postalCode = new Lazy<System.String>(default(System.String));
+        private Lazy<Store.Domain.Models.State> _state = new Lazy<Store.Domain.Models.State>(default(Store.Domain.Models.State));
+        private Lazy<System.Int32> _stateId = new Lazy<System.Int32>(default(System.Int32));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.Address Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.Address>(new Store.Domain.Models.Address
+                {
+                    City = _city.Value,
+                    CreatedById = _createdById.Value,
+                    CreatedUtc = _createdUtc.Value,
+                    DeletedById = _deletedById.Value,
+                    DeletedUtc = _deletedUtc.Value,
+                    Id = _id.Value,
+                    Line1 = _line1.Value,
+                    Line2 = _line2.Value,
+                    ModifiedById = _modifiedById.Value,
+                    ModifiedUtc = _modifiedUtc.Value,
+                    PostalCode = _postalCode.Value,
+                    State = _state.Value,
+                    StateId = _stateId.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static AddressBuilder Default()
+        {
+            return new AddressBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class CategoryBuilder : Builder<Store.Domain.Models.Category>
     {
+        private Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.Category>> _childCategories = new Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.Category>>(default(System.Collections.Generic.ICollection<Store.Domain.Models.Category>));
+        private Lazy<System.String> _description = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.String> _name = new Lazy<System.String>(default(System.String));
+        private Lazy<Store.Domain.Models.Category> _parentCategory = new Lazy<Store.Domain.Models.Category>(default(Store.Domain.Models.Category));
+        private Lazy<System.Nullable<System.Int32>> _parentCategoryId = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.Category Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.Category>(new Store.Domain.Models.Category
+                {
+                    ChildCategories = _childCategories.Value,
+                    Description = _description.Value,
+                    Id = _id.Value,
+                    Name = _name.Value,
+                    ParentCategory = _parentCategory.Value,
+                    ParentCategoryId = _parentCategoryId.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static CategoryBuilder Default()
+        {
+            return new CategoryBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class CountryBuilder : Builder<Store.Domain.Models.Country>
     {
+        private Lazy<System.String> _abbreviation = new Lazy<System.String>(default(System.String));
+        private Lazy<System.String> _description = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.String> _name = new Lazy<System.String>(default(System.String));
+        private Lazy<System.String> _postalCodeLabel = new Lazy<System.String>(default(System.String));
+        private Lazy<System.String> _stateLabel = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.State>> _states = new Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.State>>(default(System.Collections.Generic.ICollection<Store.Domain.Models.State>));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.Country Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.Country>(new Store.Domain.Models.Country
+                {
+                    Abbreviation = _abbreviation.Value,
+                    Description = _description.Value,
+                    Id = _id.Value,
+                    Name = _name.Value,
+                    PostalCodeLabel = _postalCodeLabel.Value,
+                    StateLabel = _stateLabel.Value,
+                    States = _states.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static CountryBuilder Default()
+        {
+            return new CountryBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class EFMigrationsHistoryBuilder : Builder<Store.Domain.Models.EFMigrationsHistory>
     {
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.String> _migrationId = new Lazy<System.String>(default(System.String));
+        private Lazy<System.String> _productVersion = new Lazy<System.String>(default(System.String));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.EFMigrationsHistory Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.EFMigrationsHistory>(new Store.Domain.Models.EFMigrationsHistory
+                {
+                    Id = _id.Value,
+                    MigrationId = _migrationId.Value,
+                    ProductVersion = _productVersion.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static EFMigrationsHistoryBuilder Default()
+        {
+            return new EFMigrationsHistoryBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class OrderBuilder : Builder<Store.Domain.Models.Order>
     {
+        private Lazy<Store.Domain.Models.Address> _billingAddress = new Lazy<Store.Domain.Models.Address>(default(Store.Domain.Models.Address));
+        private Lazy<System.Nullable<System.Int32>> _billingAddressId = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.Nullable<System.Int32>> _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.Nullable<System.Int32>> _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.OrderItem>> _orderItems = new Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.OrderItem>>(default(System.Collections.Generic.ICollection<Store.Domain.Models.OrderItem>));
+        private Lazy<Store.Domain.Models.OrderStatus> _orderStatus = new Lazy<Store.Domain.Models.OrderStatus>(default(Store.Domain.Models.OrderStatus));
+        private Lazy<System.Int32> _orderStatusId = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<Store.Domain.Models.Address> _shippingAddress = new Lazy<Store.Domain.Models.Address>(default(Store.Domain.Models.Address));
+        private Lazy<System.Nullable<System.Int32>> _shippingAddressId = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<Store.Domain.Models.User> _user = new Lazy<Store.Domain.Models.User>(default(Store.Domain.Models.User));
+        private Lazy<System.Int32> _userId = new Lazy<System.Int32>(default(System.Int32));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.Order Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.Order>(new Store.Domain.Models.Order
+                {
+                    BillingAddress = _billingAddress.Value,
+                    BillingAddressId = _billingAddressId.Value,
+                    CreatedById = _createdById.Value,
+                    CreatedUtc = _createdUtc.Value,
+                    Id = _id.Value,
+                    ModifiedById = _modifiedById.Value,
+                    ModifiedUtc = _modifiedUtc.Value,
+                    OrderItems = _orderItems.Value,
+                    OrderStatus = _orderStatus.Value,
+                    OrderStatusId = _orderStatusId.Value,
+                    ShippingAddress = _shippingAddress.Value,
+                    ShippingAddressId = _shippingAddressId.Value,
+                    User = _user.Value,
+                    UserId = _userId.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static OrderBuilder Default()
+        {
+            return new OrderBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class OrderItemBuilder : Builder<Store.Domain.Models.OrderItem>
     {
+        private Lazy<System.Nullable<System.Int32>> _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.Nullable<System.Int32>> _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<Store.Domain.Models.Order> _order = new Lazy<Store.Domain.Models.Order>(default(Store.Domain.Models.Order));
+        private Lazy<System.Int32> _orderId = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.Decimal> _price = new Lazy<System.Decimal>(default(System.Decimal));
+        private Lazy<Store.Domain.Models.Product> _product = new Lazy<Store.Domain.Models.Product>(default(Store.Domain.Models.Product));
+        private Lazy<System.Int32> _productId = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.Int32> _quantity = new Lazy<System.Int32>(default(System.Int32));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.OrderItem Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.OrderItem>(new Store.Domain.Models.OrderItem
+                {
+                    CreatedById = _createdById.Value,
+                    CreatedUtc = _createdUtc.Value,
+                    Id = _id.Value,
+                    ModifiedById = _modifiedById.Value,
+                    ModifiedUtc = _modifiedUtc.Value,
+                    Order = _order.Value,
+                    OrderId = _orderId.Value,
+                    Price = _price.Value,
+                    Product = _product.Value,
+                    ProductId = _productId.Value,
+                    Quantity = _quantity.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static OrderItemBuilder Default()
+        {
+            return new OrderItemBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class OrderStatusBuilder : Builder<Store.Domain.Models.OrderStatus>
     {
+        private Lazy<System.String> _description = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.String> _name = new Lazy<System.String>(default(System.String));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.OrderStatus Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.OrderStatus>(new Store.Domain.Models.OrderStatus
+                {
+                    Description = _description.Value,
+                    Id = _id.Value,
+                    Name = _name.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static OrderStatusBuilder Default()
+        {
+            return new OrderStatusBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class ProductBuilder : Builder<Store.Domain.Models.Product>
     {
+        private Lazy<Store.Domain.Models.Category> _category = new Lazy<Store.Domain.Models.Category>(default(Store.Domain.Models.Category));
+        private Lazy<System.Int32> _categoryId = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.Nullable<System.Int32>> _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<System.Nullable<System.Int32>> _deletedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.Nullable<System.DateTime>> _deletedUtc = new Lazy<System.Nullable<System.DateTime>>(default(System.Nullable<System.DateTime>));
+        private Lazy<System.String> _description = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.Nullable<System.Int32>> _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<System.String> _name = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Decimal> _price = new Lazy<System.Decimal>(default(System.Decimal));
+        private Lazy<Store.Domain.Models.ProductStatus> _productStatus = new Lazy<Store.Domain.Models.ProductStatus>(default(Store.Domain.Models.ProductStatus));
+        private Lazy<System.Int32> _productStatusId = new Lazy<System.Int32>(default(System.Int32));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.Product Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.Product>(new Store.Domain.Models.Product
+                {
+                    Category = _category.Value,
+                    CategoryId = _categoryId.Value,
+                    CreatedById = _createdById.Value,
+                    CreatedUtc = _createdUtc.Value,
+                    DeletedById = _deletedById.Value,
+                    DeletedUtc = _deletedUtc.Value,
+                    Description = _description.Value,
+                    Id = _id.Value,
+                    ModifiedById = _modifiedById.Value,
+                    ModifiedUtc = _modifiedUtc.Value,
+                    Name = _name.Value,
+                    Price = _price.Value,
+                    ProductStatus = _productStatus.Value,
+                    ProductStatusId = _productStatusId.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static ProductBuilder Default()
+        {
+            return new ProductBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class ProductStatusBuilder : Builder<Store.Domain.Models.ProductStatus>
     {
+        private Lazy<System.String> _description = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.String> _name = new Lazy<System.String>(default(System.String));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.ProductStatus Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.ProductStatus>(new Store.Domain.Models.ProductStatus
+                {
+                    Description = _description.Value,
+                    Id = _id.Value,
+                    Name = _name.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static ProductStatusBuilder Default()
+        {
+            return new ProductStatusBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class StateBuilder : Builder<Store.Domain.Models.State>
     {
+        private Lazy<System.String> _abbreviation = new Lazy<System.String>(default(System.String));
+        private Lazy<Store.Domain.Models.Country> _country = new Lazy<Store.Domain.Models.Country>(default(Store.Domain.Models.Country));
+        private Lazy<System.Int32> _countryId = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.String> _description = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.String> _name = new Lazy<System.String>(default(System.String));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.State Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.State>(new Store.Domain.Models.State
+                {
+                    Abbreviation = _abbreviation.Value,
+                    Country = _country.Value,
+                    CountryId = _countryId.Value,
+                    Description = _description.Value,
+                    Id = _id.Value,
+                    Name = _name.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static StateBuilder Default()
+        {
+            return new StateBuilder();
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
     public partial class UserBuilder : Builder<Store.Domain.Models.User>
     {
+        private Lazy<Store.Domain.Models.Address> _address = new Lazy<Store.Domain.Models.Address>(default(Store.Domain.Models.Address));
+        private Lazy<System.Nullable<System.Int32>> _addressId = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.Nullable<System.Int32>> _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<System.Nullable<System.Int32>> _deletedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.Nullable<System.DateTime>> _deletedUtc = new Lazy<System.Nullable<System.DateTime>>(default(System.Nullable<System.DateTime>));
+        private Lazy<System.String> _firstName = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Int32> _id = new Lazy<System.Int32>(default(System.Int32));
+        private Lazy<System.String> _lastName = new Lazy<System.String>(default(System.String));
+        private Lazy<System.String> _middleName = new Lazy<System.String>(default(System.String));
+        private Lazy<System.Nullable<System.Int32>> _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+        private Lazy<System.DateTime> _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+        private Lazy<System.String> _passwordHash = new Lazy<System.String>(default(System.String));
+        private Lazy<System.String> _phoneNumber = new Lazy<System.String>(default(System.String));
+        private Lazy<System.String> _userName = new Lazy<System.String>(default(System.String));
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public override Store.Domain.Models.User Build()
+        {
+            if (Object?.IsValueCreated != true)
+            {
+                Object = new Lazy<Store.Domain.Models.User>(new Store.Domain.Models.User
+                {
+                    Address = _address.Value,
+                    AddressId = _addressId.Value,
+                    CreatedById = _createdById.Value,
+                    CreatedUtc = _createdUtc.Value,
+                    DeletedById = _deletedById.Value,
+                    DeletedUtc = _deletedUtc.Value,
+                    FirstName = _firstName.Value,
+                    Id = _id.Value,
+                    LastName = _lastName.Value,
+                    MiddleName = _middleName.Value,
+                    ModifiedById = _modifiedById.Value,
+                    ModifiedUtc = _modifiedUtc.Value,
+                    PasswordHash = _passwordHash.Value,
+                    PhoneNumber = _phoneNumber.Value,
+                    UserName = _userName.Value,
+                });
+            }
+
+            PostBuild(Object.Value);
+
+            return Object.Value;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public static UserBuilder Default()
+        {
+            return new UserBuilder();
+        }
+
     }
 
 }
