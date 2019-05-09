@@ -64,6 +64,254 @@ namespace Store.Tests.Unit.Framework.Builders
             return new AddressBuilder();
         }
 
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithCity(System.String value)
+        {
+            return WithCity(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithCity(Func<System.String> func)
+        {
+            _city = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutCity()
+        {
+            _city = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithCreatedById(System.Nullable<System.Int32> value)
+        {
+            return WithCreatedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithCreatedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutCreatedById()
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithCreatedUtc(System.DateTime value)
+        {
+            return WithCreatedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithCreatedUtc(Func<System.DateTime> func)
+        {
+            _createdUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutCreatedUtc()
+        {
+            _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithDeletedById(System.Nullable<System.Int32> value)
+        {
+            return WithDeletedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithDeletedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _deletedById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutDeletedById()
+        {
+            _deletedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithDeletedUtc(System.Nullable<System.DateTime> value)
+        {
+            return WithDeletedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithDeletedUtc(Func<System.Nullable<System.DateTime>> func)
+        {
+            _deletedUtc = new Lazy<System.Nullable<System.DateTime>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutDeletedUtc()
+        {
+            _deletedUtc = new Lazy<System.Nullable<System.DateTime>>(default(System.Nullable<System.DateTime>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithLine1(System.String value)
+        {
+            return WithLine1(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithLine1(Func<System.String> func)
+        {
+            _line1 = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutLine1()
+        {
+            _line1 = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithLine2(System.String value)
+        {
+            return WithLine2(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithLine2(Func<System.String> func)
+        {
+            _line2 = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutLine2()
+        {
+            _line2 = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithModifiedById(System.Nullable<System.Int32> value)
+        {
+            return WithModifiedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithModifiedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutModifiedById()
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithModifiedUtc(System.DateTime value)
+        {
+            return WithModifiedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithModifiedUtc(Func<System.DateTime> func)
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutModifiedUtc()
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithPostalCode(System.String value)
+        {
+            return WithPostalCode(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithPostalCode(Func<System.String> func)
+        {
+            _postalCode = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutPostalCode()
+        {
+            _postalCode = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithState(Store.Domain.Models.State value)
+        {
+            return WithState(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithState(Func<Store.Domain.Models.State> func)
+        {
+            _state = new Lazy<Store.Domain.Models.State>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutState()
+        {
+            _state = new Lazy<Store.Domain.Models.State>(default(Store.Domain.Models.State));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithStateId(System.Int32 value)
+        {
+            return WithStateId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithStateId(Func<System.Int32> func)
+        {
+            _stateId = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public AddressBuilder WithoutStateId()
+        {
+            _stateId = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
@@ -101,6 +349,121 @@ namespace Store.Tests.Unit.Framework.Builders
         public static CategoryBuilder Default()
         {
             return new CategoryBuilder();
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithChildCategories(System.Collections.Generic.ICollection<Store.Domain.Models.Category> value)
+        {
+            return WithChildCategories(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithChildCategories(Func<System.Collections.Generic.ICollection<Store.Domain.Models.Category>> func)
+        {
+            _childCategories = new Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.Category>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithoutChildCategories()
+        {
+            _childCategories = new Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.Category>>(default(System.Collections.Generic.ICollection<Store.Domain.Models.Category>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithDescription(System.String value)
+        {
+            return WithDescription(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithDescription(Func<System.String> func)
+        {
+            _description = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithoutDescription()
+        {
+            _description = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithName(System.String value)
+        {
+            return WithName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithName(Func<System.String> func)
+        {
+            _name = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithoutName()
+        {
+            _name = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithParentCategory(Store.Domain.Models.Category value)
+        {
+            return WithParentCategory(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithParentCategory(Func<Store.Domain.Models.Category> func)
+        {
+            _parentCategory = new Lazy<Store.Domain.Models.Category>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithoutParentCategory()
+        {
+            _parentCategory = new Lazy<Store.Domain.Models.Category>(default(Store.Domain.Models.Category));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithParentCategoryId(System.Nullable<System.Int32> value)
+        {
+            return WithParentCategoryId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithParentCategoryId(Func<System.Nullable<System.Int32>> func)
+        {
+            _parentCategoryId = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CategoryBuilder WithoutParentCategoryId()
+        {
+            _parentCategoryId = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
         }
 
     }
@@ -144,6 +507,140 @@ namespace Store.Tests.Unit.Framework.Builders
             return new CountryBuilder();
         }
 
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithAbbreviation(System.String value)
+        {
+            return WithAbbreviation(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithAbbreviation(Func<System.String> func)
+        {
+            _abbreviation = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithoutAbbreviation()
+        {
+            _abbreviation = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithDescription(System.String value)
+        {
+            return WithDescription(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithDescription(Func<System.String> func)
+        {
+            _description = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithoutDescription()
+        {
+            _description = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithName(System.String value)
+        {
+            return WithName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithName(Func<System.String> func)
+        {
+            _name = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithoutName()
+        {
+            _name = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithPostalCodeLabel(System.String value)
+        {
+            return WithPostalCodeLabel(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithPostalCodeLabel(Func<System.String> func)
+        {
+            _postalCodeLabel = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithoutPostalCodeLabel()
+        {
+            _postalCodeLabel = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithStateLabel(System.String value)
+        {
+            return WithStateLabel(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithStateLabel(Func<System.String> func)
+        {
+            _stateLabel = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithoutStateLabel()
+        {
+            _stateLabel = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithStates(System.Collections.Generic.ICollection<Store.Domain.Models.State> value)
+        {
+            return WithStates(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithStates(Func<System.Collections.Generic.ICollection<Store.Domain.Models.State>> func)
+        {
+            _states = new Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.State>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public CountryBuilder WithoutStates()
+        {
+            _states = new Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.State>>(default(System.Collections.Generic.ICollection<Store.Domain.Models.State>));
+            return this;
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
@@ -175,6 +672,64 @@ namespace Store.Tests.Unit.Framework.Builders
         public static EFMigrationsHistoryBuilder Default()
         {
             return new EFMigrationsHistoryBuilder();
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public EFMigrationsHistoryBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public EFMigrationsHistoryBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public EFMigrationsHistoryBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public EFMigrationsHistoryBuilder WithMigrationId(System.String value)
+        {
+            return WithMigrationId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public EFMigrationsHistoryBuilder WithMigrationId(Func<System.String> func)
+        {
+            _migrationId = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public EFMigrationsHistoryBuilder WithoutMigrationId()
+        {
+            _migrationId = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public EFMigrationsHistoryBuilder WithProductVersion(System.String value)
+        {
+            return WithProductVersion(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public EFMigrationsHistoryBuilder WithProductVersion(Func<System.String> func)
+        {
+            _productVersion = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public EFMigrationsHistoryBuilder WithoutProductVersion()
+        {
+            _productVersion = new Lazy<System.String>(default(System.String));
+            return this;
         }
 
     }
@@ -232,6 +787,273 @@ namespace Store.Tests.Unit.Framework.Builders
             return new OrderBuilder();
         }
 
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithBillingAddress(Store.Domain.Models.Address value)
+        {
+            return WithBillingAddress(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithBillingAddress(Func<Store.Domain.Models.Address> func)
+        {
+            _billingAddress = new Lazy<Store.Domain.Models.Address>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutBillingAddress()
+        {
+            _billingAddress = new Lazy<Store.Domain.Models.Address>(default(Store.Domain.Models.Address));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithBillingAddressId(System.Nullable<System.Int32> value)
+        {
+            return WithBillingAddressId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithBillingAddressId(Func<System.Nullable<System.Int32>> func)
+        {
+            _billingAddressId = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutBillingAddressId()
+        {
+            _billingAddressId = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithCreatedById(System.Nullable<System.Int32> value)
+        {
+            return WithCreatedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithCreatedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutCreatedById()
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithCreatedUtc(System.DateTime value)
+        {
+            return WithCreatedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithCreatedUtc(Func<System.DateTime> func)
+        {
+            _createdUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutCreatedUtc()
+        {
+            _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithModifiedById(System.Nullable<System.Int32> value)
+        {
+            return WithModifiedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithModifiedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutModifiedById()
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithModifiedUtc(System.DateTime value)
+        {
+            return WithModifiedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithModifiedUtc(Func<System.DateTime> func)
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutModifiedUtc()
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithOrderItems(System.Collections.Generic.ICollection<Store.Domain.Models.OrderItem> value)
+        {
+            return WithOrderItems(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithOrderItems(Func<System.Collections.Generic.ICollection<Store.Domain.Models.OrderItem>> func)
+        {
+            _orderItems = new Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.OrderItem>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutOrderItems()
+        {
+            _orderItems = new Lazy<System.Collections.Generic.ICollection<Store.Domain.Models.OrderItem>>(default(System.Collections.Generic.ICollection<Store.Domain.Models.OrderItem>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithOrderStatus(Store.Domain.Models.OrderStatus value)
+        {
+            return WithOrderStatus(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithOrderStatus(Func<Store.Domain.Models.OrderStatus> func)
+        {
+            _orderStatus = new Lazy<Store.Domain.Models.OrderStatus>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutOrderStatus()
+        {
+            _orderStatus = new Lazy<Store.Domain.Models.OrderStatus>(default(Store.Domain.Models.OrderStatus));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithOrderStatusId(System.Int32 value)
+        {
+            return WithOrderStatusId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithOrderStatusId(Func<System.Int32> func)
+        {
+            _orderStatusId = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutOrderStatusId()
+        {
+            _orderStatusId = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithShippingAddress(Store.Domain.Models.Address value)
+        {
+            return WithShippingAddress(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithShippingAddress(Func<Store.Domain.Models.Address> func)
+        {
+            _shippingAddress = new Lazy<Store.Domain.Models.Address>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutShippingAddress()
+        {
+            _shippingAddress = new Lazy<Store.Domain.Models.Address>(default(Store.Domain.Models.Address));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithShippingAddressId(System.Nullable<System.Int32> value)
+        {
+            return WithShippingAddressId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithShippingAddressId(Func<System.Nullable<System.Int32>> func)
+        {
+            _shippingAddressId = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutShippingAddressId()
+        {
+            _shippingAddressId = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithUser(Store.Domain.Models.User value)
+        {
+            return WithUser(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithUser(Func<Store.Domain.Models.User> func)
+        {
+            _user = new Lazy<Store.Domain.Models.User>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutUser()
+        {
+            _user = new Lazy<Store.Domain.Models.User>(default(Store.Domain.Models.User));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithUserId(System.Int32 value)
+        {
+            return WithUserId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithUserId(Func<System.Int32> func)
+        {
+            _userId = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderBuilder WithoutUserId()
+        {
+            _userId = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
@@ -281,6 +1103,216 @@ namespace Store.Tests.Unit.Framework.Builders
             return new OrderItemBuilder();
         }
 
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithCreatedById(System.Nullable<System.Int32> value)
+        {
+            return WithCreatedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithCreatedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutCreatedById()
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithCreatedUtc(System.DateTime value)
+        {
+            return WithCreatedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithCreatedUtc(Func<System.DateTime> func)
+        {
+            _createdUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutCreatedUtc()
+        {
+            _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithModifiedById(System.Nullable<System.Int32> value)
+        {
+            return WithModifiedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithModifiedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutModifiedById()
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithModifiedUtc(System.DateTime value)
+        {
+            return WithModifiedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithModifiedUtc(Func<System.DateTime> func)
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutModifiedUtc()
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithOrder(Store.Domain.Models.Order value)
+        {
+            return WithOrder(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithOrder(Func<Store.Domain.Models.Order> func)
+        {
+            _order = new Lazy<Store.Domain.Models.Order>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutOrder()
+        {
+            _order = new Lazy<Store.Domain.Models.Order>(default(Store.Domain.Models.Order));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithOrderId(System.Int32 value)
+        {
+            return WithOrderId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithOrderId(Func<System.Int32> func)
+        {
+            _orderId = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutOrderId()
+        {
+            _orderId = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithPrice(System.Decimal value)
+        {
+            return WithPrice(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithPrice(Func<System.Decimal> func)
+        {
+            _price = new Lazy<System.Decimal>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutPrice()
+        {
+            _price = new Lazy<System.Decimal>(default(System.Decimal));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithProduct(Store.Domain.Models.Product value)
+        {
+            return WithProduct(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithProduct(Func<Store.Domain.Models.Product> func)
+        {
+            _product = new Lazy<Store.Domain.Models.Product>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutProduct()
+        {
+            _product = new Lazy<Store.Domain.Models.Product>(default(Store.Domain.Models.Product));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithProductId(System.Int32 value)
+        {
+            return WithProductId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithProductId(Func<System.Int32> func)
+        {
+            _productId = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutProductId()
+        {
+            _productId = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithQuantity(System.Int32 value)
+        {
+            return WithQuantity(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithQuantity(Func<System.Int32> func)
+        {
+            _quantity = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderItemBuilder WithoutQuantity()
+        {
+            _quantity = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
@@ -312,6 +1344,64 @@ namespace Store.Tests.Unit.Framework.Builders
         public static OrderStatusBuilder Default()
         {
             return new OrderStatusBuilder();
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderStatusBuilder WithDescription(System.String value)
+        {
+            return WithDescription(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderStatusBuilder WithDescription(Func<System.String> func)
+        {
+            _description = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderStatusBuilder WithoutDescription()
+        {
+            _description = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderStatusBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderStatusBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderStatusBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderStatusBuilder WithName(System.String value)
+        {
+            return WithName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderStatusBuilder WithName(Func<System.String> func)
+        {
+            _name = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public OrderStatusBuilder WithoutName()
+        {
+            _name = new Lazy<System.String>(default(System.String));
+            return this;
         }
 
     }
@@ -369,6 +1459,273 @@ namespace Store.Tests.Unit.Framework.Builders
             return new ProductBuilder();
         }
 
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithCategory(Store.Domain.Models.Category value)
+        {
+            return WithCategory(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithCategory(Func<Store.Domain.Models.Category> func)
+        {
+            _category = new Lazy<Store.Domain.Models.Category>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutCategory()
+        {
+            _category = new Lazy<Store.Domain.Models.Category>(default(Store.Domain.Models.Category));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithCategoryId(System.Int32 value)
+        {
+            return WithCategoryId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithCategoryId(Func<System.Int32> func)
+        {
+            _categoryId = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutCategoryId()
+        {
+            _categoryId = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithCreatedById(System.Nullable<System.Int32> value)
+        {
+            return WithCreatedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithCreatedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutCreatedById()
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithCreatedUtc(System.DateTime value)
+        {
+            return WithCreatedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithCreatedUtc(Func<System.DateTime> func)
+        {
+            _createdUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutCreatedUtc()
+        {
+            _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithDeletedById(System.Nullable<System.Int32> value)
+        {
+            return WithDeletedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithDeletedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _deletedById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutDeletedById()
+        {
+            _deletedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithDeletedUtc(System.Nullable<System.DateTime> value)
+        {
+            return WithDeletedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithDeletedUtc(Func<System.Nullable<System.DateTime>> func)
+        {
+            _deletedUtc = new Lazy<System.Nullable<System.DateTime>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutDeletedUtc()
+        {
+            _deletedUtc = new Lazy<System.Nullable<System.DateTime>>(default(System.Nullable<System.DateTime>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithDescription(System.String value)
+        {
+            return WithDescription(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithDescription(Func<System.String> func)
+        {
+            _description = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutDescription()
+        {
+            _description = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithModifiedById(System.Nullable<System.Int32> value)
+        {
+            return WithModifiedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithModifiedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutModifiedById()
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithModifiedUtc(System.DateTime value)
+        {
+            return WithModifiedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithModifiedUtc(Func<System.DateTime> func)
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutModifiedUtc()
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithName(System.String value)
+        {
+            return WithName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithName(Func<System.String> func)
+        {
+            _name = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutName()
+        {
+            _name = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithPrice(System.Decimal value)
+        {
+            return WithPrice(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithPrice(Func<System.Decimal> func)
+        {
+            _price = new Lazy<System.Decimal>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutPrice()
+        {
+            _price = new Lazy<System.Decimal>(default(System.Decimal));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithProductStatus(Store.Domain.Models.ProductStatus value)
+        {
+            return WithProductStatus(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithProductStatus(Func<Store.Domain.Models.ProductStatus> func)
+        {
+            _productStatus = new Lazy<Store.Domain.Models.ProductStatus>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutProductStatus()
+        {
+            _productStatus = new Lazy<Store.Domain.Models.ProductStatus>(default(Store.Domain.Models.ProductStatus));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithProductStatusId(System.Int32 value)
+        {
+            return WithProductStatusId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithProductStatusId(Func<System.Int32> func)
+        {
+            _productStatusId = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductBuilder WithoutProductStatusId()
+        {
+            _productStatusId = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+
     }
 
     [GeneratedCode("Builders", "1.0")]
@@ -400,6 +1757,64 @@ namespace Store.Tests.Unit.Framework.Builders
         public static ProductStatusBuilder Default()
         {
             return new ProductStatusBuilder();
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductStatusBuilder WithDescription(System.String value)
+        {
+            return WithDescription(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductStatusBuilder WithDescription(Func<System.String> func)
+        {
+            _description = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductStatusBuilder WithoutDescription()
+        {
+            _description = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductStatusBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductStatusBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductStatusBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductStatusBuilder WithName(System.String value)
+        {
+            return WithName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductStatusBuilder WithName(Func<System.String> func)
+        {
+            _name = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public ProductStatusBuilder WithoutName()
+        {
+            _name = new Lazy<System.String>(default(System.String));
+            return this;
         }
 
     }
@@ -439,6 +1854,121 @@ namespace Store.Tests.Unit.Framework.Builders
         public static StateBuilder Default()
         {
             return new StateBuilder();
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithAbbreviation(System.String value)
+        {
+            return WithAbbreviation(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithAbbreviation(Func<System.String> func)
+        {
+            _abbreviation = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithoutAbbreviation()
+        {
+            _abbreviation = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithCountry(Store.Domain.Models.Country value)
+        {
+            return WithCountry(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithCountry(Func<Store.Domain.Models.Country> func)
+        {
+            _country = new Lazy<Store.Domain.Models.Country>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithoutCountry()
+        {
+            _country = new Lazy<Store.Domain.Models.Country>(default(Store.Domain.Models.Country));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithCountryId(System.Int32 value)
+        {
+            return WithCountryId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithCountryId(Func<System.Int32> func)
+        {
+            _countryId = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithoutCountryId()
+        {
+            _countryId = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithDescription(System.String value)
+        {
+            return WithDescription(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithDescription(Func<System.String> func)
+        {
+            _description = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithoutDescription()
+        {
+            _description = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithName(System.String value)
+        {
+            return WithName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithName(Func<System.String> func)
+        {
+            _name = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public StateBuilder WithoutName()
+        {
+            _name = new Lazy<System.String>(default(System.String));
+            return this;
         }
 
     }
@@ -496,6 +2026,292 @@ namespace Store.Tests.Unit.Framework.Builders
         public static UserBuilder Default()
         {
             return new UserBuilder();
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithAddress(Store.Domain.Models.Address value)
+        {
+            return WithAddress(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithAddress(Func<Store.Domain.Models.Address> func)
+        {
+            _address = new Lazy<Store.Domain.Models.Address>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutAddress()
+        {
+            _address = new Lazy<Store.Domain.Models.Address>(default(Store.Domain.Models.Address));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithAddressId(System.Nullable<System.Int32> value)
+        {
+            return WithAddressId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithAddressId(Func<System.Nullable<System.Int32>> func)
+        {
+            _addressId = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutAddressId()
+        {
+            _addressId = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithCreatedById(System.Nullable<System.Int32> value)
+        {
+            return WithCreatedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithCreatedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutCreatedById()
+        {
+            _createdById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithCreatedUtc(System.DateTime value)
+        {
+            return WithCreatedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithCreatedUtc(Func<System.DateTime> func)
+        {
+            _createdUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutCreatedUtc()
+        {
+            _createdUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithDeletedById(System.Nullable<System.Int32> value)
+        {
+            return WithDeletedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithDeletedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _deletedById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutDeletedById()
+        {
+            _deletedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithDeletedUtc(System.Nullable<System.DateTime> value)
+        {
+            return WithDeletedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithDeletedUtc(Func<System.Nullable<System.DateTime>> func)
+        {
+            _deletedUtc = new Lazy<System.Nullable<System.DateTime>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutDeletedUtc()
+        {
+            _deletedUtc = new Lazy<System.Nullable<System.DateTime>>(default(System.Nullable<System.DateTime>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithFirstName(System.String value)
+        {
+            return WithFirstName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithFirstName(Func<System.String> func)
+        {
+            _firstName = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutFirstName()
+        {
+            _firstName = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithId(System.Int32 value)
+        {
+            return WithId(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithId(Func<System.Int32> func)
+        {
+            _id = new Lazy<System.Int32>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutId()
+        {
+            _id = new Lazy<System.Int32>(default(System.Int32));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithLastName(System.String value)
+        {
+            return WithLastName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithLastName(Func<System.String> func)
+        {
+            _lastName = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutLastName()
+        {
+            _lastName = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithMiddleName(System.String value)
+        {
+            return WithMiddleName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithMiddleName(Func<System.String> func)
+        {
+            _middleName = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutMiddleName()
+        {
+            _middleName = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithModifiedById(System.Nullable<System.Int32> value)
+        {
+            return WithModifiedById(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithModifiedById(Func<System.Nullable<System.Int32>> func)
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutModifiedById()
+        {
+            _modifiedById = new Lazy<System.Nullable<System.Int32>>(default(System.Nullable<System.Int32>));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithModifiedUtc(System.DateTime value)
+        {
+            return WithModifiedUtc(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithModifiedUtc(Func<System.DateTime> func)
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutModifiedUtc()
+        {
+            _modifiedUtc = new Lazy<System.DateTime>(default(System.DateTime));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithPasswordHash(System.String value)
+        {
+            return WithPasswordHash(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithPasswordHash(Func<System.String> func)
+        {
+            _passwordHash = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutPasswordHash()
+        {
+            _passwordHash = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithPhoneNumber(System.String value)
+        {
+            return WithPhoneNumber(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithPhoneNumber(Func<System.String> func)
+        {
+            _phoneNumber = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutPhoneNumber()
+        {
+            _phoneNumber = new Lazy<System.String>(default(System.String));
+            return this;
+        }
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithUserName(System.String value)
+        {
+            return WithUserName(() => value);
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithUserName(Func<System.String> func)
+        {
+            _userName = new Lazy<System.String>(func);
+            return this;
+        }
+
+        [GeneratedCode("ModelBuilders", "1.0")]
+        public UserBuilder WithoutUserName()
+        {
+            _userName = new Lazy<System.String>(default(System.String));
+            return this;
         }
 
     }

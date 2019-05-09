@@ -66,6 +66,7 @@ private string BuildTypes()
 { BuildProperties(properties) }
 { BuildBuildMethod(typeFullName, properties) }
 { BuildDefaultMethod(builderName) }
+{ BuildWithMethods(builderName, properties) }
     }}");
         }
     }
@@ -147,6 +148,50 @@ private string BuildDefaultMethod(string builderName)
         {{
             return new { builderName }();
         }}");
+
+    return output.ToString();
+}
+
+private string BuildWithMethods(string builderName, IEnumerable<PropertyInfo> properties)
+{
+    var output = new StringBuilder();
+
+    foreach(var property in properties)
+    {
+        var propertyName = property.Name;
+        var fieldName = $"_{ CamelCase(propertyName) }";
+        var propertyTypeName = "object";
+
+        try
+        {
+            propertyTypeName = property.PropertyType.ToString().Replace("`1[", "<").Replace(']', '>');
+
+            output.AppendLine($@"        [GeneratedCode(""ModelBuilders"", ""1.0"")]
+        public { builderName } With{ propertyName }({ propertyTypeName } value)
+        {{
+            return With{ propertyName }(() => value);
+        }}
+
+        [GeneratedCode(""ModelBuilders"", ""1.0"")]
+        public { builderName } With{ propertyName }(Func<{ propertyTypeName }> func)
+        {{
+            { fieldName } = new Lazy<{ propertyTypeName }>(func);
+            return this;
+        }}
+
+        [GeneratedCode(""ModelBuilders"", ""1.0"")]
+        public { builderName } Without{ propertyName }()
+        {{
+            { fieldName } = new Lazy<{ propertyTypeName }>(default({ propertyTypeName }));
+            return this;
+        }}");
+
+        }
+        catch (Exception ex)
+        {
+            output.AppendLine($"\r\n// An error occurred while examining property { propertyName }: { ex.Message }");
+        }
+    }
 
     return output.ToString();
 }
