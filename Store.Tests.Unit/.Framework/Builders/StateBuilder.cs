@@ -3,7 +3,24 @@ using Store.Domain.Models;
 
 namespace Store.Tests.Unit.Framework.Builders
 {
-    public class StateBuilder : Builder<State>
+    public partial class StateBuilder
+    {
+        public static StateBuilder Simple()
+        {
+            return Default()
+                .WithAbbreviation(GetRandom.String(2, 2))
+                .WithName(GetRandom.String(1, 50))
+                .WithCountry(CountryBuilder.Simple().Build());
+        }
+
+        public static StateBuilder Typical()
+        {
+            return Simple()
+                .WithDescription(GetRandom.String(1, 255));
+        }
+    }
+
+    public partial class StateBuilder : Builder<State>
     {
         private Lazy<string> _abbreviation = new Lazy<string>(default(string));
         private Lazy<Country> _country = new Lazy<Country>(default(Country));
@@ -36,20 +53,6 @@ namespace Store.Tests.Unit.Framework.Builders
         public static StateBuilder Default()
         {
             return new StateBuilder();
-        }
-
-        public static StateBuilder Simple()
-        {
-            return Default()
-                .WithAbbreviation(GetRandom.String(2, 2))
-                .WithName(GetRandom.String(1, 50))
-                .WithCountry(CountryBuilder.Simple().Build());
-        }
-
-        public static StateBuilder Typical()
-        {
-            return Simple()
-                .WithDescription(GetRandom.String(1, 255));
         }
 
         public StateBuilder WithAbbreviation(string value)
