@@ -1,4 +1,4 @@
-﻿#r "..\..\..\Store.Domain\bin\Debug\netcoreapp2.2\Store.Domain.dll"
+﻿#r "..\..\..\Store.Domain\bin\Debug\netcoreapp3.1\Store.Domain.dll"
 
 using System;
 using System.Collections.Generic;
