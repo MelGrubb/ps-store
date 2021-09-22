@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Store.Web.Extensions;
 
@@ -26,7 +27,7 @@ namespace Store.Web
         /// <param name="serviceProvider">The <see cref="IServiceProvider" />.</param>
         /// <param name="env">The hosting environment.</param>
         /// <param name="apiVersionDescriptionProvider">The API version description provider.</param>
-        public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider, IHostingEnvironment env, IApiVersionDescriptionProvider apiVersionDescriptionProvider)
+        public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider, IWebHostEnvironment env, IApiVersionDescriptionProvider apiVersionDescriptionProvider)
         {
             // Pass parameters down to the Service layer to self-configure
             Services.Startup.Configure(serviceProvider);
@@ -62,6 +63,8 @@ namespace Store.Web
             services.AddSwagger();
             services.AddMvc(options =>
                 {
+                    options.EnableEndpointRouting = false;
+
                     // Just in case someone wants XML instead of JSON
                     options.RespectBrowserAcceptHeader = true;
                     options.InputFormatters.Add(new XmlSerializerInputFormatter(options));
@@ -70,7 +73,7 @@ namespace Store.Web
                     // Reject content-types other than those explicitly marked on an endpoint using a Provides attribute.
                     options.ReturnHttpNotAcceptable = true;
                 })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
