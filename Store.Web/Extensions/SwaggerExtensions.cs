@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Store.Web.Extensions
@@ -48,16 +48,9 @@ namespace Store.Web.Extensions
                 });
         }
 
-        private static Info CreateInfoForApiVersion(ApiVersionDescription description)
+        private static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
         {
-            var info = new Info
-            {
-                Title = $"Store API v{description.ApiVersion}",
-                Version = description.ApiVersion.ToString(),
-                Description = "This is a sample Store API",
-                Contact = new Contact
-                    { Name = "Support", Email = "support@store.com", Url = "http://support.store.com" }
-            };
+            var info = new OpenApiInfo { Title = $"Store API v{description.ApiVersion}", Version = description.ApiVersion.ToString(), Description = "This is a sample Store API", Contact = new OpenApiContact { Name = "Support", Email = "support@store.com", Url = new Uri("http://support.store.com") } };
 
             return info;
         }

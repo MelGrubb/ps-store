@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace Store.Web
 {
@@ -25,7 +26,21 @@ namespace Store.Web
 
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var hostBuilder = Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var configurationRoot = new ConfigurationBuilder()
+                        .SetBasePath(Directory.GetCurrentDirectory())
+                        .AddJsonFile("appsettings.json", false, true)
+                        .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "local"}.json", true, true)
+                        .AddEnvironmentVariables()
+                        .Build();
+
+                    config.AddConfiguration(configurationRoot);
+                })
+                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+
+            hostBuilder.Build().Run();
         }
     }
 }
